@@ -1,0 +1,39 @@
+site_name: Devaito v2.0 Developer Guide
+theme:
+  name: readthedocs
+  palette:
+    primary: indigo
+nav:
+  - Home / Introduction: index.md
+  - Getting Started: 
+    - Creation / Login: getting-started/creation-login.md
+    - Interface Overview: getting-started/interface-overview.md
+    - My Applications: getting-started/my-applications.md
+    - Available APIs: getting-started/available-apis.md
+    - Quick Start Guide: getting-started/quick-start.md
+  - Application Management: 
+    - Creating an Application: app-management/creation.md
+    - Deployment: app-management/deployment.md
+    - Application Status: app-management/status.md
+    - Collaborator Management: app-management/collaborators.md
+    - Deletion / Archiving: app-management/deletion.md
+  - API Management: 
+    - API List & Descriptions: api-management/list.md
+    - API Usage: api-management/usage.md
+    - API Keys & Permissions: api-management/keys.md
+  - Code Upload & Management: 
+    - Upload Methods: code-management/upload.md
+    - Code Formats & Conventions: code-management/formats.md
+    - Validation & Testing: code-management/validation.md
+  - Collaboration: 
+    - Adding/Removing Collaborators: collaboration/add-remove.md
+    - Roles & Permissions: collaboration/roles.md
+    - Team Best Practices: collaboration/best-practices.md
+  - FAQ & Troubleshooting: 
+    - Frequently Asked Questions: faq/questions.md
+    - Common Solutions: faq/solutions.md
+  - Appendices: 
+    - Glossary: appendices/glossary.md
+    - API References: appendices/api-references.md
+    - Release Notes: appendices/release-notes.md
+    - External Resources: appendices/resources.md
