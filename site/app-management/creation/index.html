@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Creating an Application - Devaito v2.0 Developer Guide</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Creating an Application";
+        var mkdocs_page_input_path = "app-management\\creation.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Devaito v2.0 Developer Guide
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home / Introduction</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/creation-login/">Creation / Login</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/interface-overview/">Interface Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/my-applications/">My Applications</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/available-apis/">Available APIs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/quick-start/">Quick Start Guide</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Application Management</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Creating an Application</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#etapes-de-creation">Étapes de Création</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#validation">Validation</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#conseils">Conseils</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../deployment/">Deployment</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../status/">Application Status</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collaborators/">Collaborator Management</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../deletion/">Deletion / Archiving</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">API Management</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../api-management/list/">API List & Descriptions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../api-management/usage/">API Usage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../api-management/keys/">API Keys & Permissions</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Code Upload & Management</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../code-management/upload/">Upload Methods</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../code-management/formats/">Code Formats & Conventions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../code-management/validation/">Validation & Testing</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Collaboration</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../collaboration/add-remove/">Adding/Removing Collaborators</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../collaboration/roles/">Roles & Permissions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../collaboration/best-practices/">Team Best Practices</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">FAQ & Troubleshooting</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../faq/questions/">Frequently Asked Questions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../faq/solutions/">Common Solutions</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Appendices</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../appendices/glossary/">Glossary</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../appendices/api-references/">API References</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../appendices/release-notes/">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../appendices/resources/">External Resources</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Devaito v2.0 Developer Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Application Management</li>
+      <li class="breadcrumb-item active">Creating an Application</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="creation-dune-application-etapes-detaillees">Création d'une Application (Étapes Détaillées)</h1>
+<h2 id="introduction">Introduction</h2>
+<p>Cette section détaille les étapes pour créer une application sur Devaito, en offrant une approche complète pour les nouveaux utilisateurs comme pour les experts.</p>
+<h2 id="etapes-de-creation">Étapes de Création</h2>
+<ol>
+<li><strong>Accéder à l’Interface</strong> : Connectez-vous et cliquez sur "Créer une App" dans l’en-tête.</li>
+<li><strong>Sélectionner un Template</strong> :</li>
+<li>Choisissez un template parmi ceux disponibles (ex. "E-commerce Dashboard" ou "Mobile Todo App").</li>
+<li>Cliquez sur "Suivant" pour confirmer.</li>
+<li><strong>Configurer les Paramètres</strong> :</li>
+<li><strong>Nom</strong> : Attribuez un nom unique à votre application.</li>
+<li><strong>Technologie</strong> : Sélectionnez la technologie (ex. Next.js, Flutter).</li>
+<li><strong>APIs</strong> : Ajoutez les APIs nécessaires (ex. Payment API, Analytics API) via la liste déroulante.</li>
+<li><strong>Personnalisation Initiale</strong> :</li>
+<li>Ouvrez l’éditeur en cliquant sur "Ouvrir l’éditeur".</li>
+<li>Modifiez le code source, le design ou les styles selon vos besoins.</li>
+<li><strong>Sauvegarde</strong> : Cliquez sur "Sauvegarder" dans l’éditeur pour enregistrer vos progrès.</li>
+<li><strong>Aperçu</strong> : Utilisez l’option d’aperçu pour tester l’application avant déploiement.</li>
+</ol>
+<h2 id="validation">Validation</h2>
+<ul>
+<li>Assurez-vous que toutes les APIs sélectionnées sont correctement intégrées.</li>
+<li>Vérifiez l’absence d’erreurs dans l’éditeur avant de passer à l’étape suivante.</li>
+</ul>
+<h2 id="conseils">Conseils</h2>
+<ul>
+<li>Prenez le temps de tester chaque modification dans l’éditeur.</li>
+<li>Référez-vous à la section "Validation et Tests Automatiques" pour des bonnes pratiques.</li>
+<li>Pour plus de détails, consultez "Gestion des Applications".</li>
+</ul>
+<p>Pour des informations supplémentaires, explorez les autres sections de ce guide.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../getting-started/quick-start/" class="btn btn-neutral float-left" title="Quick Start Guide"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../deployment/" class="btn btn-neutral float-right" title="Deployment">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../getting-started/quick-start/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../deployment/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
