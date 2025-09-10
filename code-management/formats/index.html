@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Code Formats & Conventions - Devaito v2.0 Developer Guide</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Code Formats \u0026 Conventions";
+        var mkdocs_page_input_path = "code-management\\formats.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Devaito v2.0 Developer Guide
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home / Introduction</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/creation-login/">Creation / Login</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/interface-overview/">Interface Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/my-applications/">My Applications</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/available-apis/">Available APIs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/quick-start/">Quick Start Guide</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Application Management</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../app-management/creation/">Creating an Application</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../app-management/deployment/">Deployment</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../app-management/status/">Application Status</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../app-management/collaborators/">Collaborator Management</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../app-management/deletion/">Deletion / Archiving</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">API Management</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../api-management/list/">API List & Descriptions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../api-management/usage/">API Usage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../api-management/keys/">API Keys & Permissions</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Code Upload & Management</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../upload/">Upload Methods</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Code Formats & Conventions</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#project-structure-standards">Project Structure Standards</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#web-application-structure">Web Application Structure</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#framework-specific-structures">Framework-Specific Structures</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#file-naming-conventions">File Naming Conventions</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#general-rules">General Rules</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#language-specific-naming">Language-Specific Naming</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#directory-naming">Directory Naming</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#configuration-files">Configuration Files</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#environment-configuration">Environment Configuration</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#package-configuration">Package Configuration</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#code-quality-standards">Code Quality Standards</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#javascripttypescript-standards">JavaScript/TypeScript Standards</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#php-standards-psr-compliance">PHP Standards (PSR Compliance)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#cssscss-standards">CSS/SCSS Standards</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#api-integration-standards">API Integration Standards</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#devaito-api-client-structure">Devaito API Client Structure</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#error-handling-standards">Error Handling Standards</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#documentation-standards">Documentation Standards</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#code-documentation">Code Documentation</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#configuration">Configuration</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#api-integration">API Integration</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#contributing">Contributing</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#license">License</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../validation/">Validation & Testing</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Collaboration</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../collaboration/add-remove/">Adding/Removing Collaborators</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../collaboration/roles/">Roles & Permissions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../collaboration/best-practices/">Team Best Practices</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">FAQ & Troubleshooting</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../faq/questions/">Frequently Asked Questions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../faq/solutions/">Common Solutions</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Appendices</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../appendices/glossary/">Glossary</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../appendices/api-references/">API References</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../appendices/release-notes/">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../appendices/resources/">External Resources</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Devaito v2.0 Developer Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Code Upload & Management</li>
+      <li class="breadcrumb-item active">Code Formats & Conventions</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="code-formats-conventions">Code Formats &amp; Conventions</h1>
+<h2 id="overview">Overview</h2>
+<p>This guide establishes the coding standards, file organization patterns, and naming conventions for Devaito v2.0 applications. Following these conventions ensures consistency, maintainability, and seamless integration with the Devaito platform APIs.</p>
+<p><strong>Benefits of Following Conventions:</strong>
+- Improved code readability and maintainability
+- Better team collaboration
+- Easier debugging and troubleshooting
+- Consistent deployment behavior
+- Enhanced platform compatibility</p>
+<h2 id="project-structure-standards">Project Structure Standards</h2>
+<h3 id="web-application-structure">Web Application Structure</h3>
+<p><strong>Standard Frontend Structure:</strong></p>
+<pre><code>project-root/
+├── index.html              # Main entry point (required)
+├── assets/                 # Static assets directory
+│   ├── css/               # Stylesheets
+│   │   ├── main.css       # Primary styles
+│   │   ├── components.css # Component styles
+│   │   └── responsive.css # Media queries
+│   ├── js/                # JavaScript files
+│   │   ├── app.js         # Main application logic
+│   │   ├── api.js         # API integration
+│   │   ├── utils.js       # Utility functions
+│   │   └── components/    # Reusable components
+│   ├── images/            # Image assets
+│   │   ├── logo.png
+│   │   ├── icons/
+│   │   └── products/
+│   └── fonts/             # Font files
+├── api/                   # Backend API files
+│   ├── config/            # Configuration files
+│   ├── controllers/       # Request handlers
+│   ├── models/            # Data models
+│   └── middleware/        # Custom middleware
+├── config/                # Application configuration
+│   ├── database.php       # Database settings
+│   ├── app.js            # App configuration
+│   └── environment.env    # Environment variables
+├── vendor/                # Third-party libraries
+├── node_modules/          # NPM packages (excluded from upload)
+├── package.json           # Node.js dependencies
+├── composer.json          # PHP dependencies
+└── README.md              # Project documentation
+</code></pre>
+<h3 id="framework-specific-structures">Framework-Specific Structures</h3>
+<p><strong>React Application Structure:</strong></p>
+<pre><code>react-app/
+├── public/
+│   ├── index.html         # HTML template
+│   ├── favicon.ico        # Site icon
+│   └── manifest.json      # PWA manifest
+├── src/
+│   ├── components/        # Reusable components
+│   │   ├── common/        # Shared components
+│   │   ├── layout/        # Layout components
+│   │   └── ui/            # UI elements
+│   ├── pages/             # Page components
+│   │   ├── Home.jsx
+│   │   ├── Products.jsx
+│   │   └── Cart.jsx
+│   ├── hooks/             # Custom React hooks
+│   ├── services/          # API services
+│   │   ├── api.js         # Base API client
+│   │   ├── products.js    # Product API calls
+│   │   └── auth.js        # Authentication
+│   ├── utils/             # Utility functions
+│   ├── styles/            # Style files
+│   ├── App.js             # Main App component
+│   └── index.js           # Entry point
+├── build/                 # Production build output
+├── package.json
+└── .env                   # Environment variables
+</code></pre>
+<p><strong>Vue.js Application Structure:</strong></p>
+<pre><code>vue-app/
+├── public/
+│   └── index.html
+├── src/
+│   ├── components/        # Vue components
+│   ├── views/             # Page views
+│   ├── router/            # Vue Router config
+│   ├── store/             # Vuex store
+│   ├── services/          # API services
+│   ├── assets/            # Static assets
+│   ├── App.vue            # Root component
+│   └── main.js            # Entry point
+├── dist/                  # Build output
+└── package.json
+</code></pre>
+<p><strong>PHP Application Structure:</strong></p>
+<pre><code>php-app/
+├── public/                # Web-accessible directory
+│   ├── index.php          # Entry point
+│   ├── assets/            # Static assets
+│   └── .htaccess          # Apache configuration
+├── src/                   # Source code
+│   ├── Controllers/       # Request controllers
+│   ├── Models/            # Data models
+│   ├── Services/          # Business logic
+│   └── Utils/             # Utility classes
+├── config/                # Configuration files
+│   ├── database.php
+│   └── app.php
+├── vendor/                # Composer dependencies
+├── composer.json          # PHP dependencies
+└── .env                   # Environment configuration
+</code></pre>
+<h2 id="file-naming-conventions">File Naming Conventions</h2>
+<h3 id="general-rules">General Rules</h3>
+<p><strong>File Naming Standards:</strong>
+- Use lowercase with hyphens: <code>user-profile.js</code> ✅
+- Avoid spaces and underscores: <code>user_profile.js</code> ❌, <code>user profile.js</code> ❌
+- Use descriptive names: <code>product-card.component.js</code> ✅
+- Include file purpose in name: <code>auth.service.js</code>, <code>product.model.js</code>
+- Keep names concise but meaningful: <code>cart.js</code> ✅ vs <code>shopping-cart-functionality.js</code> ❌</p>
+<h3 id="language-specific-naming">Language-Specific Naming</h3>
+<p><strong>JavaScript/TypeScript Files:</strong></p>
+<pre><code>// Components (PascalCase for classes/components)
+UserProfile.js
+ProductCard.jsx
+ShoppingCart.tsx
+
+// Services and utilities (camelCase)
+apiService.js
+dataUtils.js
+authHelper.ts
+
+// Configuration files (lowercase with hyphens)
+webpack-config.js
+babel-config.js
+eslint-config.js
+
+// Page/route files (lowercase with hyphens)
+home-page.js
+product-detail.js
+checkout-flow.js
+</code></pre>
+<p><strong>PHP Files:</strong></p>
+<pre><code>// Classes (PascalCase)
+UserController.php
+ProductModel.php
+DatabaseService.php
+
+// Functions and utilities (camelCase)
+helpers.php
+utilities.php
+functions.php
+
+// Configuration (lowercase)
+config.php
+database.php
+settings.php
+</code></pre>
+<p><strong>CSS/SCSS Files:</strong></p>
+<pre><code>// Main stylesheets
+main.css
+styles.scss
+variables.scss
+
+// Component styles (match component names)
+user-profile.css
+product-card.scss
+navigation.css
+
+// Layout styles
+layout.css
+grid-system.scss
+responsive.css
+</code></pre>
+<h3 id="directory-naming">Directory Naming</h3>
+<p><strong>Directory Structure Rules:</strong>
+- Use lowercase with hyphens: <code>user-management/</code> ✅
+- Be descriptive and specific: <code>product-components/</code> ✅ vs <code>components/</code> ❌
+- Group related functionality: <code>auth-services/</code>, <code>payment-utils/</code>
+- Use plural nouns for collections: <code>components/</code>, <code>services/</code>, <code>models/</code></p>
+<p><strong>Examples:</strong></p>
+<pre><code>src/
+├── components/
+│   ├── ui-elements/
+│   ├── form-controls/
+│   └── navigation/
+├── services/
+│   ├── api-clients/
+│   ├── data-processing/
+│   └── third-party/
+├── utils/
+│   ├── string-helpers/
+│   ├── date-functions/
+│   └── validation/
+└── assets/
+    ├── image-files/
+    ├── font-files/
+    └── icon-sets/
+</code></pre>
+<h2 id="configuration-files">Configuration Files</h2>
+<h3 id="environment-configuration">Environment Configuration</h3>
+<p><strong>Environment Variables (.env):</strong></p>
+<pre><code class="language-bash"># Application Settings
+APP_NAME=MyDevaitoApp
+APP_ENV=production
+APP_DEBUG=false
+APP_URL=https://myapp.devaito.com
+
+# Database Configuration
+DB_CONNECTION=mysql
+DB_HOST=localhost
+DB_PORT=3306
+DB_DATABASE=myapp_db
+DB_USERNAME=db_user
+DB_PASSWORD=secure_password
+
+# Devaito API Configuration
+DEVAITO_API_URL=https://svelte.devaito.com
+DEVAITO_API_TOKEN=11|your_bearer_token_here
+DEVAITO_APP_ID=your_app_id
+
+# Third-party Services
+STRIPE_PUBLIC_KEY=pk_live_your_stripe_key
+STRIPE_SECRET_KEY=sk_live_your_stripe_secret
+PAYPAL_CLIENT_ID=your_paypal_client_id
+
+# Email Configuration
+MAIL_DRIVER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=your-email@gmail.com
+MAIL_PASSWORD=your_app_password
+
+# Cache Settings
+CACHE_DRIVER=redis
+REDIS_HOST=127.0.0.1
+REDIS_PASSWORD=null
+REDIS_PORT=6379
+
+# File Storage
+FILESYSTEM_DISK=local
+AWS_ACCESS_KEY_ID=your_aws_key
+AWS_SECRET_ACCESS_KEY=your_aws_secret
+AWS_DEFAULT_REGION=us-east-1
+AWS_BUCKET=your_s3_bucket
+</code></pre>
+<h3 id="package-configuration">Package Configuration</h3>
+<p><strong>package.json Structure:</strong></p>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;my-devaito-app&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;description&quot;: &quot;E-commerce application built with Devaito APIs&quot;,
+  &quot;main&quot;: &quot;index.js&quot;,
+  &quot;keywords&quot;: [&quot;ecommerce&quot;, &quot;devaito&quot;, &quot;api&quot;],
+  &quot;author&quot;: {
+    &quot;name&quot;: &quot;Your Name&quot;,
+    &quot;email&quot;: &quot;your.email@example.com&quot;
+  },
+  &quot;license&quot;: &quot;MIT&quot;,
+  &quot;engines&quot;: {
+    &quot;node&quot;: &quot;&gt;=16.0.0&quot;,
+    &quot;npm&quot;: &quot;&gt;=8.0.0&quot;
+  },
+  &quot;scripts&quot;: {
+    &quot;start&quot;: &quot;node server.js&quot;,
+    &quot;dev&quot;: &quot;nodemon server.js&quot;,
+    &quot;build&quot;: &quot;webpack --mode=production&quot;,
+    &quot;test&quot;: &quot;jest&quot;,
+    &quot;lint&quot;: &quot;eslint src/&quot;,
+    &quot;format&quot;: &quot;prettier --write src/&quot;
+  },
+  &quot;dependencies&quot;: {
+    &quot;axios&quot;: &quot;^1.6.0&quot;,
+    &quot;express&quot;: &quot;^4.18.0&quot;,
+    &quot;cors&quot;: &quot;^2.8.5&quot;,
+    &quot;dotenv&quot;: &quot;^16.0.0&quot;
+  },
+  &quot;devDependencies&quot;: {
+    &quot;eslint&quot;: &quot;^8.50.0&quot;,
+    &quot;prettier&quot;: &quot;^3.0.0&quot;,
+    &quot;jest&quot;: &quot;^29.0.0&quot;,
+    &quot;nodemon&quot;: &quot;^3.0.0&quot;
+  },
+  &quot;devaito&quot;: {
+    &quot;app_id&quot;: &quot;your_app_id&quot;,
+    &quot;api_version&quot;: &quot;v1&quot;,
+    &quot;build_command&quot;: &quot;npm run build&quot;,
+    &quot;start_command&quot;: &quot;npm start&quot;
+  }
+}
+</code></pre>
+<p><strong>composer.json Structure (PHP):</strong></p>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;yourname/devaito-app&quot;,
+  &quot;description&quot;: &quot;PHP application using Devaito APIs&quot;,
+  &quot;type&quot;: &quot;project&quot;,
+  &quot;keywords&quot;: [&quot;php&quot;, &quot;ecommerce&quot;, &quot;devaito&quot;],
+  &quot;license&quot;: &quot;MIT&quot;,
+  &quot;authors&quot;: [
+    {
+      &quot;name&quot;: &quot;Your Name&quot;,
+      &quot;email&quot;: &quot;your.email@example.com&quot;
+    }
+  ],
+  &quot;minimum-stability&quot;: &quot;stable&quot;,
+  &quot;require&quot;: {
+    &quot;php&quot;: &quot;^8.0&quot;,
+    &quot;guzzlehttp/guzzle&quot;: &quot;^7.0&quot;,
+    &quot;vlucas/phpdotenv&quot;: &quot;^5.0&quot;,
+    &quot;monolog/monolog&quot;: &quot;^3.0&quot;
+  },
+  &quot;require-dev&quot;: {
+    &quot;phpunit/phpunit&quot;: &quot;^10.0&quot;,
+    &quot;phpstan/phpstan&quot;: &quot;^1.0&quot;,
+    &quot;squizlabs/php_codesniffer&quot;: &quot;^3.0&quot;
+  },
+  &quot;autoload&quot;: {
+    &quot;psr-4&quot;: {
+      &quot;App\\&quot;: &quot;src/&quot;
+    }
+  },
+  &quot;autoload-dev&quot;: {
+    &quot;psr-4&quot;: {
+      &quot;Tests\\&quot;: &quot;tests/&quot;
+    }
+  },
+  &quot;scripts&quot;: {
+    &quot;test&quot;: &quot;phpunit&quot;,
+    &quot;lint&quot;: &quot;phpcs src/&quot;,
+    &quot;analyze&quot;: &quot;phpstan analyse src/&quot;
+  }
+}
+</code></pre>
+<h2 id="code-quality-standards">Code Quality Standards</h2>
+<h3 id="javascripttypescript-standards">JavaScript/TypeScript Standards</h3>
+<p><strong>Modern JavaScript Practices:</strong></p>
+<pre><code class="language-javascript">// Use const/let instead of var
+const API_BASE_URL = 'https://svelte.devaito.com';
+let currentUser = null;
+
+// Arrow functions for callbacks
+const fetchProducts = async (category) =&gt; {
+  try {
+    const response = await fetch(`${API_BASE_URL}/products?category=${category}`);
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+    }
+    return await response.json();
+  } catch (error) {
+    console.error('Failed to fetch products:', error);
+    throw error;
+  }
+};
+
+// Destructuring for cleaner code
+const { products, categories, total } = await fetchCatalogData();
+
+// Template literals for strings
+const productUrl = `${API_BASE_URL}/products/${productSlug}`;
+
+// Async/await instead of promises
+const loadUserData = async (userId) =&gt; {
+  const user = await fetchUser(userId);
+  const orders = await fetchUserOrders(userId);
+  return { user, orders };
+};
+
+// Object shorthand
+const createProductData = (name, price, category) =&gt; ({
+  name,
+  price,
+  category,
+  createdAt: new Date().toISOString()
+});
+
+// Default parameters
+const formatPrice = (price, currency = 'USD', locale = 'en-US') =&gt; {
+  return new Intl.NumberFormat(locale, {
+    style: 'currency',
+    currency
+  }).format(price);
+};
+</code></pre>
+<p><strong>TypeScript Best Practices:</strong></p>
+<pre><code class="language-typescript">// Interface definitions
+interface Product {
+  id: string;
+  name: string;
+  price: number;
+  category: string;
+  slug: string;
+  images: string[];
+  inStock: boolean;
+  createdAt: Date;
+}
+
+interface ApiResponse&lt;T&gt; {
+  success: boolean;
+  data: T;
+  message?: string;
+  errors?: string[];
+}
+
+// Generic functions
+async function apiCall&lt;T&gt;(endpoint: string): Promise&lt;ApiResponse&lt;T&gt;&gt; {
+  const response = await fetch(`${API_BASE_URL}${endpoint}`, {
+    headers: {
+      'Authorization': `Bearer ${process.env.DEVAITO_API_TOKEN}`,
+      'Content-Type': 'application/json'
+    }
+  });
+
+  return response.json();
+}
+
+// Type guards
+function isProduct(obj: any): obj is Product {
+  return obj &amp;&amp; 
+    typeof obj.id === 'string' &amp;&amp;
+    typeof obj.name === 'string' &amp;&amp;
+    typeof obj.price === 'number';
+}
+
+// Enum usage
+enum OrderStatus {
+  PENDING = 'pending',
+  PROCESSING = 'processing',
+  SHIPPED = 'shipped',
+  DELIVERED = 'delivered',
+  CANCELLED = 'cancelled'
+}
+</code></pre>
+<h3 id="php-standards-psr-compliance">PHP Standards (PSR Compliance)</h3>
+<p><strong>PSR-4 Autoloading Structure:</strong></p>
+<pre><code class="language-php">&lt;?php
+// src/Controllers/ProductController.php
+namespace App\Controllers;
+
+use App\Services\ProductService;
+use App\Models\Product;
+use Exception;
+
+class ProductController
+{
+    private ProductService $productService;
+
+    public function __construct(ProductService $productService)
+    {
+        $this-&gt;productService = $productService;
+    }
+
+    public function getProducts(array $filters = []): array
+    {
+        try {
+            $products = $this-&gt;productService-&gt;getFilteredProducts($filters);
+
+            return [
+                'success' =&gt; true,
+                'data' =&gt; $products,
+                'count' =&gt; count($products)
+            ];
+        } catch (Exception $e) {
+            error_log(&quot;Product fetch error: &quot; . $e-&gt;getMessage());
+
+            return [
+                'success' =&gt; false,
+                'error' =&gt; 'Failed to fetch products',
+                'message' =&gt; $e-&gt;getMessage()
+            ];
+        }
+    }
+
+    public function getProduct(string $slug): array
+    {
+        if (empty($slug)) {
+            return [
+                'success' =&gt; false,
+                'error' =&gt; 'Product slug is required'
+            ];
+        }
+
+        $product = $this-&gt;productService-&gt;getBySlug($slug);
+
+        if (!$product) {
+            return [
+                'success' =&gt; false,
+                'error' =&gt; 'Product not found'
+            ];
+        }
+
+        return [
+            'success' =&gt; true,
+            'data' =&gt; $product
+        ];
+    }
+}
+</code></pre>
+<p><strong>Model Structure:</strong></p>
+<pre><code class="language-php">&lt;?php
+// src/Models/Product.php
+namespace App\Models;
+
+use DateTime;
+
+class Product
+{
+    private string $id;
+    private string $name;
+    private float $price;
+    private string $category;
+    private string $slug;
+    private array $images;
+    private bool $inStock;
+    private DateTime $createdAt;
+
+    public function __construct(array $data)
+    {
+        $this-&gt;id = $data['id'] ?? '';
+        $this-&gt;name = $data['name'] ?? '';
+        $this-&gt;price = (float)($data['price'] ?? 0);
+        $this-&gt;category = $data['category'] ?? '';
+        $this-&gt;slug = $data['slug'] ?? '';
+        $this-&gt;images = $data['images'] ?? [];
+        $this-&gt;inStock = (bool)($data['in_stock'] ?? false);
+        $this-&gt;createdAt = new DateTime($data['created_at'] ?? 'now');
+    }
+
+    // Getters
+    public function getId(): string
+    {
+        return $this-&gt;id;
+    }
+
+    public function getName(): string
+    {
+        return $this-&gt;name;
+    }
+
+    public function getPrice(): float
+    {
+        return $this-&gt;price;
+    }
+
+    public function getFormattedPrice(string $currency = 'USD'): string
+    {
+        return number_format($this-&gt;price, 2) . ' ' . $currency;
+    }
+
+    // Validation
+    public function isValid(): bool
+    {
+        return !empty($this-&gt;id) &amp;&amp; 
+               !empty($this-&gt;name) &amp;&amp; 
+               $this-&gt;price &gt; 0 &amp;&amp;
+               !empty($this-&gt;slug);
+    }
+
+    // Serialization
+    public function toArray(): array
+    {
+        return [
+            'id' =&gt; $this-&gt;id,
+            'name' =&gt; $this-&gt;name,
+            'price' =&gt; $this-&gt;price,
+            'category' =&gt; $this-&gt;category,
+            'slug' =&gt; $this-&gt;slug,
+            'images' =&gt; $this-&gt;images,
+            'in_stock' =&gt; $this-&gt;inStock,
+            'created_at' =&gt; $this-&gt;createdAt-&gt;format('c')
+        ];
+    }
+}
+</code></pre>
+<h3 id="cssscss-standards">CSS/SCSS Standards</h3>
+<p><strong>CSS Architecture:</strong></p>
+<pre><code class="language-css">/* Base styles - variables and resets */
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2ecc71;
+  --danger-color: #e74c3c;
+  --warning-color: #f39c12;
+  --text-color: #2c3e50;
+  --background-color: #ffffff;
+  --border-color: #ecf0f1;
+
+  --font-family-primary: 'Inter', sans-serif;
+  --font-family-secondary: 'Georgia', serif;
+
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+
+  --border-radius: 0.375rem;
+  --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Component-based structure */
+.product-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: var(--spacing-md);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.product-card__image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  margin-bottom: var(--spacing-sm);
+}
+
+.product-card__title {
+  font-family: var(--font-family-primary);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: var(--spacing-xs);
+  line-height: 1.4;
+}
+
+.product-card__price {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-md);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .product-card {
+    padding: var(--spacing-sm);
+  }
+
+  .product-card__image {
+    height: 150px;
+  }
+}
+</code></pre>
+<p><strong>SCSS Structure:</strong></p>
+<pre><code class="language-scss">// _variables.scss
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
+$text-color: #2c3e50;
+
+$breakpoints: (
+  'mobile': 480px,
+  'tablet': 768px,
+  'desktop': 1024px,
+  'wide': 1200px
+);
+
+// _mixins.scss
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+}
+
+@mixin button-style($bg-color: $primary-color, $text-color: white) {
+  background-color: $bg-color;
+  color: $text-color;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &amp;:hover {
+    background-color: darken($bg-color, 10%);
+    transform: translateY(-1px);
+  }
+}
+
+// main.scss
+@import 'variables';
+@import 'mixins';
+
+.btn-primary {
+  @include button-style($primary-color, white);
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+
+  @include respond-to('tablet') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to('desktop') {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+</code></pre>
+<h2 id="api-integration-standards">API Integration Standards</h2>
+<h3 id="devaito-api-client-structure">Devaito API Client Structure</h3>
+<p><strong>Base API Client:</strong></p>
+<pre><code class="language-javascript">// services/api.js
+class DevaitoAPI {
+  constructor() {
+    this.baseURL = process.env.DEVAITO_API_URL || 'https://svelte.devaito.com';
+    this.token = process.env.DEVAITO_API_TOKEN;
+    this.timeout = 30000; // 30 seconds
+  }
+
+  async request(endpoint, options = {}) {
+    const url = `${this.baseURL}${endpoint}`;
+    const config = {
+      timeout: this.timeout,
+      headers: {
+        'Content-Type': 'application/json',
+        ...options.headers
+      },
+      ...options
+    };
+
+    // Add authentication header if token is available
+    if (this.token &amp;&amp; !options.skipAuth) {
+      config.headers.Authorization = `Bearer ${this.token}`;
+    }
+
+    try {
+      const response = await fetch(url, config);
+
+      if (!response.ok) {
+        throw new APIError(response.status, response.statusText);
+      }
+
+      const contentType = response.headers.get('content-type');
+      if (contentType &amp;&amp; contentType.includes('application/json')) {
+        return await response.json();
+      }
+
+      return await response.text();
+    } catch (error) {
+      if (error instanceof APIError) {
+        throw error;
+      }
+      throw new APIError(0, 'Network error', error.message);
+    }
+  }
+
+  // GET request
+  async get(endpoint, params = {}) {
+    const queryString = new URLSearchParams(params).toString();
+    const url = queryString ? `${endpoint}?${queryString}` : endpoint;
+
+    return this.request(url, { method: 'GET' });
+  }
+
+  // POST request
+  async post(endpoint, data = {}) {
+    return this.request(endpoint, {
+      method: 'POST',
+      body: JSON.stringify(data)
+    });
+  }
+
+  // PUT request
+  async put(endpoint, data = {}) {
+    return this.request(endpoint, {
+      method: 'PUT',
+      body: JSON.stringify(data)
+    });
+  }
+
+  // DELETE request
+  async delete(endpoint) {
+    return this.request(endpoint, { method: 'DELETE' });
+  }
+}
+
+// Custom error class
+class APIError extends Error {
+  constructor(status, statusText, details = null) {
+    super(`API Error ${status}: ${statusText}`);
+    this.status = status;
+    this.statusText = statusText;
+    this.details = details;
+    this.name = 'APIError';
+  }
+}
+
+export default new DevaitoAPI();
+</code></pre>
+<p><strong>Service-Specific Clients:</strong></p>
+<pre><code class="language-javascript">// services/products.js
+import api from './api.js';
+
+export const productService = {
+  // Get all products with optional filters
+  async getProducts(filters = {}) {
+    const params = {
+      category: filters.category,
+      min_price: filters.minPrice,
+      max_price: filters.maxPrice,
+      search: filters.search,
+      page: filters.page || 1,
+      limit: filters.limit || 20
+    };
+
+    // Remove undefined values
+    Object.keys(params).forEach(key =&gt; {
+      if (params[key] === undefined) delete params[key];
+    });
+
+    return api.get('/products', params);
+  },
+
+  // Get single product by slug
+  async getProduct(slug) {
+    if (!slug) {
+      throw new Error('Product slug is required');
+    }
+    return api.get(`/products/${slug}`);
+  },
+
+  // Get product reviews
+  async getProductReviews(slug, page = 1) {
+    return api.get(`/products/${slug}/reviews`, { page });
+  },
+
+  // Add product review (requires authentication)
+  async addReview(slug, reviewData) {
+    const { rating, comment, title } = reviewData;
+
+    if (!rating || rating &lt; 1 || rating &gt; 5) {
+      throw new Error('Rating must be between 1 and 5');
+    }
+
+    return api.post(`/products/${slug}/reviews`, {
+      rating,
+      comment,
+      title
+    });
+  }
+};
+
+// services/cart.js
+export const cartService = {
+  // Get cart contents
+  async getCart() {
+    return api.get('/cart');
+  },
+
+  // Add item to cart
+  async addToCart(productId, quantity = 1, variant = null) {
+    return api.post('/cart', {
+      product_id: productId,
+      quantity,
+      variant
+    });
+  },
+
+  // Update cart item quantity
+  async updateCartItem(itemId, quantity) {
+    return api.put(`/cart/${itemId}`, { quantity });
+  },
+
+  // Remove item from cart
+  async removeFromCart(itemId) {
+    return api.delete(`/cart/${itemId}`);
+  },
+
+  // Clear entire cart
+  async clearCart() {
+    return api.delete('/cart');
+  }
+};
+</code></pre>
+<h3 id="error-handling-standards">Error Handling Standards</h3>
+<p><strong>Centralized Error Handler:</strong></p>
+<pre><code class="language-javascript">// utils/error-handler.js
+export class ErrorHandler {
+  static handle(error, context = '') {
+    console.group(`🚨 Error in ${context || 'Application'}`);
+    console.error('Error:', error.message);
+
+    if (error instanceof APIError) {
+      console.error('Status:', error.status);
+      console.error('Details:', error.details);
+
+      // Handle specific API errors
+      switch (error.status) {
+        case 401:
+          this.handleUnauthorized();
+          break;
+        case 429:
+          this.handleRateLimit();
+          break;
+        case 500:
+          this.handleServerError();
+          break;
+      }
+    }
+
+    console.error('Stack:', error.stack);
+    console.groupEnd();
+
+    // Report to monitoring service
+    this.reportError(error, context);
+  }
+
+  static handleUnauthorized() {
+    // Clear stored tokens
+    localStorage.removeItem('auth_token');
+
+    // Redirect to login
+    window.location.href = '/login';
+  }
+
+  static handleRateLimit() {
+    // Show rate limit message
+    this.showUserMessage('Too many requests. Please try again later.', 'warning');
+  }
+
+  static handleServerError() {
+    // Show generic error message
+    this.showUserMessage('Server error. Please try again.', 'error');
+  }
+
+  static showUserMessage(message, type = 'info') {
+    // Implementation depends on your UI framework
+    console.log(`${type.toUpperCase()}: ${message}`);
+  }
+
+  static reportError(error, context) {
+    // Send error to monitoring service
+    if (typeof window !== 'undefined' &amp;&amp; window.analytics) {
+      window.analytics.track('Error Occurred', {
+        error: error.message,
+        context,
+        stack: error.stack,
+        timestamp: new Date().toISOString()
+      });
+    }
+  }
+}
+
+// Usage in components
+try {
+  const products = await productService.getProducts();
+  setProducts(products.data);
+} catch (error) {
+  ErrorHandler.handle(error, 'ProductList Component');
+}
+</code></pre>
+<h2 id="documentation-standards">Documentation Standards</h2>
+<h3 id="code-documentation">Code Documentation</h3>
+<p><strong>JSDoc Comments:</strong></p>
+<pre><code class="language-javascript">/**
+ * Fetches products from the Devaito API with optional filtering
+ * @param {Object} filters - Filter options for products
+ * @param {string} [filters.category] - Product category slug
+ * @param {number} [filters.minPrice] - Minimum price filter
+ * @param {number} [filters.maxPrice] - Maximum price filter
+ * @param {string} [filters.search] - Search query
+ * @param {number} [filters.page=1] - Page number for pagination
+ * @param {number} [filters.limit=20] - Number of items per page
+ * @returns {Promise&lt;Object&gt;} API response with products array
+ * @throws {APIError} When API request fails
+ * @example
+ * // Get all products
+ * const products = await getProducts();
+ * 
+ * // Get products with filters
+ * const filteredProducts = await getProducts({
+ *   category: 'electronics',
+ *   minPrice: 100,
+ *   maxPrice: 500
+ * });
+ */
+async function getProducts(filters = {}) {
+  // Implementation here
+}
+</code></pre>
+<p><strong>README.md Template:</strong></p>
+<pre><code class="language-markdown"># Project Name
+
+Brief description of your Devaito-powered application.
+
+## Features
+
+- 🛍️ Product catalog integration
+- 🛒 Shopping cart functionality
+- 👤 User authentication
+- 💳 Payment processing
+- 📱 Responsive design
+
+## Prerequisites
+
+- Node.js 16+ or PHP 8+
+- Devaito API token
+- Modern web browser
+
+## Installation
+
+```bash
+# Clone repository
+git clone https://github.com/yourusername/your-app.git
+cd your-app
+
+# Install dependencies
+npm install  # or composer install
+
+# Configure environment
+cp .env.example .env
+# Edit .env with your API keys
+</code></pre>
+<h2 id="configuration">Configuration</h2>
+<p>Add your Devaito API credentials to <code>.env</code>:</p>
+<pre><code class="language-bash">DEVAITO_API_URL=https://svelte.devaito.com
+DEVAITO_API_TOKEN=your_bearer_token_here
+DEVAITO_APP_ID=your_app_id
+</code></pre>
+<h2 id="usage">Usage</h2>
+<pre><code class="language-bash"># Development
+npm run dev
+
+# Production build
+npm run build
+npm start
+</code></pre>
+<h2 id="api-integration">API Integration</h2>
+<p>This application uses the following Devaito APIs:</p>
+<ul>
+<li><strong>Products API</strong>: Product catalog and details</li>
+<li><strong>Cart API</strong>: Shopping cart management</li>
+<li><strong>Authentication API</strong>: User login/signup</li>
+<li><strong>Payment Methods API</strong>: Available payment options</li>
+</ul>
+<h2 id="contributing">Contributing</h2>
+<ol>
+<li>Fork the repository</li>
+<li>Create feature branch (<code>git checkout -b feature/amazing-feature</code>)</li>
+<li>Commit changes (<code>git commit -m 'Add amazing feature'</code>)</li>
+<li>Push to branch (<code>git push origin feature/amazing-feature</code>)</li>
+<li>Open a Pull Request</li>
+</ol>
+<h2 id="license">License</h2>
+<p>This project is licensed under the MIT License - see <a href="LICENSE">LICENSE</a> file.
+```</p>
+<p>Following these code formats and conventions ensures your Devaito applications are maintainable, scalable, and integrate seamlessly with the platform's APIs and deployment system.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../upload/" class="btn btn-neutral float-left" title="Upload Methods"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../validation/" class="btn btn-neutral float-right" title="Validation & Testing">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../upload/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../validation/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

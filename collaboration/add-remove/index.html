@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Adding/Removing Collaborators - Devaito v2.0 Developer Guide</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Adding/Removing Collaborators";
+        var mkdocs_page_input_path = "collaboration\\add-remove.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Devaito v2.0 Developer Guide
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home / Introduction</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/creation-login/">Creation / Login</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/interface-overview/">Interface Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/my-applications/">My Applications</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/available-apis/">Available APIs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/quick-start/">Quick Start Guide</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Application Management</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../app-management/creation/">Creating an Application</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../app-management/deployment/">Deployment</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../app-management/status/">Application Status</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../app-management/collaborators/">Collaborator Management</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../app-management/deletion/">Deletion / Archiving</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">API Management</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../api-management/list/">API List & Descriptions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../api-management/usage/">API Usage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../api-management/keys/">API Keys & Permissions</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Code Upload & Management</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../code-management/upload/">Upload Methods</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../code-management/formats/">Code Formats & Conventions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../code-management/validation/">Validation & Testing</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Collaboration</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Adding/Removing Collaborators</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../roles/">Roles & Permissions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../best-practices/">Team Best Practices</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">FAQ & Troubleshooting</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../faq/questions/">Frequently Asked Questions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../faq/solutions/">Common Solutions</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Appendices</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../appendices/glossary/">Glossary</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../appendices/api-references/">API References</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../appendices/release-notes/">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../appendices/resources/">External Resources</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Devaito v2.0 Developer Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Collaboration</li>
+      <li class="breadcrumb-item active">Adding/Removing Collaborators</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <p>Adding and Removing Collaborators
+Overview
+In Devaito v2.0, collaboration is a key feature that allows multiple users to work on the same application or project. Collaborators can be added to your application to contribute to development, testing, or management tasks. This section guides you through the process of adding and removing collaborators, including best practices to ensure smooth teamwork.
+Prerequisites</p>
+<p>You must have an active Devaito account and be logged in.
+You need to be the owner or have administrative permissions for the application to manage collaborators.
+Ensure you have the email addresses or Devaito usernames of the collaborators you wish to add.</p>
+<p>Adding a Collaborator
+Follow these steps to add a collaborator to your application:</p>
+<p>Navigate to Your Application:</p>
+<p>Log in to your Devaito account and go to the "My Applications" section from the dashboard.
+Select the application to which you want to add a collaborator.</p>
+<p>Access Collaborator Management:</p>
+<p>In the application’s settings, locate the "Collaborators" tab or section.
+Click on the "Add Collaborator" button.</p>
+<p>Enter Collaborator Details:</p>
+<p>Input the collaborator’s Devaito username or email address.
+Select the appropriate role for the collaborator (e.g., Developer, Tester, or Admin). Refer to Roles &amp; Permissions for details on available roles.
+Optionally, add a note or message to the invitation (e.g., "Please join our project for API development").</p>
+<p>Send Invitation:</p>
+<p>Click "Send Invitation" to notify the collaborator.
+The collaborator will receive an email or in-platform notification with instructions to accept the invitation.</p>
+<p>Verify Addition:</p>
+<p>Once the collaborator accepts the invitation, they will appear in the "Collaborators" list with their assigned role.
+You can verify their status in the application’s collaborator management panel.</p>
+<p>Removing a Collaborator
+If a collaborator no longer needs access to your application, you can remove them as follows:</p>
+<p>Navigate to Collaborator Management:</p>
+<p>Go to the "My Applications" section and select the relevant application.
+Access the "Collaborators" tab.</p>
+<p>Locate the Collaborator:</p>
+<p>Find the collaborator in the list. You can use the search bar if the list is long.</p>
+<p>Remove Access:</p>
+<p>Click the "Remove" or "Revoke Access" button next to the collaborator’s name.
+Confirm the action in the dialog box that appears. You may be prompted to provide a reason for removal (optional).</p>
+<p>Verify Removal:</p>
+<p>The collaborator will be removed from the application and will no longer have access to its resources.
+Check the "Collaborators" list to ensure the user is no longer listed.</p>
+<p>Best Practices</p>
+<p>Role Assignment: Assign roles based on the collaborator’s responsibilities. Avoid granting Admin access unless necessary. See Team Best Practices for more guidance.
+Communication: Inform collaborators about their roles and expectations before adding them to the project.
+Regular Audits: Periodically review the collaborator list to ensure only active team members have access.
+Secure Invitations: Use verified email addresses or usernames to prevent unauthorized access.</p>
+<p>Troubleshooting</p>
+<p>Invitation Not Received: Ask the collaborator to check their spam/junk folder or verify the email address used.
+Permission Errors: Ensure you have administrative rights to add or remove collaborators. Contact Devaito support if issues persist.
+Role Conflicts: If a collaborator cannot perform expected actions, verify their role in the Roles &amp; Permissions section.</p>
+<p>For additional help, refer to Frequently Asked Questions or contact Devaito support at support@devaito.com.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../code-management/validation/" class="btn btn-neutral float-left" title="Validation & Testing"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../roles/" class="btn btn-neutral float-right" title="Roles & Permissions">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../code-management/validation/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../roles/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
