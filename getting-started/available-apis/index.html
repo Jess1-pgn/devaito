@@ -47,23 +47,47 @@
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../creation-login/">Creation / Login</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../interface-overview/">Interface Overview</a>
+                  <li class="toctree-l1"><a class="" href="../interface-overview.md">Interface Overview</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../my-applications/">My Applications</a>
+                  <li class="toctree-l1"><a class="" href="../my-applications.md">My Applications</a>
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Available APIs</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a>
+    <li class="toctree-l2"><a class="reference internal" href="#1-authentication-api">1. Authentication API</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#vue-densemble">Vue d’Ensemble</a>
+    <li class="toctree-l2"><a class="reference internal" href="#2-user-api">2. User API</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#liste-des-apis">Liste des APIs</a>
+    <li class="toctree-l2"><a class="reference internal" href="#3-products-api">3. Products API</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#comment-utiliser-les-apis">Comment Utiliser les APIs</a>
+    <li class="toctree-l2"><a class="reference internal" href="#4-orders-api">4. Orders API</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#details">Détails</a>
+    <li class="toctree-l2"><a class="reference internal" href="#5-categories-api">5. Categories API</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#conseils">Conseils</a>
+    <li class="toctree-l2"><a class="reference internal" href="#6-campaigns-api">6. Campaigns API</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#7-posts-api">7. Posts API</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#8-social-media-apis">8. Social Media APIs</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#a-facebook-api">a. Facebook API</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#b-instagram-api">b. Instagram API</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#c-platform-connections-api">c. Platform Connections API</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#9-templates-api">9. Templates API</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#10-platforms-api">10. Platforms API</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#11-resolutions-api">11. Resolutions API</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#12-gallery-media-apis">12. Gallery &amp; Media APIs</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#13-store-settings-apis">13. Store Settings APIs</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#14-content-generator-api">14. Content Generator API</a>
     </li>
     </ul>
                   </li>
@@ -72,11 +96,11 @@
               </ul>
               <p class="caption"><span class="caption-text">Application Management</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../app-management/creation/">Creating an Application</a>
+                  <li class="toctree-l1"><a class="" href="../../app-management/creation.md">Creating an Application</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../app-management/deployment/">Deployment</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../app-management/status/">Application Status</a>
+                  <li class="toctree-l1"><a class="" href="../../app-management/status.md">Application Status</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../app-management/collaborators/">Collaborator Management</a>
                   </li>
@@ -89,7 +113,7 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../api-management/usage/">API Usage</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../api-management/keys/">API Keys & Permissions</a>
+                  <li class="toctree-l1"><a class="" href="../../api-management/keys.md">API Keys & Permissions</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Code Upload & Management</span></p>
@@ -152,68 +176,107 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="apis-disponibles">APIs Disponibles</h1>
-<h2 id="introduction">Introduction</h2>
-<p>Cette section vous présente les APIs disponibles sur Devaito (version SaaS multi-tenant), essentielles pour enrichir les fonctionnalités de vos applications.<br />
-Elles couvrent la gestion des produits, commandes, campagnes marketing, réseaux sociaux, templates, médias et personnalisation.</p>
-<p><strong>URL de base</strong> : <code>https://admin.devaito.com/api</code></p>
+                <h1 id="available-apis">Available APIs</h1>
+<blockquote>
+<p><strong>Don’t worry if this list looks long or complicated!</strong><br />
+You don’t need to use every API right away.<br />
+Just start with the ones you need for your project, and come back to this list whenever you want to add new features.<br />
+Each API is explained with its purpose, so you can pick what fits your needs step by step.<br />
+If you need more details, you’ll find further explanations in the <strong>API Management</strong> section.</p>
+</blockquote>
+<p>Below is the list of all APIs available on Devaito (SaaS multi-tenant version):</p>
 <hr />
-<h2 id="vue-densemble">Vue d’Ensemble</h2>
+<h2 id="1-authentication-api">1. Authentication API</h2>
 <ul>
-<li>Les APIs sont accessibles via l’onglet <strong>"APIs Disponibles"</strong> dans le panneau de navigation.  </li>
-<li>Elles sont conçues pour répondre à divers besoins : e-commerce, gestion de contenu, intégrations sociales et automatisation marketing.  </li>
+<li><code>/login</code></li>
+<li><code>/logout</code></li>
 </ul>
-<hr />
-<h2 id="liste-des-apis">Liste des APIs</h2>
+<h2 id="2-user-api">2. User API</h2>
 <ul>
-<li><strong>Authentication API</strong> : Connexion et gestion des sessions utilisateurs.  </li>
-<li><strong>User API</strong> : Récupération des informations de l’utilisateur et du store.  </li>
-<li><strong>Products API</strong> : Gestion et affichage des produits.  </li>
-<li><strong>Orders API</strong> : Consultation des commandes et historiques d’achats.  </li>
-<li><strong>Categories API</strong> : Organisation et filtrage des produits par catégorie.  </li>
-<li><strong>Campaigns API</strong> : Création et gestion des campagnes marketing.  </li>
-<li><strong>Posts API</strong> : Gestion des posts internes et publications planifiées.  </li>
-<li><strong>Social Media APIs</strong> : Intégration avec Facebook et Instagram (publication directe ou planifiée).  </li>
-<li><strong>Templates API</strong> : Gestion des templates graphiques et de contenu.  </li>
-<li><strong>Platforms API</strong> : Gestion des plateformes sociales/publicitaires connectées.  </li>
-<li><strong>Resolutions API</strong> : Définition des formats d’images/vidéos selon la plateforme.  </li>
-<li><strong>Gallery &amp; Media API</strong> : Gestion et stockage d’images/vidéos du store.  </li>
-<li><strong>Store Settings API</strong> : Personnalisation du branding (langues, couleurs, polices, prompts).  </li>
-<li><strong>Content Generator API</strong> : Génération de contenu via IA (basée sur OpenAI).  </li>
+<li><code>/user</code></li>
 </ul>
-<hr />
-<h2 id="comment-utiliser-les-apis">Comment Utiliser les APIs</h2>
-<ol>
-<li><strong>Sélection</strong> : Choisissez l’API adaptée à votre besoin (ex. produits, social media, campagnes).  </li>
-<li><strong>Intégration</strong> : Implémentez les appels avec <code>fetch</code>, <code>axios</code> ou toute bibliothèque HTTP.  </li>
-<li><strong>Authentification</strong> : Utilisez un Bearer Token pour sécuriser l’accès.  </li>
-<li><strong>Test</strong> : Vérifiez vos requêtes avec Postman/Insomnia avant d’intégrer dans votre app.  </li>
-</ol>
-<hr />
-<h2 id="details">Détails</h2>
+<h2 id="3-products-api">3. Products API</h2>
 <ul>
-<li>Chaque API retourne des données en <strong>JSON</strong> avec des statuts HTTP standards (<code>200</code>, <code>201</code>, <code>400</code>, <code>401</code>, <code>404</code>, <code>500</code>).  </li>
-<li>La majorité des APIs nécessitent une authentification (<code>Authorization: Bearer YOUR_TOKEN</code>).  </li>
-<li>Certaines APIs supportent la pagination (produits, galeries).  </li>
+<li><code>/fetch-all-products</code></li>
+<li><code>/get-product/{slug}</code></li>
+<li><code>/popular-products</code></li>
 </ul>
-<hr />
-<h2 id="conseils">Conseils</h2>
+<h2 id="4-orders-api">4. Orders API</h2>
 <ul>
-<li><strong>Environnement de test</strong> : Toujours valider vos intégrations avant mise en production.  </li>
-<li><strong>Gestion des erreurs</strong> : Implémentez des gestionnaires pour <code>401</code> (non autorisé), <code>404</code> (non trouvé), etc.  </li>
-<li><strong>Performance</strong> : Cachez les données peu changeantes (catégories, templates).  </li>
-<li><strong>Sécurité</strong> : Ne partagez jamais vos tokens publics.  </li>
+<li><code>/get-all-orders</code></li>
 </ul>
-<hr />
-<p>Pour aller plus loin, consultez :<br />
-- <a href="./developer_guide.md">Guide du Développeur</a><br />
-- <a href="./usage.md">Guide d’Utilisation des APIs</a><br />
-- <a href="./apis.md">Liste détaillée des APIs</a>  </p>
+<h2 id="5-categories-api">5. Categories API</h2>
+<ul>
+<li><code>/categories</code> (GET, POST, PUT, DELETE)</li>
+<li><code>/categories/{id}</code></li>
+<li><code>/fetch-categories</code></li>
+<li><code>/fetch-categories-product/{permalink}</code></li>
+</ul>
+<h2 id="6-campaigns-api">6. Campaigns API</h2>
+<ul>
+<li><code>/campaigns</code> (GET, POST)</li>
+<li><code>/campaigns/{id}</code> (GET, PUT, DELETE)</li>
+</ul>
+<h2 id="7-posts-api">7. Posts API</h2>
+<ul>
+<li><code>/posts</code> (GET, POST)</li>
+<li><code>/posts/{id}</code> (GET, PUT, DELETE)</li>
+<li><code>/posts/{id}/{job_id}</code></li>
+</ul>
+<h2 id="8-social-media-apis">8. Social Media APIs</h2>
+<h3 id="a-facebook-api">a. Facebook API</h3>
+<ul>
+<li><code>/facebook/pages</code></li>
+<li><code>/facebook/publish-post</code></li>
+<li><code>/facebook/publish-post-job</code></li>
+</ul>
+<h3 id="b-instagram-api">b. Instagram API</h3>
+<ul>
+<li><code>/instagram/publish-post</code></li>
+<li><code>/instagram/publish-post-job</code></li>
+</ul>
+<h3 id="c-platform-connections-api">c. Platform Connections API</h3>
+<ul>
+<li><code>/platform-connections</code></li>
+</ul>
+<h2 id="9-templates-api">9. Templates API</h2>
+<ul>
+<li><code>/templates</code> (GET, POST)</li>
+<li><code>/templates/{id}</code> (GET, PUT, DELETE)</li>
+</ul>
+<h2 id="10-platforms-api">10. Platforms API</h2>
+<ul>
+<li><code>/platforms</code> (GET, POST)</li>
+<li><code>/platforms/{id}</code> (GET, PUT, DELETE)</li>
+</ul>
+<h2 id="11-resolutions-api">11. Resolutions API</h2>
+<ul>
+<li><code>/resolutions</code> (GET, POST)</li>
+<li><code>/resolutions/{id}</code> (GET, PUT, DELETE)</li>
+</ul>
+<h2 id="12-gallery-media-apis">12. Gallery &amp; Media APIs</h2>
+<ul>
+<li><code>/gallery-store</code></li>
+<li><code>/image-gallery</code></li>
+<li><code>/video-gallery</code></li>
+<li><code>/save-image</code></li>
+<li><code>/save-video</code></li>
+</ul>
+<h2 id="13-store-settings-apis">13. Store Settings APIs</h2>
+<ul>
+<li><code>/get-store-prompt</code></li>
+<li><code>/get-store-language</code></li>
+<li><code>/fonts-and-colors</code></li>
+</ul>
+<h2 id="14-content-generator-api">14. Content Generator API</h2>
+<ul>
+<li><code>/content-generator</code></li>
+</ul>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../my-applications/" class="btn btn-neutral float-left" title="My Applications"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../creation-login/" class="btn btn-neutral float-left" title="Creation / Login"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../quick-start/" class="btn btn-neutral float-right" title="Quick Start Guide">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
@@ -237,7 +300,7 @@ Elles couvrent la gestion des produits, commandes, campagnes marketing, réseaux
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../my-applications/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../creation-login/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
       <span><a href="../quick-start/" style="color: #fcfcfc">Next &raquo;</a></span>

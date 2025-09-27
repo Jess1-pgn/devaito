@@ -47,32 +47,50 @@
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../creation-login/">Creation / Login</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../interface-overview/">Interface Overview</a>
+                  <li class="toctree-l1"><a class="" href="../interface-overview.md">Interface Overview</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../my-applications/">My Applications</a>
+                  <li class="toctree-l1"><a class="" href="../my-applications.md">My Applications</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../available-apis/">Available APIs</a>
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Quick Start Guide</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a>
+    <li class="toctree-l2"><a class="reference internal" href="#before-you-start-install-the-basic-tools">🧰 Before You Start — Install the Basic Tools</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#1-install-nodejs">1️⃣ Install Node.js</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#etapes-de-creation">Étapes de Création</a>
+    <li class="toctree-l3"><a class="reference internal" href="#2-install-git-optional-but-recommended">2️⃣ Install Git (optional but recommended)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#verification">Vérification</a>
+        </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#conseils">Conseils</a>
+    <li class="toctree-l2"><a class="reference internal" href="#1-create-a-flutter-application-mobile-web">📱 1. Create a Flutter Application (mobile &amp; web)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#a-install-flutter">a) Install Flutter</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#b-create-and-run-the-app">b) Create and Run the App</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-create-a-react-web-app-with-vite">🌐 2. Create a React Web App (with Vite)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-create-a-react-native-mobile-app-with-expo">📲 3. Create a React Native Mobile App (with Expo)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#faq-tips">🆘 FAQ &amp; Tips</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#quick-summary">🎉 Quick Summary</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#next-steps">Next Steps</a>
     </li>
     </ul>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Application Management</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../app-management/creation/">Creating an Application</a>
+                  <li class="toctree-l1"><a class="" href="../../app-management/creation.md">Creating an Application</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../app-management/deployment/">Deployment</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../app-management/status/">Application Status</a>
+                  <li class="toctree-l1"><a class="" href="../../app-management/status.md">Application Status</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../app-management/collaborators/">Collaborator Management</a>
                   </li>
@@ -85,7 +103,7 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../api-management/usage/">API Usage</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../api-management/keys/">API Keys & Permissions</a>
+                  <li class="toctree-l1"><a class="" href="../../api-management/keys.md">API Keys & Permissions</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Code Upload & Management</span></p>
@@ -148,41 +166,141 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="guide-rapide-pour-creer-une-premiere-application">Guide Rapide pour Créer une Première Application</h1>
-<h2 id="introduction">Introduction</h2>
-<p>Cette section vous guide pas à pas pour créer votre première application sur Devaito de manière rapide et efficace.</p>
-<h2 id="etapes-de-creation">Étapes de Création</h2>
+                <h1 id="ultra-beginner-guide-create-an-application-no-experience-needed">🚀 Ultra Beginner Guide — Create an Application (No Experience Needed)</h1>
+<p>This guide is made for <strong>complete beginners</strong>. Even if you <strong>have never coded before</strong>, you can follow every step.</p>
+<hr />
+<h2 id="before-you-start-install-the-basic-tools">🧰 Before You Start — Install the Basic Tools</h2>
+<h3 id="1-install-nodejs">1️⃣ Install Node.js</h3>
+<blockquote>
+<p><strong>Node.js</strong> is a tool that lets you run JavaScript applications on your computer.</p>
+</blockquote>
 <ol>
-<li><strong>Connexion</strong> : Connectez-vous à votre compte Devaito.</li>
-<li><strong>Accéder à la Création</strong> : Cliquez sur le bouton "Créer une App" dans l’en-tête.</li>
-<li><strong>Choisir un Template</strong> :</li>
-<li>Sélectionnez un template (ex. "Mobile Todo App" ou "E-commerce Dashboard") dans la liste proposée.</li>
-<li><strong>Configurer l’Application</strong> :</li>
-<li>Donnez un nom à votre application (ex. "Ma Première App").</li>
-<li>Choisissez la technologie (ex. Next.js ou Flutter).</li>
-<li>Ajoutez les APIs nécessaires (ex. User API, Sync API).</li>
-<li><strong>Éditer</strong> : Cliquez sur "Ouvrir l’éditeur" pour personnaliser le code et le design.</li>
-<li><strong>Sauvegarder</strong> : Enregistrez vos modifications dans l’éditeur.</li>
-<li><strong>Déployer</strong> : Une fois prêt, utilisez l’option de déploiement pour rendre l’application active.</li>
+<li>Go to the official website: <a href="https://nodejs.org">nodejs.org</a></li>
+<li>Click the green “Download (LTS)” button<br />
+<em>(Add a screenshot of the Download button here)</em></li>
+<li>Open the downloaded file and install it (just click “Next” until the end)</li>
+<li>To check the installation:</li>
+<li>Open the <strong>terminal</strong> (on Windows, search for “Command Prompt” or “Terminal” in the Start menu)</li>
+<li>Type:
+     <code>node -v</code></li>
+<li>If you see a version number (e.g., v20.0.0), it’s working!</li>
 </ol>
-<h2 id="verification">Vérification</h2>
+<blockquote>
+<p><strong>Tip:</strong> If you get an error, try installing again or make sure you downloaded the “LTS” version.</p>
+</blockquote>
+<hr />
+<h3 id="2-install-git-optional-but-recommended">2️⃣ Install <strong>Git</strong> (optional but recommended)</h3>
+<blockquote>
+<p><strong>Git</strong> helps you save and share your code easily.</p>
+</blockquote>
+<ol>
+<li>Go to: <a href="https://git-scm.com/downloads">git-scm.com/downloads</a></li>
+<li>Download and install (just click “Next” until “Finish”)</li>
+<li>To check:</li>
+<li>Open the terminal and type:
+     <code>git --version</code></li>
+<li>If you see a version number, it’s working!</li>
+</ol>
+<hr />
+<h2 id="1-create-a-flutter-application-mobile-web">📱 1. Create a <strong>Flutter</strong> Application (mobile &amp; web)</h2>
+<h3 id="a-install-flutter">a) Install Flutter</h3>
+<blockquote>
+<p><strong>Flutter</strong> lets you build apps for Android, iOS, and the web with the same code.</p>
+</blockquote>
+<ol>
+<li>Go to: <a href="https://docs.flutter.dev/get-started/install">docs.flutter.dev/get-started/install</a></li>
+<li>Download the <strong>Flutter SDK</strong> for your system (Windows, Mac, Linux)</li>
+<li>Follow the official installation tutorial<br />
+<em>(Add a screenshot of the SDK download here)</em></li>
+</ol>
+<h3 id="b-create-and-run-the-app">b) Create and Run the App</h3>
+<ol>
+<li>Open the terminal</li>
+<li>Type:
+   <code>flutter create my_flutter_app
+   cd my_flutter_app
+   flutter run</code></li>
+<li>The app will start on an emulator or your phone (depending on your setup)</li>
+</ol>
+<blockquote>
+<p><strong>Tip:</strong> If you get an error, check that Flutter is installed and your phone or emulator is connected.</p>
+</blockquote>
+<hr />
+<h2 id="2-create-a-react-web-app-with-vite">🌐 2. Create a <strong>React Web App (with Vite)</strong></h2>
+<blockquote>
+<p><strong>React</strong> is a tool for building interactive websites.<br />
+<strong>Vite</strong> helps you start a React project quickly.</p>
+</blockquote>
+<ol>
+<li>Open the terminal</li>
+<li>Type:
+   <code>npm create vite@latest my-react-app -- --template react
+   cd my-react-app
+   npm install
+   npm run dev</code></li>
+<li>Open the link shown in the terminal (e.g., http://localhost:5173) in your browser</li>
+</ol>
+<blockquote>
+<p><strong>Tip:</strong> If you get an error, make sure Node.js is installed.</p>
+</blockquote>
+<hr />
+<h2 id="3-create-a-react-native-mobile-app-with-expo">📲 3. Create a <strong>React Native Mobile App (with Expo)</strong></h2>
+<blockquote>
+<p><strong>React Native</strong> lets you build mobile apps with JavaScript.<br />
+<strong>Expo</strong> makes creating and testing apps easier.</p>
+</blockquote>
+<ol>
+<li>Open the terminal</li>
+<li>Type:
+   <code>npm install --global expo-cli
+   expo init my-expo-app
+   cd my-expo-app
+   expo start</code></li>
+<li>Scan the QR code with your phone (you need the <strong>Expo Go</strong> app from the Play Store / App Store)</li>
+</ol>
+<blockquote>
+<p><strong>Tip:</strong> If you don’t see the QR code, make sure you’re in the project folder and Expo is installed.</p>
+</blockquote>
+<hr />
+<h2 id="faq-tips">🆘 FAQ &amp; Tips</h2>
 <ul>
-<li>Vérifiez le statut de votre application (passera de "En développement" à "Déployée" après déploiement).</li>
-<li>Testez l’application pour vous assurer que tout fonctionne correctement.</li>
+<li><strong>Can’t find the terminal?</strong> On Windows, search for “Command Prompt” or “Terminal” in the Start menu.</li>
+<li><strong>A command doesn’t work?</strong> Check that the tools are installed, restart the terminal, or reboot your computer.</li>
+<li><strong>Need help?</strong> Search on Google or ask on <a href="https://stackoverflow.com/">Stack Overflow</a>.</li>
 </ul>
-<h2 id="conseils">Conseils</h2>
-<ul>
-<li>Commencez avec un template simple pour vous familiariser avec l’interface.</li>
-<li>Consultez les sections "Gestion des Applications" et "APIs Disponibles" pour des détails supplémentaires.</li>
-<li>En cas de doute, explorez la FAQ pour des solutions rapides.</li>
-</ul>
-<p>Pour plus d’assistance, consultez les autres sections de ce guide.</p>
+<hr />
+<h2 id="quick-summary">🎉 Quick Summary</h2>
+<table>
+<thead>
+<tr>
+<th>Technology</th>
+<th>Creation Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Flutter</td>
+<td><code>flutter create my_flutter_app</code></td>
+</tr>
+<tr>
+<td>React Web (Vite)</td>
+<td><code>npm create vite@latest my-react-app -- --template react</code></td>
+</tr>
+<tr>
+<td>React Native (Expo)</td>
+<td><code>expo init my-expo-app</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="next-steps">Next Steps</h2>
+<p>Once you have finished the installation, you can start integrating the required Devaito APIs by going to the <strong>API Management</strong> section.</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
         <a href="../available-apis/" class="btn btn-neutral float-left" title="Available APIs"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../../app-management/creation/" class="btn btn-neutral float-right" title="Creating an Application">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../app-management/deployment/" class="btn btn-neutral float-right" title="Deployment">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -208,7 +326,7 @@
       <span><a href="../available-apis/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../../app-management/creation/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../../app-management/deployment/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
