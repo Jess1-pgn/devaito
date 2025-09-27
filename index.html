@@ -42,19 +42,15 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="#">Home / Introduction</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#quest-ce-que-devaito">Qu'est-ce que Devaito ?</a>
+    <li class="toctree-l2"><a class="reference internal" href="#what-is-devaito">What is Devaito?</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#pourquoi-developper-pour-devaito">Pourquoi développer pour Devaito ?</a>
+    <li class="toctree-l2"><a class="reference internal" href="#why-develop-for-devaito">Why develop for Devaito?</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#comment-ce-guide-est-organise">Comment ce guide est organisé</a>
+    <li class="toctree-l2"><a class="reference internal" href="#how-this-guide-is-organized">How this guide is organized</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#premiers-pas">Premiers pas</a>
+    <li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting Started</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#exemple-rapide-une-app-bonjour-devaito">Exemple rapide : Une app "Bonjour Devaito"</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#support-et-communaute">Support et communauté</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#pret-a-commencer">Prêt à commencer ?</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ready-to-get-started">Ready to get started?</a>
     </li>
     </ul>
                 </li>
@@ -143,78 +139,44 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="guide-du-developpeur-devaito">Guide du Développeur Devaito</h1>
-<p>Bienvenue dans le <strong>Guide du Développeur Devaito</strong> !<br />
-Ce guide vous accompagne dans la création, le test et la publication d'applications pour l'écosystème Devaito, une plateforme qui transforme la création de sites web en une expérience puissante et personnalisable.</p>
+                <h1 id="devaito-developer-guide">Devaito Developer Guide</h1>
+<p>Welcome to the <strong>Devaito Developer Guide</strong>!<br />
+This guide helps you create, test, and publish applications for the Devaito ecosystem—a SaaS platform dedicated to website creation.</p>
 <hr />
-<h2 id="quest-ce-que-devaito">Qu'est-ce que Devaito ?</h2>
-<p>Devaito est une plateforme qui évolue d'un marché de templates vers un écosystème d'applications.  </p>
-<p>Avec Devaito, vous pouvez :<br />
-- Créer des apps pour ajouter des fonctionnalités (ex. : e-commerce, analytique) aux sites web Devaito.<br />
-- Monétiser vos apps avec des modèles de tarification flexibles (abonnements, paiements uniques).<br />
-- Atteindre des milliers de propriétaires de sites via le <strong>Devaito App Store</strong>.  </p>
+<h2 id="what-is-devaito">What is Devaito?</h2>
+<p>Devaito is a SaaS platform for building websites.<br />
+It allows users to design, customize, and manage their sites easily with accessible tools and powerful integrations.</p>
+<p>With Devaito, you can:
+- Create apps to add features (e-commerce, analytics, etc.) to Devaito websites.
+- Monetize your apps with flexible pricing models (subscriptions, one-time payments).
+- Reach thousands of website owners through the <strong>Devaito App Store</strong>.</p>
 <hr />
-<h2 id="pourquoi-developper-pour-devaito">Pourquoi développer pour Devaito ?</h2>
-<p>En tant que développeur, Devaito vous offre :  </p>
+<h2 id="why-develop-for-devaito">Why develop for Devaito?</h2>
+<p>As a developer, Devaito offers:</p>
 <ul>
-<li><strong>Des outils puissants</strong> : CLI Devaito (basé sur <em>oclif</em>), SDKs (<code>@devaito/dev-kit</code> et <code>@devaito/app-bridge</code>), et APIs REST (avec GraphQL en perspective).  </li>
-<li><strong>Une intégration simplifiée</strong> : Connectez vos apps aux sites Devaito avec OAuth 2.0 et intégrez-les dans le panneau d'administration via un iframe sécurisé.  </li>
-<li><strong>Un tableau de bord complet</strong> : Gérez vos apps, suivez les performances, et configurez des webhooks sur <code>devaito-admin.redg.io</code>.  </li>
-<li><strong>Un démarrage rapide</strong> : Utilisez des modèles d'apps préconfigurés (Laravel, Remix, Node.js) pour accélérer le développement.  </li>
+<li><strong>Powerful APIs</strong>: Use REST APIs to access data, automate tasks, and integrate new features into the platform.</li>
+<li><strong>Easy integration</strong>: Connect your apps to Devaito sites and interact with the ecosystem using documented endpoints.</li>
+<li><strong>Quick start</strong>: Follow this guide to start developing and publishing your own apps.</li>
 </ul>
 <hr />
-<h2 id="comment-ce-guide-est-organise">Comment ce guide est organisé</h2>
-<p>Ce guide couvre tout ce dont vous avez besoin pour créer une app Devaito, étape par étape :  </p>
+<h2 id="how-this-guide-is-organized">How this guide is organized</h2>
+<p>This guide covers everything you need to build a Devaito app, step by step:</p>
 <ol>
-<li><strong>Getting Started</strong> : Configurez votre environnement et créez un compte développeur.  </li>
-<li><strong>APIs</strong> : Apprenez à utiliser les APIs Devaito pour accéder aux données des sites.  </li>
-<li><strong>CLI</strong> : Maîtrisez le CLI Devaito pour automatiser la création et les tests.  </li>
-<li><strong>App Bridge</strong> : Intégrez votre interface dans le panneau d'administration Devaito.  </li>
-<li><strong>OAuth</strong> : Implémentez une authentification sécurisée avec OAuth 2.0.  </li>
-<li><strong>Testing</strong> : Testez vos apps localement et dans un environnement sandbox.  </li>
-<li><strong>Publishing</strong> : Soumettez votre app au Devaito App Store.  </li>
-<li><strong>Resources</strong> : Trouvez des références API, un support, et une communauté.  </li>
+<li><strong>Getting Started</strong>: Set up your environment and create a developer account.</li>
+<li><strong>APIs</strong>: Learn to use Devaito APIs to access site data.</li>
+<li><strong>Testing</strong>: Test your apps locally and in a sandbox environment.</li>
+<li><strong>Publishing</strong>: Submit your app to the Devaito App Store.</li>
+<li><strong>Resources</strong>: Find API references, support, and community links.</li>
 </ol>
 <hr />
-<h2 id="premiers-pas">Premiers pas</h2>
-<p>Pour commencer :  </p>
-<ol>
-<li>Créez un compte développeur sur <strong><a href="https://devaito-admin.redg.io">devaito-admin.redg.io</a></strong>.  </li>
-<li>Installez le CLI Devaito :<br />
-<code>bash
-   npm install -g @devaito/cli</code></li>
-<li>Générez votre première app :<br />
-<code>bash
-   devaito app create --template=laravel</code></li>
-</ol>
+<h2 id="getting-started">Getting Started</h2>
+<p>To begin:
+1. Create a developer account on the Devaito platform.
+2. Check the <strong>Getting Started</strong> section to set up your environment.
+3. Explore the API documentation to integrate your features.</p>
 <hr />
-<h2 id="exemple-rapide-une-app-bonjour-devaito">Exemple rapide : Une app "Bonjour Devaito"</h2>
-<p>Voici un aperçu de ce que vous pouvez construire :  </p>
-<pre><code class="language-javascript">import { createApp } from '@devaito/app-bridge';
-
-const app = createApp({ apiKey: 'votre-clé', host: window.location.host });
-
-app.render({
-  component: () =&gt; {
-    const button = document.createElement('button');
-    button.innerText = 'Bonjour, Devaito !';
-    button.onclick = () =&gt; app.notify('Bouton cliqué !');
-    return button;
-  },
-  target: '#devaito-app-container'
-});
-</code></pre>
-<p>Cette app affiche un bouton dans le panneau d'administration Devaito. Consultez <strong>App Bridge</strong> pour plus de détails.  </p>
-<hr />
-<h2 id="support-et-communaute">Support et communauté</h2>
-<ul>
-<li><strong>Documentation API</strong> : <a href="https://devaito.redg.io/docs/api">devaito.redg.io/docs/api</a>  </li>
-<li><strong>Support</strong> : Contactez <a href="mailto:devsupport@devaito.redg.io">devsupport@devaito.redg.io</a>  </li>
-<li><strong>Forum</strong> : Rejoignez la communauté sur <a href="https://devaito.redg.io/community">devaito.redg.io/community</a>  </li>
-</ul>
-<hr />
-<h2 id="pret-a-commencer">Prêt à commencer ?</h2>
-<p>Plongez dans <strong>Getting Started</strong> et construisez votre première app Devaito dès aujourd'hui ! 🚀  </p>
+<h2 id="ready-to-get-started">Ready to get started?</h2>
+<p>Jump into <strong>Getting Started</strong> and build your first Devaito app today! 🚀</p>
 <p><strong>Devaito Developer Guide, powered by passion and code.</strong></p>
               
             </div>
@@ -264,5 +226,5 @@ app.render({
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2025-09-27 04:35:56.648771+00:00
+Build Date UTC : 2025-09-27 04:48:15.349355+00:00
 -->
