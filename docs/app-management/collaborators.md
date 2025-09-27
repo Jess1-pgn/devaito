@@ -1,28 +1,28 @@
-# Gestion des Collaborateurs sur une Application
+# Managing Collaborators on an Application
 
 ## Introduction
-Cette section explique comment gérer les collaborateurs sur vos applications dans Devaito, facilitant le travail d’équipe.
+This section explains how to manage collaborators on your applications in Devaito, making teamwork easier.
 
-## Ajouter des Collaborateurs
-1. **Accéder aux Paramètres** : Ouvrez la carte de l’application et cliquez sur "Gérer les collaborateurs".
-2. **Inviter** : Entrez l’adresse e-mail d’un collaborateur et sélectionnez un rôle (lecture, écriture, administration).
-3. **Confirmation** : L’invité recevra une notification pour accepter l’invitation.
+## Adding Collaborators
+1. **Access Settings**: Open the application card and click "Manage collaborators".
+2. **Invite**: Enter the collaborator’s email address and select a role (read, write, admin).
+3. **Confirmation**: The invited person will receive a notification to accept the invitation.
 
-## Gérer les Droits et Rôles
-- **Rôles Disponibles** :
-  - **Lecture** : Accès en consultation uniquement.
-  - **Écriture** : Permet de modifier le code et les styles.
-  - **Administration** : Inclut tous les droits, y compris la gestion des autres collaborateurs.
-- **Modification** : Ajustez les rôles via les paramètres de l’application à tout moment.
+## Managing Roles and Permissions
+- **Available Roles**:
+  - **Read**: View-only access.
+  - **Write**: Can edit code and styles.
+  - **Admin**: Full rights, including managing other collaborators.
+- **Modification**: Adjust roles anytime via the application settings.
 
-## Supprimer des Collaborateurs
-1. **Sélection** : Allez dans "Gérer les collaborateurs" et trouvez le collaborateur.
-2. **Action** : Cliquez sur "Supprimer" et confirmez la suppression.
-3. **Notification** : Le collaborateur sera informé de la fin de son accès.
+## Removing Collaborators
+1. **Select**: Go to "Manage collaborators" and find the collaborator.
+2. **Action**: Click "Remove" and confirm the deletion.
+3. **Notification**: The collaborator will be notified that their access has ended.
 
-## Conseils
-- Attribuez des rôles adaptés aux responsabilités de chaque collaborateur.
-- Surveillez la liste des collaborateurs pour maintenir une équipe efficace.
-- Consultez la section "Collaboration" pour des bonnes pratiques d’équipe.
+## Tips
+- Assign roles that match each collaborator’s responsibilities.
+- Monitor the list of collaborators to keep your team efficient.
+- Check the "Collaboration" section for best team practices.
 
-Pour plus d’informations, explorez les autres sections de ce guide.
+For more information, explore the other sections of this guide.

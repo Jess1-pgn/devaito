@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Upload Methods - Devaito v2.0 Developer Guide</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Upload Methods";
+        var mkdocs_page_input_path = "code-management\\upload.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Devaito v2.0 Developer Guide
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home / Introduction</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/creation-login/">Creation / Login</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/interface-overview/">Interface Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/my-applications/">My Applications</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/available-apis/">Available APIs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/quick-start/">Quick Start Guide</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Application Management</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../app-management/creation/">Creating an Application</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../app-management/deployment/">Deployment</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../app-management/status/">Application Status</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../app-management/collaborators/">Collaborator Management</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../app-management/deletion/">Deletion / Archiving</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">API Management</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../api-management/list/">API List & Descriptions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../api-management/usage/">API Usage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../api-management/keys/">API Keys & Permissions</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Code Upload & Management</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Upload Methods</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#method-comparison">Method Comparison</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#1-web-interface-upload">1. Web Interface Upload</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#getting-started">Getting Started</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#single-file-upload">Single File Upload</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#folder-upload">Folder Upload</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#archive-upload">Archive Upload</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#upload-limitations">Upload Limitations</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-git-integration">2. Git Integration</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#github-integration">GitHub Integration</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#gitlab-integration">GitLab Integration</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#bitbucket-integration">Bitbucket Integration</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#private-repository-access">Private Repository Access</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#branch-management">Branch Management</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-api-upload">3. API Upload</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#authentication">Authentication</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#basic-api-upload">Basic API Upload</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#programming-language-examples">Programming Language Examples</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#batch-upload-api">Batch Upload API</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4-ftpsftp-upload">4. FTP/SFTP Upload</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#sftp-configuration">SFTP Configuration</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#command-line-sftp">Command Line SFTP</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#gui-ftp-clients">GUI FTP Clients</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#directory-structure">Directory Structure</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#5-cli-tool-upload">5. CLI Tool Upload</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#initial-setup">Initial Setup</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#basic-commands">Basic Commands</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#configuration-file">Configuration File</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#watch-mode">Watch Mode</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#scripting-and-automation">Scripting and Automation</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#upload-monitoring-logs">Upload Monitoring &amp; Logs</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#real-time-progress">Real-time Progress</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#upload-logs">Upload Logs</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#troubleshooting-common-issues">Troubleshooting Common Issues</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#connection-problems">Connection Problems</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#authentication-errors">Authentication Errors</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#file-upload-failures">File Upload Failures</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#performance-issues">Performance Issues</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../formats/">Code Formats & Conventions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../validation/">Validation & Testing</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Collaboration</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../collaboration/add-remove/">Adding/Removing Collaborators</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../collaboration/roles/">Roles & Permissions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../collaboration/best-practices/">Team Best Practices</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">FAQ & Troubleshooting</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../faq/questions/">Frequently Asked Questions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../faq/solutions/">Common Solutions</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Appendices</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../appendices/glossary/">Glossary</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../appendices/api-references/">API References</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../appendices/release-notes/">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../appendices/resources/">External Resources</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Devaito v2.0 Developer Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Code Upload & Management</li>
+      <li class="breadcrumb-item active">Upload Methods</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="upload-methods">Upload Methods</h1>
+<h2 id="overview">Overview</h2>
+<p>Devaito v2.0 provides multiple flexible methods for uploading and managing your application code. Whether you're working on a simple website, a complex e-commerce application, or integrating with existing development workflows, we have upload options that fit your needs.</p>
+<p><strong>Key Features:</strong>
+- Multiple upload methods to suit different workflows
+- Automatic validation and preprocessing
+- Version control integration
+- Real-time deployment capabilities
+- Secure file transfer protocols</p>
+<h2 id="method-comparison">Method Comparison</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Best For</th>
+<th>Skill Level</th>
+<th>Features</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Web Interface</td>
+<td>Quick uploads, small projects</td>
+<td>Beginner</td>
+<td>Drag &amp; drop, visual feedback</td>
+</tr>
+<tr>
+<td>Git Integration</td>
+<td>Team projects, CI/CD</td>
+<td>Intermediate</td>
+<td>Auto-deployment, version control</td>
+</tr>
+<tr>
+<td>API Upload</td>
+<td>Automated workflows, scripts</td>
+<td>Advanced</td>
+<td>Programmable, batch uploads</td>
+</tr>
+<tr>
+<td>FTP/SFTP</td>
+<td>Large files, legacy workflows</td>
+<td>Intermediate</td>
+<td>Direct file access, bulk transfer</td>
+</tr>
+<tr>
+<td>CLI Tool</td>
+<td>Developer workflows, automation</td>
+<td>Advanced</td>
+<td>Command-line integration, scripting</td>
+</tr>
+</tbody>
+</table>
+<h2 id="1-web-interface-upload">1. Web Interface Upload</h2>
+<p>The web interface provides the most user-friendly way to upload your code with visual feedback and progress tracking.</p>
+<h3 id="getting-started">Getting Started</h3>
+<ol>
+<li>
+<p><strong>Navigate to Upload Section</strong>
+   <code>Dashboard → Your Application → Code Management → Upload</code></p>
+</li>
+<li>
+<p><strong>Choose Upload Method</strong></p>
+</li>
+<li>Single file upload</li>
+<li>Multiple file selection</li>
+<li>Folder upload (Chrome/Edge)</li>
+<li>Archive upload (.zip, .tar.gz, .rar)</li>
+</ol>
+<h3 id="single-file-upload">Single File Upload</h3>
+<p><strong>Step-by-step Process:</strong>
+1. Click "Choose File" or drag file to upload area
+2. Select your file from the file browser
+3. File validation occurs automatically
+4. Click "Upload" to begin transfer
+5. Monitor progress bar for completion status</p>
+<p><strong>Example Usage:</strong></p>
+<pre><code class="language-html">&lt;!-- Simple HTML file upload --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;My Devaito App&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;styles.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Welcome to My App&lt;/h1&gt;
+    &lt;script src=&quot;app.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h3 id="folder-upload">Folder Upload</h3>
+<p><strong>Browser Support:</strong>
+- Chrome 21+ ✅
+- Firefox 50+ ✅
+- Safari 14+ ✅
+- Edge 79+ ✅</p>
+<p><strong>How to Upload Folders:</strong>
+1. Drag entire project folder to upload area
+2. Or click "Upload Folder" and select project directory
+3. Review file structure preview
+4. Confirm upload to proceed</p>
+<p><strong>Project Structure Example:</strong></p>
+<pre><code>my-ecommerce-app/
+├── index.html
+├── assets/
+│   ├── css/
+│   │   ├── main.css
+│   │   └── responsive.css
+│   ├── js/
+│   │   ├── app.js
+│   │   ├── cart.js
+│   │   └── products.js
+│   └── images/
+│       ├── logo.png
+│       └── products/
+├── api/
+│   ├── auth.php
+│   ├── products.php
+│   └── cart.php
+└── config/
+    ├── database.php
+    └── settings.php
+</code></pre>
+<h3 id="archive-upload">Archive Upload</h3>
+<p><strong>Supported Formats:</strong>
+- <code>.zip</code> (recommended)
+- <code>.tar.gz</code>
+- <code>.tar.bz2</code>
+- <code>.rar</code>
+- <code>.7z</code></p>
+<p><strong>Best Practices:</strong>
+- Compress your project at the root level
+- Exclude unnecessary files (.git, node_modules, .DS_Store)
+- Keep archive size under 500MB
+- Use descriptive archive names</p>
+<p><strong>Creating a Clean Archive:</strong></p>
+<pre><code class="language-bash"># Create a clean zip file
+zip -r my-app.zip . -x &quot;*.git*&quot; &quot;node_modules/*&quot; &quot;.DS_Store&quot; &quot;*.log&quot;
+
+# Or use tar
+tar -czf my-app.tar.gz --exclude='.git' --exclude='node_modules' .
+</code></pre>
+<h3 id="upload-limitations">Upload Limitations</h3>
+<p><strong>File Size Limits:</strong>
+- Single file: 100MB maximum
+- Archive file: 500MB maximum
+- Total project size: 2GB maximum
+- Individual image: 50MB maximum</p>
+<p><strong>File Type Restrictions:</strong></p>
+<pre><code class="language-javascript">// Allowed file extensions
+const allowedExtensions = [
+  // Web files
+  '.html', '.htm', '.css', '.js', '.jsx', '.ts', '.tsx',
+  '.vue', '.svelte', '.scss', '.sass', '.less',
+
+  // Backend files
+  '.php', '.py', '.rb', '.go', '.java', '.cs', '.cpp',
+  '.c', '.h', '.hpp',
+
+  // Configuration
+  '.json', '.xml', '.yml', '.yaml', '.env', '.ini',
+  '.conf', '.config',
+
+  // Assets
+  '.png', '.jpg', '.jpeg', '.gif', '.svg', '.ico',
+  '.woff', '.woff2', '.ttf', '.eot', '.mp4', '.mp3',
+
+  // Documentation
+  '.md', '.txt', '.pdf'
+];
+</code></pre>
+<h2 id="2-git-integration">2. Git Integration</h2>
+<p>Git integration provides seamless deployment from your version control repositories with automatic updates and collaboration features.</p>
+<h3 id="github-integration">GitHub Integration</h3>
+<p><strong>Initial Setup:</strong>
+1. Go to Application Settings → Git Integration
+2. Click "Connect GitHub Account"
+3. Authorize Devaito application access
+4. Select repository and branch
+5. Configure deployment settings</p>
+<p><strong>Repository Configuration:</strong></p>
+<pre><code class="language-yaml"># .devaito.yml configuration file
+version: &quot;1.0&quot;
+build:
+  commands:
+    - npm install
+    - npm run build
+  output_directory: &quot;dist&quot;
+
+deploy:
+  branch: &quot;main&quot;
+  auto_deploy: true
+
+exclude:
+  - &quot;node_modules&quot;
+  - &quot;.git&quot;
+  - &quot;tests&quot;
+  - &quot;*.log&quot;
+</code></pre>
+<p><strong>Webhook Setup:</strong></p>
+<pre><code class="language-javascript">// GitHub webhook payload example
+{
+  &quot;ref&quot;: &quot;refs/heads/main&quot;,
+  &quot;repository&quot;: {
+    &quot;name&quot;: &quot;my-ecommerce-app&quot;,
+    &quot;full_name&quot;: &quot;username/my-ecommerce-app&quot;
+  },
+  &quot;commits&quot;: [
+    {
+      &quot;id&quot;: &quot;abc123&quot;,
+      &quot;message&quot;: &quot;Add new product features&quot;,
+      &quot;author&quot;: {
+        &quot;name&quot;: &quot;Developer Name&quot;,
+        &quot;email&quot;: &quot;developer@example.com&quot;
+      }
+    }
+  ]
+}
+</code></pre>
+<h3 id="gitlab-integration">GitLab Integration</h3>
+<p><strong>Setup Process:</strong></p>
+<pre><code class="language-bash"># 1. Generate GitLab access token
+# Go to GitLab → User Settings → Access Tokens
+# Create token with 'api' and 'read_repository' scopes
+
+# 2. Configure in Devaito
+# Settings → Git Integration → GitLab
+# Enter repository URL: https://gitlab.com/username/project.git
+# Add access token
+</code></pre>
+<p><strong>GitLab CI Integration:</strong></p>
+<pre><code class="language-yaml"># .gitlab-ci.yml
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  script:
+    - npm install
+    - npm run build
+  artifacts:
+    paths:
+      - dist/
+
+deploy_to_devaito:
+  stage: deploy
+  script:
+    - curl -X POST &quot;https://svelte.devaito.com/api/deploy&quot; 
+      -H &quot;Authorization: Bearer $DEVAITO_TOKEN&quot;
+      -F &quot;project_id=$PROJECT_ID&quot;
+      -F &quot;archive=@dist.zip&quot;
+  only:
+    - main
+</code></pre>
+<h3 id="bitbucket-integration">Bitbucket Integration</h3>
+<p><strong>Configuration Steps:</strong>
+1. Create App Password in Bitbucket settings
+2. Add repository credentials in Devaito
+3. Configure branch and deployment rules
+4. Set up automatic deployment triggers</p>
+<h3 id="private-repository-access">Private Repository Access</h3>
+<p><strong>SSH Key Setup:</strong></p>
+<pre><code class="language-bash"># Generate SSH key pair
+ssh-keygen -t rsa -b 4096 -C &quot;devaito-deploy&quot;
+
+# Add public key to your Git provider
+# Add private key to Devaito dashboard
+</code></pre>
+<p><strong>HTTPS with Personal Access Token:</strong></p>
+<pre><code class="language-bash"># Clone with token
+git clone https://username:token@github.com/username/repository.git
+
+# Configure in Devaito
+Repository URL: https://github.com/username/repository.git
+Username: your-username
+Password/Token: your-personal-access-token
+</code></pre>
+<h3 id="branch-management">Branch Management</h3>
+<p><strong>Multi-branch Deployment:</strong></p>
+<pre><code class="language-javascript">// Branch configuration
+const branchConfig = {
+  &quot;main&quot;: {
+    &quot;environment&quot;: &quot;production&quot;,
+    &quot;auto_deploy&quot;: true,
+    &quot;domain&quot;: &quot;myapp.devaito.com&quot;
+  },
+  &quot;staging&quot;: {
+    &quot;environment&quot;: &quot;staging&quot;,
+    &quot;auto_deploy&quot;: true,
+    &quot;domain&quot;: &quot;myapp-staging.devaito.com&quot;
+  },
+  &quot;development&quot;: {
+    &quot;environment&quot;: &quot;dev&quot;,
+    &quot;auto_deploy&quot;: false,
+    &quot;domain&quot;: &quot;myapp-dev.devaito.com&quot;
+  }
+};
+</code></pre>
+<h2 id="3-api-upload">3. API Upload</h2>
+<p>The API upload method enables programmatic file uploads and automated deployment workflows.</p>
+<h3 id="authentication">Authentication</h3>
+<p><strong>API Token Generation:</strong></p>
+<pre><code class="language-bash"># Generate API token in dashboard
+Dashboard → Settings → API Keys → Generate New Token
+
+# Token format
+Bearer 11|xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+</code></pre>
+<h3 id="basic-api-upload">Basic API Upload</h3>
+<p><strong>cURL Example:</strong></p>
+<pre><code class="language-bash"># Upload single file
+curl -X POST &quot;https://svelte.devaito.com/api/v1/upload&quot; \
+  -H &quot;Authorization: Bearer YOUR_API_TOKEN&quot; \
+  -H &quot;Content-Type: multipart/form-data&quot; \
+  -F &quot;file=@index.html&quot; \
+  -F &quot;application_id=your-app-id&quot; \
+  -F &quot;path=/public/index.html&quot;
+
+# Upload archive
+curl -X POST &quot;https://svelte.devaito.com/api/v1/upload&quot; \
+  -H &quot;Authorization: Bearer YOUR_API_TOKEN&quot; \
+  -F &quot;file=@project.zip&quot; \
+  -F &quot;application_id=your-app-id&quot; \
+  -F &quot;extract=true&quot;
+</code></pre>
+<p><strong>Response Format:</strong></p>
+<pre><code class="language-json">{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;File uploaded successfully&quot;,
+  &quot;data&quot;: {
+    &quot;file_id&quot;: &quot;file_abc123&quot;,
+    &quot;filename&quot;: &quot;index.html&quot;,
+    &quot;size&quot;: 2048,
+    &quot;path&quot;: &quot;/public/index.html&quot;,
+    &quot;uploaded_at&quot;: &quot;2025-01-15T10:30:00Z&quot;
+  }
+}
+</code></pre>
+<h3 id="programming-language-examples">Programming Language Examples</h3>
+<p><strong>Python Upload Script:</strong></p>
+<pre><code class="language-python">import requests
+import os
+from pathlib import Path
+
+class DevaitoUploader:
+    def __init__(self, api_token, app_id):
+        self.api_token = api_token
+        self.app_id = app_id
+        self.base_url = &quot;https://svelte.devaito.com/api/v1&quot;
+        self.headers = {
+            &quot;Authorization&quot;: f&quot;Bearer {api_token}&quot;
+        }
+
+    def upload_file(self, file_path, remote_path=None):
+        &quot;&quot;&quot;Upload a single file&quot;&quot;&quot;
+        if not os.path.exists(file_path):
+            raise FileNotFoundError(f&quot;File not found: {file_path}&quot;)
+
+        with open(file_path, 'rb') as file:
+            files = {'file': file}
+            data = {
+                'application_id': self.app_id,
+                'path': remote_path or f&quot;/{os.path.basename(file_path)}&quot;
+            }
+
+            response = requests.post(
+                f&quot;{self.base_url}/upload&quot;,
+                headers=self.headers,
+                files=files,
+                data=data
+            )
+
+            return response.json()
+
+    def upload_directory(self, directory_path, exclude_patterns=None):
+        &quot;&quot;&quot;Upload entire directory&quot;&quot;&quot;
+        exclude_patterns = exclude_patterns or ['.git', 'node_modules', '.DS_Store']
+        results = []
+
+        for root, dirs, files in os.walk(directory_path):
+            # Filter out excluded directories
+            dirs[:] = [d for d in dirs if not any(pattern in d for pattern in exclude_patterns)]
+
+            for file in files:
+                if any(pattern in file for pattern in exclude_patterns):
+                    continue
+
+                file_path = os.path.join(root, file)
+                relative_path = os.path.relpath(file_path, directory_path)
+
+                try:
+                    result = self.upload_file(file_path, f&quot;/{relative_path}&quot;)
+                    results.append(result)
+                    print(f&quot;Uploaded: {relative_path}&quot;)
+                except Exception as e:
+                    print(f&quot;Failed to upload {relative_path}: {e}&quot;)
+
+        return results
+
+# Usage example
+uploader = DevaitoUploader(&quot;your-api-token&quot;, &quot;your-app-id&quot;)
+uploader.upload_directory(&quot;./my-project&quot;)
+</code></pre>
+<p><strong>Node.js Upload Script:</strong></p>
+<pre><code class="language-javascript">const axios = require('axios');
+const FormData = require('form-data');
+const fs = require('fs');
+const path = require('path');
+
+class DevaitoUploader {
+  constructor(apiToken, appId) {
+    this.apiToken = apiToken;
+    this.appId = appId;
+    this.baseURL = 'https://svelte.devaito.com/api/v1';
+    this.headers = {
+      'Authorization': `Bearer ${apiToken}`
+    };
+  }
+
+  async uploadFile(filePath, remotePath = null) {
+    const form = new FormData();
+    form.append('file', fs.createReadStream(filePath));
+    form.append('application_id', this.appId);
+    form.append('path', remotePath || `/${path.basename(filePath)}`);
+
+    try {
+      const response = await axios.post(`${this.baseURL}/upload`, form, {
+        headers: {
+          ...this.headers,
+          ...form.getHeaders()
+        }
+      });
+
+      return response.data;
+    } catch (error) {
+      throw new Error(`Upload failed: ${error.response?.data?.message || error.message}`);
+    }
+  }
+
+  async uploadArchive(archivePath) {
+    const form = new FormData();
+    form.append('file', fs.createReadStream(archivePath));
+    form.append('application_id', this.appId);
+    form.append('extract', 'true');
+
+    try {
+      const response = await axios.post(`${this.baseURL}/upload`, form, {
+        headers: {
+          ...this.headers,
+          ...form.getHeaders()
+        }
+      });
+
+      return response.data;
+    } catch (error) {
+      throw new Error(`Archive upload failed: ${error.response?.data?.message || error.message}`);
+    }
+  }
+}
+
+// Usage
+const uploader = new DevaitoUploader('your-api-token', 'your-app-id');
+
+// Upload single file
+uploader.uploadFile('./index.html')
+  .then(result =&gt; console.log('Upload successful:', result))
+  .catch(error =&gt; console.error('Upload failed:', error));
+</code></pre>
+<h3 id="batch-upload-api">Batch Upload API</h3>
+<p><strong>Multiple File Upload:</strong></p>
+<pre><code class="language-bash">curl -X POST &quot;https://svelte.devaito.com/api/v1/upload/batch&quot; \
+  -H &quot;Authorization: Bearer YOUR_API_TOKEN&quot; \
+  -F &quot;files[]=@file1.html&quot; \
+  -F &quot;files[]=@file2.css&quot; \
+  -F &quot;files[]=@file3.js&quot; \
+  -F &quot;application_id=your-app-id&quot;
+</code></pre>
+<p><strong>Response:</strong></p>
+<pre><code class="language-json">{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Batch upload completed&quot;,
+  &quot;data&quot;: {
+    &quot;uploaded&quot;: 2,
+    &quot;failed&quot;: 1,
+    &quot;results&quot;: [
+      {
+        &quot;file&quot;: &quot;file1.html&quot;,
+        &quot;success&quot;: true,
+        &quot;file_id&quot;: &quot;file_123&quot;
+      },
+      {
+        &quot;file&quot;: &quot;file2.css&quot;, 
+        &quot;success&quot;: true,
+        &quot;file_id&quot;: &quot;file_124&quot;
+      },
+      {
+        &quot;file&quot;: &quot;file3.js&quot;,
+        &quot;success&quot;: false,
+        &quot;error&quot;: &quot;File type not supported&quot;
+      }
+    ]
+  }
+}
+</code></pre>
+<h2 id="4-ftpsftp-upload">4. FTP/SFTP Upload</h2>
+<p>FTP/SFTP provides direct file system access for bulk transfers and integration with existing workflows.</p>
+<h3 id="sftp-configuration">SFTP Configuration</h3>
+<p><strong>Connection Details:</strong></p>
+<pre><code>Host: sftp.devaito.com
+Port: 2022
+Protocol: SFTP (SSH File Transfer Protocol)
+Username: [Generated per application]
+Password: [Generated per application]
+Root Directory: /home/[app-id]/
+</code></pre>
+<p><strong>Obtaining Credentials:</strong>
+1. Navigate to Application Settings → FTP Access
+2. Click "Generate SFTP Credentials"
+3. Save credentials securely
+4. Test connection using provided details</p>
+<h3 id="command-line-sftp">Command Line SFTP</h3>
+<p><strong>Basic Connection:</strong></p>
+<pre><code class="language-bash"># Connect to SFTP server
+sftp -P 2022 your-app-username@sftp.devaito.com
+
+# Navigate and upload
+cd /public
+put index.html
+put -r assets/
+ls -la
+quit
+</code></pre>
+<p><strong>Batch Upload Script:</strong></p>
+<pre><code class="language-bash">#!/bin/bash
+# upload_to_devaito.sh
+
+SFTP_HOST=&quot;sftp.devaito.com&quot;
+SFTP_PORT=&quot;2022&quot;
+SFTP_USER=&quot;your-app-username&quot;
+SFTP_PASS=&quot;your-app-password&quot;
+LOCAL_DIR=&quot;./build&quot;
+REMOTE_DIR=&quot;/public&quot;
+
+# Create batch command file
+cat &gt; sftp_commands.txt &lt;&lt; EOF
+cd $REMOTE_DIR
+lcd $LOCAL_DIR
+put -r *
+quit
+EOF
+
+# Execute SFTP commands
+sshpass -p &quot;$SFTP_PASS&quot; sftp -P $SFTP_PORT -b sftp_commands.txt $SFTP_USER@$SFTP_HOST
+
+# Cleanup
+rm sftp_commands.txt
+
+echo &quot;Upload completed successfully!&quot;
+</code></pre>
+<h3 id="gui-ftp-clients">GUI FTP Clients</h3>
+<p><strong>FileZilla Configuration:</strong></p>
+<pre><code>Protocol: SFTP - SSH File Transfer Protocol
+Host: sftp.devaito.com
+Port: 2022
+Logon Type: Normal
+User: your-app-username
+Password: your-generated-password
+</code></pre>
+<p><strong>WinSCP Configuration (Windows):</strong></p>
+<pre><code>File protocol: SFTP
+Host name: sftp.devaito.com
+Port number: 2022
+User name: your-app-username
+Password: your-generated-password
+</code></pre>
+<p><strong>Cyberduck Configuration (Mac):</strong></p>
+<pre><code>Connection: SFTP (SSH File Transfer Protocol)
+Server: sftp.devaito.com
+Port: 2022
+Username: your-app-username
+Password: your-generated-password
+</code></pre>
+<h3 id="directory-structure">Directory Structure</h3>
+<p><strong>SFTP Directory Layout:</strong></p>
+<pre><code>/home/your-app-id/
+├── public/           # Web-accessible files
+│   ├── index.html
+│   ├── assets/
+│   └── api/
+├── private/          # Private files (configs, logs)
+├── logs/            # Application logs
+├── backups/         # Automatic backups
+└── temp/            # Temporary files
+</code></pre>
+<p><strong>File Permissions:</strong>
+- Public files: 644 (readable by web server)
+- Directories: 755 (executable/searchable)
+- Scripts: 755 (if executable)
+- Private files: 600 (owner only)</p>
+<h2 id="5-cli-tool-upload">5. CLI Tool Upload</h2>
+<p>The Devaito CLI provides powerful command-line tools for developers who prefer terminal-based workflows.</p>
+<h3 id="installation">Installation</h3>
+<p><strong>NPM Installation:</strong></p>
+<pre><code class="language-bash"># Install globally
+npm install -g @devaito/cli
+
+# Or install locally in project
+npm install --save-dev @devaito/cli
+</code></pre>
+<p><strong>Python Installation:</strong></p>
+<pre><code class="language-bash"># Using pip
+pip install devaito-cli
+
+# Using pipx (recommended)
+pipx install devaito-cli
+</code></pre>
+<p><strong>Manual Installation:</strong></p>
+<pre><code class="language-bash"># Download binary (Linux/Mac)
+curl -L https://releases.devaito.com/cli/latest/devaito-linux -o /usr/local/bin/devaito
+chmod +x /usr/local/bin/devaito
+
+# Windows PowerShell
+Invoke-WebRequest -Uri &quot;https://releases.devaito.com/cli/latest/devaito-windows.exe&quot; -OutFile &quot;devaito.exe&quot;
+</code></pre>
+<h3 id="initial-setup">Initial Setup</h3>
+<p><strong>Authentication:</strong></p>
+<pre><code class="language-bash"># Login with credentials
+devaito login
+
+# Or use API token
+devaito auth --token &quot;your-api-token&quot;
+
+# Verify authentication
+devaito whoami
+</code></pre>
+<p><strong>Project Initialization:</strong></p>
+<pre><code class="language-bash"># Initialize in existing project
+cd your-project
+devaito init
+
+# Create new project
+devaito create my-new-app
+cd my-new-app
+</code></pre>
+<h3 id="basic-commands">Basic Commands</h3>
+<p><strong>Upload Commands:</strong></p>
+<pre><code class="language-bash"># Upload current directory
+devaito upload
+
+# Upload specific files
+devaito upload index.html styles.css
+
+# Upload with environment specification
+devaito upload --env production
+
+# Upload and deploy immediately
+devaito upload --deploy
+
+# Upload with exclusions
+devaito upload --exclude &quot;node_modules,*.log,.git&quot;
+</code></pre>
+<p><strong>Advanced Upload Options:</strong></p>
+<pre><code class="language-bash"># Upload with progress bar
+devaito upload --progress
+
+# Upload with verification
+devaito upload --verify
+
+# Dry run (show what would be uploaded)
+devaito upload --dry-run
+
+# Upload compressed
+devaito upload --compress
+
+# Upload with custom remote path
+devaito upload --path &quot;/custom/path&quot; file.html
+</code></pre>
+<h3 id="configuration-file">Configuration File</h3>
+<p><strong>devaito.config.js:</strong></p>
+<pre><code class="language-javascript">module.exports = {
+  // Application configuration
+  app: {
+    id: 'your-app-id',
+    name: 'My Devaito App',
+    environment: 'production'
+  },
+
+  // Upload configuration
+  upload: {
+    exclude: [
+      'node_modules/**',
+      '.git/**',
+      '*.log',
+      '.DS_Store',
+      'tests/**'
+    ],
+    include: [
+      'public/**',
+      'api/**',
+      'index.html',
+      'package.json'
+    ],
+    compress: true,
+    verify: true
+  },
+
+  // Build configuration
+  build: {
+    command: 'npm run build',
+    outputDir: 'dist',
+    beforeUpload: [
+      'npm install',
+      'npm run test'
+    ]
+  },
+
+  // Deployment configuration
+  deploy: {
+    beforeDeploy: ['npm run build'],
+    afterDeploy: ['npm run cleanup']
+  }
+};
+</code></pre>
+<h3 id="watch-mode">Watch Mode</h3>
+<p><strong>Auto-upload on Changes:</strong></p>
+<pre><code class="language-bash"># Watch current directory
+devaito watch
+
+# Watch specific files/directories
+devaito watch src/ public/
+
+# Watch with custom ignore patterns
+devaito watch --ignore &quot;*.tmp,*.log&quot;
+
+# Watch with debounce (wait 2 seconds after changes)
+devaito watch --debounce 2000
+</code></pre>
+<h3 id="scripting-and-automation">Scripting and Automation</h3>
+<p><strong>GitHub Actions Integration:</strong></p>
+<pre><code class="language-yaml">name: Deploy to Devaito
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build
+
+      - name: Install Devaito CLI
+        run: npm install -g @devaito/cli
+
+      - name: Deploy to Devaito
+        env:
+          DEVAITO_TOKEN: ${{ secrets.DEVAITO_TOKEN }}
+        run: |
+          devaito auth --token $DEVAITO_TOKEN
+          devaito upload --deploy
+</code></pre>
+<p><strong>Jenkins Pipeline:</strong></p>
+<pre><code class="language-groovy">pipeline {
+    agent any
+
+    environment {
+        DEVAITO_TOKEN = credentials('devaito-token')
+    }
+
+    stages {
+        stage('Build') {
+            steps {
+                sh 'npm install'
+                sh 'npm run build'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                sh 'npm install -g @devaito/cli'
+                sh 'devaito auth --token $DEVAITO_TOKEN'
+                sh 'devaito upload --deploy'
+            }
+        }
+    }
+}
+</code></pre>
+<h2 id="upload-monitoring-logs">Upload Monitoring &amp; Logs</h2>
+<h3 id="real-time-progress">Real-time Progress</h3>
+<p><strong>Web Interface Monitoring:</strong>
+- Real-time progress bars
+- File-by-file status updates
+- Error notifications with details
+- Upload speed and ETA display</p>
+<p><strong>CLI Progress Monitoring:</strong></p>
+<pre><code class="language-bash"># Verbose output
+devaito upload --verbose
+
+# Progress with file details
+devaito upload --progress --details
+
+# JSON output for parsing
+devaito upload --output json
+</code></pre>
+<h3 id="upload-logs">Upload Logs</h3>
+<p><strong>Accessing Upload History:</strong></p>
+<pre><code class="language-bash"># View recent uploads
+devaito logs upload --limit 10
+
+# View specific upload details
+devaito logs upload --id upload_abc123
+
+# Filter by date
+devaito logs upload --since &quot;2025-01-01&quot;
+
+# Export logs
+devaito logs upload --export logs.json
+</code></pre>
+<p><strong>Log Format:</strong></p>
+<pre><code class="language-json">{
+  &quot;upload_id&quot;: &quot;upload_abc123&quot;,
+  &quot;timestamp&quot;: &quot;2025-01-15T10:30:00Z&quot;,
+  &quot;method&quot;: &quot;web_interface&quot;,
+  &quot;status&quot;: &quot;completed&quot;,
+  &quot;files_uploaded&quot;: 15,
+  &quot;files_failed&quot;: 0,
+  &quot;total_size&quot;: &quot;2.3MB&quot;,
+  &quot;duration&quot;: &quot;45s&quot;,
+  &quot;errors&quot;: []
+}
+</code></pre>
+<h2 id="troubleshooting-common-issues">Troubleshooting Common Issues</h2>
+<h3 id="connection-problems">Connection Problems</h3>
+<p><strong>Issue: Cannot connect to upload server</strong></p>
+<pre><code class="language-bash"># Test connectivity
+curl -I https://svelte.devaito.com
+
+# Check DNS resolution
+nslookup svelte.devaito.com
+
+# Test SFTP connection
+telnet sftp.devaito.com 2022
+</code></pre>
+<h3 id="authentication-errors">Authentication Errors</h3>
+<p><strong>Issue: Invalid API token</strong></p>
+<pre><code class="language-bash"># Verify token format
+echo &quot;Bearer 11|your-token-here&quot;
+
+# Test token validity
+curl -H &quot;Authorization: Bearer YOUR_TOKEN&quot; \
+     https://svelte.devaito.com/api/v1/user
+
+# Regenerate token if needed
+# Dashboard → Settings → API Keys → Regenerate
+</code></pre>
+<h3 id="file-upload-failures">File Upload Failures</h3>
+<p><strong>Issue: File too large</strong>
+- Solution: Compress files or split large uploads
+- Use archive format for multiple files
+- Consider SFTP for very large files</p>
+<p><strong>Issue: Invalid file type</strong>
+- Check allowed extensions list
+- Rename files if necessary
+- Use generic extensions (.txt for text files)</p>
+<h3 id="performance-issues">Performance Issues</h3>
+<p><strong>Slow Upload Speeds:</strong></p>
+<pre><code class="language-bash"># Test upload speed
+devaito upload --test-speed
+
+# Use compression
+devaito upload --compress
+
+# Upload during off-peak hours
+# Use multiple parallel connections (SFTP)
+</code></pre>
+<p>For additional support, contact our technical team or check the FAQ section.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../api-management/keys/" class="btn btn-neutral float-left" title="API Keys & Permissions"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../formats/" class="btn btn-neutral float-right" title="Code Formats & Conventions">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../api-management/keys/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../formats/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
