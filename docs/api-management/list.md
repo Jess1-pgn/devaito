@@ -1,153 +1,145 @@
-# Liste des APIs Accessibles et leur Description  
+# List of Available APIs and Their Description
 
-## Introduction  
-Cette section fournit une liste détaillée des APIs disponibles sur Devaito (version SaaS multi-tenant). Chaque API couvre des fonctionnalités de gestion de contenus, e-commerce, social media et personnalisation.  
+## Introduction
+This section provides a detailed list of the APIs available on Devaito (SaaS multi-tenant version). Each API covers features for content management, e-commerce, social media, and customization.
 
-**Serveur principal** : `https://admin.devaito.com/api`  
-
----
-
-## 1. **Authentication API**  
-- **Description** : Gère l’authentification et la gestion de session des utilisateurs.  
-- **Endpoints** :  
-  - `/login` → Connexion utilisateur  
-  - `/logout` → Déconnexion  
-- **Utilisation** : Sécurise l’accès et génère un token Bearer pour toutes les opérations authentifiées.  
+**Main server**: `https://admin.devaito.com/api`
 
 ---
 
-## 2. **User API**  
-- **Description** : Récupère les informations de l’utilisateur et de son store.  
-- **Endpoint** : `/user`  
-- **Utilisation** : Obtenir le profil, avatar, type de site (ecommerce, vitrine, etc.).  
+## 1. **Authentication API**
+- **Description**: Manages user authentication and session handling.
+- **Endpoints**:
+  - `/login` → User login
+  - `/logout` → User logout
+- **Usage**: Secures access and generates a Bearer token for all authenticated operations.
 
 ---
 
-## 3. **Products API**  
-- **Description** : Gestion et récupération du catalogue produits.  
-- **Endpoints** :  
-  - `/fetch-all-products` → Liste paginée des produits  
-  - `/get-product/{slug}` → Détails d’un produit via slug  
-  - `/popular-products` → Produits les plus commandés  
-- **Utilisation** : Afficher produits, images, prix, promotions.  
+## 2. **User API**
+- **Description**: Retrieves user and store information.
+- **Endpoint**: `/user`
+- **Usage** : Obtenir le profil, avatar, type de site (ecommerce, vitrine, etc.).
 
 ---
 
-## 4. **Orders API**  
-- **Description** : Récupération des commandes.  
-- **Endpoint** : `/get-all-orders`  
-- **Utilisation** : Suivi des commandes en livraison.  
+## 3. **Products API**
+- **Description**: Manages products and product details.
+- **Endpoints**:
+  - `/fetch-all-products` → Get all products
+  - `/get-product/{slug}` → Get product details by slug
+  - `/popular-products` → Get popular products
+- **Utilisation** : Afficher produits, images, prix, promotions.
 
 ---
 
-## 5. **Categories API**  
-- **Description** : Organisation et gestion des catégories de produits.  
-- **Endpoints** :  
-  - `/categories` (CRUD : GET, POST, PUT, DELETE)  
-  - `/categories/{id}` → Détails, mise à jour, suppression  
-  - `/fetch-categories` → Liste des catégories avec images & slug  
-  - `/fetch-categories-product/{permalink}` → Produits par catégorie  
-- **Utilisation** : Filtrage et navigation produit.  
+## 4. **Orders API**
+- **Description**: Handles order management.
+- **Endpoint**: `/get-all-orders`
+- **Utilisation** : Suivi des commandes en livraison.
 
 ---
 
-## 6. **Campaigns API**  
-- **Description** : Gestion des campagnes marketing.  
-- **Endpoints** :  
-  - `/campaigns` (GET, POST)  
-  - `/campaigns/{id}` (GET, PUT, DELETE)  
-- **Utilisation** : Créer, planifier et gérer des campagnes.  
+## 5. **Categories API**
+- **Description**: Manages product categories.
+- **Endpoints**:
+  - `/categories` (GET, POST, PUT, DELETE)
+  - `/categories/{id}`
+  - `/fetch-categories`
+  - `/fetch-categories-product/{permalink}`
+- **Utilisation** : Filtrage et navigation produit.
 
 ---
 
-## 7. **Posts API**  
-- **Description** : Gestion des posts internes.  
-- **Endpoints** :  
-  - `/posts` (GET, POST) → Liste ou création de posts  
-  - `/posts/{id}` (GET, PUT, DELETE) → Détails ou modification  
-  - `/posts/{id}/{job_id}` → Mise à jour du job lié à un post  
-- **Utilisation** : Publier et gérer du contenu lié au store.  
+## 6. **Campaigns API**
+- **Description**: Manages marketing campaigns.
+- **Endpoints**:
+  - `/campaigns` (GET, POST)
+  - `/campaigns/{id}` (GET, PUT, DELETE)
+- **Utilisation** : Créer, planifier et gérer des campagnes.
 
 ---
 
-## 8. **Social Media APIs**  
-
-### a. **Facebook API**  
-- **Endpoints** :  
-  - `/facebook/pages` → Récupérer pages connectées  
-  - `/facebook/publish-post` → Publier immédiatement un post  
-  - `/facebook/publish-post-job` → Planifier un post (job)  
-- **Utilisation** : Intégration avec les pages Facebook de l’utilisateur.  
-
-### b. **Instagram API**  
-- **Endpoints** :  
-  - `/instagram/publish-post` → Publier immédiatement un post  
-  - `/instagram/publish-post-job` → Planifier un post (job)  
-- **Utilisation** : Poster du contenu sur Instagram via pages liées à Facebook.  
-
-### c. **Platform Connections API**  
-- **Endpoint** : `/platform-connections`  
-- **Utilisation** : Voir les comptes sociaux connectés.  
+## 7. **Posts API**
+- **Description**: Handles posts and job-related actions.
+- **Endpoints**:
+  - `/posts` (GET, POST)
+  - `/posts/{id}` (GET, PUT, DELETE)
+  - `/posts/{id}/{job_id}`
+- **Utilisation** : Publier et gérer du contenu lié au store.
 
 ---
 
-## 9. **Templates API**  
-- **Description** : CRUD des templates de design.  
-- **Endpoints** :  
-  - `/templates` (GET, POST)  
-  - `/templates/{id}` (GET, PUT, DELETE)  
-- **Utilisation** : Créer et réutiliser des modèles pour publications.  
+## 8. **Social Media APIs**
+
+### a. Facebook API
+- **Endpoints**:
+  - `/facebook/pages`
+  - `/facebook/publish-post`
+  - `/facebook/publish-post-job`
+- **Utilisation** : Intégration avec les pages Facebook de l’utilisateur.
+
+### b. Instagram API
+- **Endpoints**:
+  - `/instagram/publish-post`
+  - `/instagram/publish-post-job`
+- **Utilisation** : Poster du contenu sur Instagram via pages liées à Facebook.
+
+### c. Platform Connections API
+- **Endpoint**: `/platform-connections`
+- **Utilisation** : Voir les comptes sociaux connectés.
 
 ---
 
-## 10. **Platforms API**  
-- **Description** : Gestion des plateformes disponibles.  
-- **Endpoints** :  
-  - `/platforms` (GET, POST)  
-  - `/platforms/{id}` (GET, PUT, DELETE)  
-- **Utilisation** : Définir les plateformes sociales ou de publication.  
+## 9. **Templates API**
+- **Description**: Manages templates for apps and sites.
+- **Endpoints**:
+  - `/templates` (GET, POST)
+  - `/templates/{id}` (GET, PUT, DELETE)
+- **Utilisation** : Créer et réutiliser des modèles pour publications.
 
 ---
 
-## 11. **Resolutions API**  
-- **Description** : Gestion des tailles & résolutions liées aux plateformes.  
-- **Endpoints** :  
-  - `/resolutions` (GET, POST)  
-  - `/resolutions/{id}` (GET, PUT, DELETE)  
-- **Utilisation** : Définir formats d’images/vidéos adaptés aux plateformes.  
+## 10. **Platforms API**
+- **Description**: Manages platforms and integrations.
+- **Endpoints**:
+  - `/platforms` (GET, POST)
+  - `/platforms/{id}` (GET, PUT, DELETE)
+- **Utilisation** : Définir les plateformes sociales ou de publication.
 
 ---
 
-## 12. **Gallery & Media APIs**  
-- **Description** : Gestion des images et vidéos du store.  
-- **Endpoints** :  
-  - `/gallery-store` → Tous les médias liés au store  
-  - `/image-gallery` → Galerie d’images (paginée)  
-  - `/video-gallery` → Galerie vidéos (paginée)  
-  - `/save-image` → Upload image  
-  - `/save-video` → Upload vidéo  
-- **Utilisation** : Centraliser les médias du store.  
+## 11. **Resolutions API**
+- **Description**: Handles image/video resolutions.
+- **Endpoints**:
+  - `/resolutions` (GET, POST)
+  - `/resolutions/{id}` (GET, PUT, DELETE)
+- **Utilisation** : Définir formats d’images/vidéos adaptés aux plateformes.
 
 ---
 
-## 13. **Store Settings APIs**  
-- **Description** : Personnalisation du store.  
-- **Endpoints** :  
-  - `/get-store-prompt` → Récupérer le prompt (description du store)  
-  - `/get-store-language` → Langue du store  
-  - `/fonts-and-colors` → Polices & couleurs configurées  
-- **Utilisation** : Branding et customisation du site.  
+## 12. **Gallery & Media APIs**
+- **Description**: Manages media files and galleries.
+- **Endpoints**:
+  - `/gallery-store`
+  - `/image-gallery`
+  - `/video-gallery`
+  - `/save-image`
+  - `/save-video`
+- **Utilisation** : Centraliser les médias du store.
 
 ---
 
-## 14. **Content Generator API**  
-- **Description** : Génération de contenu via IA (ChatGPT).  
-- **Endpoint** : `/content-generator`  
-- **Utilisation** : Générer titres, descriptions, textes marketing.  
+## 13. **Store Settings APIs**
+- **Description**: Manages store configuration and appearance.
+- **Endpoints**:
+  - `/get-store-prompt`
+  - `/get-store-language`
+  - `/fonts-and-colors`
+- **Utilisation** : Branding et customisation du site.
 
 ---
 
-## Formats de Réponse  
-- **Format** : JSON  
-- **Codes statut** : `200`, `201`, `400`, `401`, `404`, `500`  
-- **Auth requise** : Bearer Token (`Authorization: Bearer xxx`) pour la majorité des endpoints.  
+## 14. **Content Generator API**
+- **Description**: Generates content using AI.
+- **Endpoint**: `/content-generator`
