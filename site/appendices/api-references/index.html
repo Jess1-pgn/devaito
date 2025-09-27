@@ -47,10 +47,6 @@
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../../getting-started/creation-login/">Creation / Login</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/interface-overview/">Interface Overview</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/my-applications/">My Applications</a>
-                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../getting-started/available-apis/">Available APIs</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../getting-started/quick-start/">Quick Start Guide</a>
@@ -58,11 +54,7 @@
               </ul>
               <p class="caption"><span class="caption-text">Application Management</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../app-management/creation/">Creating an Application</a>
-                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../app-management/deployment/">Deployment</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../app-management/status/">Application Status</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../app-management/collaborators/">Collaborator Management</a>
                   </li>
@@ -74,8 +66,6 @@
                   <li class="toctree-l1"><a class="reference internal" href="../../api-management/list/">API List & Descriptions</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../api-management/usage/">API Usage</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../api-management/keys/">API Keys & Permissions</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Code Upload & Management</span></p>
@@ -108,6 +98,56 @@
                   <li class="toctree-l1"><a class="reference internal" href="../glossary/">Glossary</a>
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">API References</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#api-structure">API Structure</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#main-endpoints">Main Endpoints</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#1-authentication-api">1. Authentication API</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2-user-api">2. User API</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#3-products-api">3. Products API</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#4-orders-api">4. Orders API</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#5-categories-api">5. Categories API</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#6-campaigns-api">6. Campaigns API</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#7-posts-api">7. Posts API</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#8-social-media-apis">8. Social Media APIs</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#a-facebook-api">a. Facebook API</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#b-instagram-api">b. Instagram API</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#c-platform-connections-api">c. Platform Connections API</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#9-templates-api">9. Templates API</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#10-platforms-api">10. Platforms API</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#11-resolutions-api">11. Resolutions API</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#12-gallery-media-apis">12. Gallery &amp; Media APIs</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#13-store-settings-apis">13. Store Settings APIs</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#14-content-generator-api">14. Content Generator API</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#best-practices">Best Practices</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a>
+    </li>
+    </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../release-notes/">Release Notes</a>
                   </li>
@@ -138,35 +178,136 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <p>API References
-Overview
-This section provides detailed references for Devaito v2.0 APIs, including endpoints, parameters, and usage examples. For a list of available APIs, see API List &amp; Descriptions.
-API Structure
-Devaito APIs follow RESTful conventions:</p>
-<p>Base URL: https://api.devaito.com/v2
-Authentication: Use API keys in the Authorization header (see API Keys &amp; Permissions).
-Formats: JSON for requests and responses.</p>
-<p>Common Endpoints</p>
-<p>GET /applications: List all applications for the authenticated user.
-Parameters: limit, offset
-Example: curl -H "Authorization: Bearer <API_KEY>" https://api.devaito.com/v2/applications</p>
-<p>POST /applications: Create a new application.
-Body: { "name": "MyApp", "description": "Test app" }
-Example: curl -X POST -H "Authorization: Bearer <API_KEY>" -d '{"name":"MyApp"}' https://api.devaito.com/v2/applications</p>
-<p>GET /applications/{id}/status: Check application status.
-Example: curl -H "Authorization: Bearer <API_KEY>" https://api.devaito.com/v2/applications/123/status</p>
-<p>POST /webhooks: Create a webhook.
-Body: { "url": "https://example.com/webhook", "event": "deployment" }
-Example: See Automations &amp; Webhooks.</p>
-<p>Best Practices</p>
-<p>Rate Limits: Adhere to limits outlined in API Usage.
-Error Handling: Handle HTTP status codes (e.g., 429 for rate limits, 401 for auth errors).
-Security: Store API keys securely and rotate regularly.</p>
-<p>Troubleshooting</p>
-<p>Authentication Errors: Verify API key validity (see API Keys &amp; Permissions).
-Invalid Requests: Check parameter formats and required fields.
-Rate Limit Issues: Optimize request frequency or contact support for higher quotas.</p>
-<p>For full API documentation, visit https://api.devaito.com/docs or contact support@devaito.com.</p>
+                <h1 id="api-references">API References</h1>
+<h2 id="overview">Overview</h2>
+<p>This section provides detailed references for Devaito v2.0 APIs, including endpoints, parameters, and usage examples.<br />
+For a list of available APIs, see API List &amp; Descriptions.</p>
+<h2 id="api-structure">API Structure</h2>
+<p>Devaito APIs follow RESTful conventions:</p>
+<ul>
+<li><strong>Base URL:</strong> <code>https://admin.devaito.com/api</code></li>
+<li><strong>Authentication:</strong> Use Bearer tokens in the Authorization header (see Authentication API).</li>
+<li><strong>Formats:</strong> JSON for requests and responses.</li>
+</ul>
+<hr />
+<h2 id="main-endpoints">Main Endpoints</h2>
+<h3 id="1-authentication-api">1. Authentication API</h3>
+<ul>
+<li><code>POST /login</code> — User login, returns a token.</li>
+<li><code>POST /logout</code> — Logout, invalidates the token.</li>
+</ul>
+<h3 id="2-user-api">2. User API</h3>
+<ul>
+<li><code>GET /user</code> — Get user and store information.</li>
+</ul>
+<h3 id="3-products-api">3. Products API</h3>
+<ul>
+<li><code>GET /fetch-all-products</code> — List all products.</li>
+<li><code>GET /get-product/{slug}</code> — Get product details by slug.</li>
+<li><code>GET /popular-products</code> — List popular products.</li>
+</ul>
+<h3 id="4-orders-api">4. Orders API</h3>
+<ul>
+<li><code>GET /get-all-orders</code> — List all orders.</li>
+</ul>
+<h3 id="5-categories-api">5. Categories API</h3>
+<ul>
+<li><code>GET /categories</code> — List categories.</li>
+<li><code>POST /categories</code> — Create a category.</li>
+<li><code>PUT /categories/{id}</code> — Update a category.</li>
+<li><code>DELETE /categories/{id}</code> — Delete a category.</li>
+<li><code>GET /fetch-categories</code> — List categories with images &amp; slug.</li>
+<li><code>GET /fetch-categories-product/{permalink}</code> — Products by category.</li>
+</ul>
+<h3 id="6-campaigns-api">6. Campaigns API</h3>
+<ul>
+<li><code>GET /campaigns</code> — List campaigns.</li>
+<li><code>POST /campaigns</code> — Create a campaign.</li>
+<li><code>GET /campaigns/{id}</code> — Get campaign details.</li>
+<li><code>PUT /campaigns/{id}</code> — Update a campaign.</li>
+<li><code>DELETE /campaigns/{id}</code> — Delete a campaign.</li>
+</ul>
+<h3 id="7-posts-api">7. Posts API</h3>
+<ul>
+<li><code>GET /posts</code> — List posts.</li>
+<li><code>POST /posts</code> — Create a post.</li>
+<li><code>GET /posts/{id}</code> — Get post details.</li>
+<li><code>PUT /posts/{id}</code> — Update a post.</li>
+<li><code>DELETE /posts/{id}</code> — Delete a post.</li>
+<li><code>GET /posts/{id}/{job_id}</code> — Update job linked to a post.</li>
+</ul>
+<h3 id="8-social-media-apis">8. Social Media APIs</h3>
+<h4 id="a-facebook-api">a. Facebook API</h4>
+<ul>
+<li><code>GET /facebook/pages</code> — Get connected Facebook pages.</li>
+<li><code>POST /facebook/publish-post</code> — Publish a post immediately.</li>
+<li><code>POST /facebook/publish-post-job</code> — Schedule a post.</li>
+</ul>
+<h4 id="b-instagram-api">b. Instagram API</h4>
+<ul>
+<li><code>POST /instagram/publish-post</code> — Publish a post immediately.</li>
+<li><code>POST /instagram/publish-post-job</code> — Schedule a post.</li>
+</ul>
+<h4 id="c-platform-connections-api">c. Platform Connections API</h4>
+<ul>
+<li><code>GET /platform-connections</code> — View connected social accounts.</li>
+</ul>
+<h3 id="9-templates-api">9. Templates API</h3>
+<ul>
+<li><code>GET /templates</code> — List templates.</li>
+<li><code>POST /templates</code> — Create a template.</li>
+<li><code>GET /templates/{id}</code> — Get template details.</li>
+<li><code>PUT /templates/{id}</code> — Update a template.</li>
+<li><code>DELETE /templates/{id}</code> — Delete a template.</li>
+</ul>
+<h3 id="10-platforms-api">10. Platforms API</h3>
+<ul>
+<li><code>GET /platforms</code> — List platforms.</li>
+<li><code>POST /platforms</code> — Create a platform.</li>
+<li><code>GET /platforms/{id}</code> — Get platform details.</li>
+<li><code>PUT /platforms/{id}</code> — Update a platform.</li>
+<li><code>DELETE /platforms/{id}</code> — Delete a platform.</li>
+</ul>
+<h3 id="11-resolutions-api">11. Resolutions API</h3>
+<ul>
+<li><code>GET /resolutions</code> — List resolutions.</li>
+<li><code>POST /resolutions</code> — Create a resolution.</li>
+<li><code>GET /resolutions/{id}</code> — Get resolution details.</li>
+<li><code>PUT /resolutions/{id}</code> — Update a resolution.</li>
+<li><code>DELETE /resolutions/{id}</code> — Delete a resolution.</li>
+</ul>
+<h3 id="12-gallery-media-apis">12. Gallery &amp; Media APIs</h3>
+<ul>
+<li><code>GET /gallery-store</code> — All store media.</li>
+<li><code>GET /image-gallery</code> — Image gallery (paginated).</li>
+<li><code>GET /video-gallery</code> — Video gallery (paginated).</li>
+<li><code>POST /save-image</code> — Upload image.</li>
+<li><code>POST /save-video</code> — Upload video.</li>
+</ul>
+<h3 id="13-store-settings-apis">13. Store Settings APIs</h3>
+<ul>
+<li><code>GET /get-store-prompt</code> — Get store description.</li>
+<li><code>GET /get-store-language</code> — Get store language.</li>
+<li><code>GET /fonts-and-colors</code> — Get configured fonts &amp; colors.</li>
+</ul>
+<h3 id="14-content-generator-api">14. Content Generator API</h3>
+<ul>
+<li><code>POST /content-generator</code> — Generate content via AI.</li>
+</ul>
+<hr />
+<h2 id="best-practices">Best Practices</h2>
+<ul>
+<li><strong>Rate Limits:</strong> Adhere to limits outlined in API Usage.</li>
+<li><strong>Error Handling:</strong> Handle HTTP status codes (e.g., 429 for rate limits, 401 for auth errors).</li>
+<li><strong>Security:</strong> Store tokens securely and rotate regularly.</li>
+</ul>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<ul>
+<li><strong>Authentication Errors:</strong> Verify token validity (see Authentication API).</li>
+<li><strong>Invalid Requests:</strong> Check parameter formats and required fields.</li>
+<li><strong>Rate Limit Issues:</strong> Optimize request frequency or contact support for higher quotas.</li>
+</ul>
+<p>For full API documentation, visit <a href="https://admin.devaito.com/api/docs">https://admin.devaito.com/api/docs</a> or contact support@devaito.com.</p>
               
             </div>
           </div><footer>

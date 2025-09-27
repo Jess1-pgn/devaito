@@ -1,90 +1,51 @@
-# Guide du Développeur Devaito
+# Devaito Developer Guide
 
-Bienvenue dans le **Guide du Développeur Devaito** !  
-Ce guide vous accompagne dans la création, le test et la publication d'applications pour l'écosystème Devaito, une plateforme qui transforme la création de sites web en une expérience puissante et personnalisable.
-
----
-
-## Qu'est-ce que Devaito ?
-Devaito est une plateforme qui évolue d'un marché de templates vers un écosystème d'applications.  
-
-Avec Devaito, vous pouvez :  
-- Créer des apps pour ajouter des fonctionnalités (ex. : e-commerce, analytique) aux sites web Devaito.  
-- Monétiser vos apps avec des modèles de tarification flexibles (abonnements, paiements uniques).  
-- Atteindre des milliers de propriétaires de sites via le **Devaito App Store**.  
+Welcome to the **Devaito Developer Guide**!  
+This guide helps you create, test, and publish applications for the Devaito ecosystem—a SaaS platform dedicated to website creation.
 
 ---
 
-## Pourquoi développer pour Devaito ?
-En tant que développeur, Devaito vous offre :  
+## What is Devaito?
+Devaito is a SaaS platform for building websites.  
+It allows users to design, customize, and manage their sites easily with accessible tools and powerful integrations.
 
-- **Des outils puissants** : CLI Devaito (basé sur *oclif*), SDKs (`@devaito/dev-kit` et `@devaito/app-bridge`), et APIs REST (avec GraphQL en perspective).  
-- **Une intégration simplifiée** : Connectez vos apps aux sites Devaito avec OAuth 2.0 et intégrez-les dans le panneau d'administration via un iframe sécurisé.  
-- **Un tableau de bord complet** : Gérez vos apps, suivez les performances, et configurez des webhooks sur `devaito-admin.redg.io`.  
-- **Un démarrage rapide** : Utilisez des modèles d'apps préconfigurés (Laravel, Remix, Node.js) pour accélérer le développement.  
-
----
-
-## Comment ce guide est organisé
-Ce guide couvre tout ce dont vous avez besoin pour créer une app Devaito, étape par étape :  
-
-1. **Getting Started** : Configurez votre environnement et créez un compte développeur.  
-2. **APIs** : Apprenez à utiliser les APIs Devaito pour accéder aux données des sites.  
-3. **CLI** : Maîtrisez le CLI Devaito pour automatiser la création et les tests.  
-4. **App Bridge** : Intégrez votre interface dans le panneau d'administration Devaito.  
-5. **OAuth** : Implémentez une authentification sécurisée avec OAuth 2.0.  
-6. **Testing** : Testez vos apps localement et dans un environnement sandbox.  
-7. **Publishing** : Soumettez votre app au Devaito App Store.  
-8. **Resources** : Trouvez des références API, un support, et une communauté.  
+With Devaito, you can:
+- Create apps to add features (e-commerce, analytics, etc.) to Devaito websites.
+- Monetize your apps with flexible pricing models (subscriptions, one-time payments).
+- Reach thousands of website owners through the **Devaito App Store**.
 
 ---
 
-## Premiers pas
-Pour commencer :  
+## Why develop for Devaito?
+As a developer, Devaito offers:
 
-1. Créez un compte développeur sur **[devaito-admin.redg.io](https://devaito-admin.redg.io)**.  
-2. Installez le CLI Devaito :  
-   ```bash
-   npm install -g @devaito/cli
-   ```
-3. Générez votre première app :  
-   ```bash
-   devaito app create --template=laravel
-   ```
+- **Powerful APIs**: Use REST APIs to access data, automate tasks, and integrate new features into the platform.
+- **Easy integration**: Connect your apps to Devaito sites and interact with the ecosystem using documented endpoints.
+- **Quick start**: Follow this guide to start developing and publishing your own apps.
 
 ---
 
-## Exemple rapide : Une app "Bonjour Devaito"
-Voici un aperçu de ce que vous pouvez construire :  
+## How this guide is organized
+This guide covers everything you need to build a Devaito app, step by step:
 
-```javascript
-import { createApp } from '@devaito/app-bridge';
-
-const app = createApp({ apiKey: 'votre-clé', host: window.location.host });
-
-app.render({
-  component: () => {
-    const button = document.createElement('button');
-    button.innerText = 'Bonjour, Devaito !';
-    button.onclick = () => app.notify('Bouton cliqué !');
-    return button;
-  },
-  target: '#devaito-app-container'
-});
-```
-
-Cette app affiche un bouton dans le panneau d'administration Devaito. Consultez **App Bridge** pour plus de détails.  
+1. **Getting Started**: Set up your environment and create a developer account.
+2. **APIs**: Learn to use Devaito APIs to access site data.
+3. **Testing**: Test your apps locally and in a sandbox environment.
+4. **Publishing**: Submit your app to the Devaito App Store.
+5. **Resources**: Find API references, support, and community links.
 
 ---
 
-## Support et communauté
-- **Documentation API** : [devaito.redg.io/docs/api](https://devaito.redg.io/docs/api)  
-- **Support** : Contactez [devsupport@devaito.redg.io](mailto:devsupport@devaito.redg.io)  
-- **Forum** : Rejoignez la communauté sur [devaito.redg.io/community](https://devaito.redg.io/community)  
+## Getting Started
+
+To begin:
+1. Create a developer account on the Devaito platform.
+2. Check the **Getting Started** section to set up your environment.
+3. Explore the API documentation to integrate your features.
 
 ---
 
-## Prêt à commencer ?
-Plongez dans **Getting Started** et construisez votre première app Devaito dès aujourd'hui ! 🚀  
+## Ready to get started?
+Jump into **Getting Started** and build your first Devaito app today! 🚀
 
 **Devaito Developer Guide, powered by passion and code.**

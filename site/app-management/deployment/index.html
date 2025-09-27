@@ -47,10 +47,6 @@
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../../getting-started/creation-login/">Creation / Login</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/interface-overview/">Interface Overview</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/my-applications/">My Applications</a>
-                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../getting-started/available-apis/">Available APIs</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../getting-started/quick-start/">Quick Start Guide</a>
@@ -58,21 +54,17 @@
               </ul>
               <p class="caption"><span class="caption-text">Application Management</span></p>
               <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../creation/">Creating an Application</a>
-                  </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Deployment</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#etapes-de-deploiement">Étapes de Déploiement</a>
+    <li class="toctree-l2"><a class="reference internal" href="#deployment-steps">Deployment Steps</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#points-importants">Points Importants</a>
+    <li class="toctree-l2"><a class="reference internal" href="#important-notes">Important Notes</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#conseils">Conseils</a>
+    <li class="toctree-l2"><a class="reference internal" href="#tips">Tips</a>
     </li>
     </ul>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../status/">Application Status</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../collaborators/">Collaborator Management</a>
                   </li>
@@ -84,8 +76,6 @@
                   <li class="toctree-l1"><a class="reference internal" href="../../api-management/list/">API List & Descriptions</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../api-management/usage/">API Usage</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../api-management/keys/">API Keys & Permissions</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Code Upload & Management</span></p>
@@ -148,44 +138,72 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="deploiement-dune-application">Déploiement d'une Application</h1>
+                <h1 id="application-deployment">Application Deployment</h1>
 <h2 id="introduction">Introduction</h2>
-<p>Cette section explique comment déployer une application sur Devaito pour la rendre accessible et fonctionnelle.</p>
-<h2 id="etapes-de-deploiement">Étapes de Déploiement</h2>
+<p>This section explains how to deploy your application to make it accessible and functional for users.</p>
+<h2 id="deployment-steps">Deployment Steps</h2>
 <ol>
-<li><strong>Vérification Préalable</strong> :</li>
-<li>Assurez-vous que votre application est complète et testée dans l’éditeur.</li>
-<li>Confirmez que toutes les APIs et intégrations sont opérationnelles.</li>
-<li><strong>Accéder au Déploiement</strong> :</li>
-<li>Depuis la carte de l’application, cliquez sur l’option "Déployer" (disponible une fois l’application prête).</li>
-<li><strong>Configuration</strong> :</li>
-<li>Sélectionnez l’environnement de déploiement (production ou test, si applicable).</li>
-<li>Vérifiez les paramètres (ex. domaine, clés API).</li>
-<li><strong>Lancer le Déploiement</strong> :</li>
-<li>Cliquez sur "Confirmer le déploiement".</li>
-<li>Attendez la fin du processus (un statut "En cours" sera affiché).</li>
-<li><strong>Vérification Post-Déploiement</strong> :</li>
-<li>Une fois terminé, le statut passera à "Déployée".</li>
-<li>Testez l’application via l’URL fournie pour s’assurer de son bon fonctionnement.</li>
+<li><strong>Pre-Deployment Checklist</strong>:</li>
+<li>Make sure your application is complete and tested in your editor.</li>
+<li>
+<p>Confirm all APIs and integrations are working.</p>
+</li>
+<li>
+<p><strong>Prepare for Store Deployment</strong>:</p>
+</li>
+<li>For mobile apps, you need to build a release version (APK for Android, IPA for iOS).</li>
+<li>
+<p>In Flutter, run:
+     <code>flutter build apk --release</code>
+     This will generate an APK file in the <code>build/app/outputs/flutter-apk/</code> directory.</p>
+</li>
+<li>
+<p><strong>Create a Developer Account</strong>:</p>
+</li>
+<li>Register for a <a href="https://play.google.com/console">Google Play Console</a> account (for Android).</li>
+<li>
+<p>For iOS, use <a href="https://developer.apple.com/account/">Apple Developer</a>.</p>
+</li>
+<li>
+<p><strong>Upload Your App</strong>:</p>
+</li>
+<li>Go to the Google Play Console.</li>
+<li>Create a new app and fill in the required information (app name, description, screenshots, etc.).</li>
+<li>Upload your APK file in the "Release" section.</li>
+<li>
+<p>Complete the content rating, privacy policy, and other required forms.</p>
+</li>
+<li>
+<p><strong>Review and Publish</strong>:</p>
+</li>
+<li>Submit your app for review.</li>
+<li>
+<p>Once approved by Google, your app will be available on the Play Store.</p>
+</li>
+<li>
+<p><strong>Post-Deployment Checks</strong>:</p>
+</li>
+<li>Test your app using the Play Store link.</li>
+<li>Monitor user feedback and crash reports in the console.</li>
 </ol>
-<h2 id="points-importants">Points Importants</h2>
+<h2 id="important-notes">Important Notes</h2>
 <ul>
-<li>Un déploiement peut prendre quelques minutes selon la complexité de l’application.</li>
-<li>En cas d’échec, consultez les logs dans l’éditeur pour identifier les erreurs.</li>
+<li>Deployment to app stores may take several days for review.</li>
+<li>Make sure your app complies with store policies to avoid rejection.</li>
 </ul>
-<h2 id="conseils">Conseils</h2>
+<h2 id="tips">Tips</h2>
 <ul>
-<li>Sauvegardez votre travail avant de déployer.</li>
-<li>Explorez la section "Déploiement Continu (CI/CD)" pour automatiser ce processus.</li>
-<li>Pour plus d’aide, reportez-vous à la FAQ.</li>
+<li>Always back up your project before building the release version.</li>
+<li>Read the official <a href="https://developer.android.com/distribute/best-practices/launch/launch-checklist">Google Play launch checklist</a>.</li>
+<li>For automated deployment, explore CI/CD tools like GitHub Actions or Bitrise.</li>
 </ul>
-<p>Pour des informations supplémentaires, consultez les autres sections de ce guide.</p>
+<p>For more information, check other sections of this guide.</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../creation/" class="btn btn-neutral float-left" title="Creating an Application"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../status/" class="btn btn-neutral float-right" title="Application Status">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../getting-started/quick-start/" class="btn btn-neutral float-left" title="Quick Start Guide"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../collaborators/" class="btn btn-neutral float-right" title="Collaborator Management">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -208,10 +226,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../creation/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../../getting-started/quick-start/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../status/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../collaborators/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

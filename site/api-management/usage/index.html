@@ -47,10 +47,6 @@
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../../getting-started/creation-login/">Creation / Login</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/interface-overview/">Interface Overview</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/my-applications/">My Applications</a>
-                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../getting-started/available-apis/">Available APIs</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../getting-started/quick-start/">Quick Start Guide</a>
@@ -58,11 +54,7 @@
               </ul>
               <p class="caption"><span class="caption-text">Application Management</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../app-management/creation/">Creating an Application</a>
-                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../app-management/deployment/">Deployment</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../app-management/status/">Application Status</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../app-management/collaborators/">Collaborator Management</a>
                   </li>
@@ -77,31 +69,35 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#configuration-initiale">Configuration Initiale</a>
+    <li class="toctree-l2"><a class="reference internal" href="#initial-setup">Initial Setup</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#1-prerequis">1. Prérequis</a>
+    <li class="toctree-l3"><a class="reference internal" href="#1-prerequisites">1. Prerequisites</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#2-headers-standards">2. Headers Standards</a>
+    <li class="toctree-l3"><a class="reference internal" href="#2-how-to-use-the-token">2. How to Use the Token</a>
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#guide-par-api">Guide par API</a>
+    <li class="toctree-l2"><a class="reference internal" href="#api-guide">API Guide</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#1-authentication-api-premiere-etape">1. Authentication API - Première Étape</a>
+    <li class="toctree-l3"><a class="reference internal" href="#1-authentication-api">1. Authentication API</a>
         <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#connexion-dun-utilisateur">Connexion d'un Utilisateur</a>
+    <li class="toctree-l4"><a class="reference internal" href="#user-login">User Login</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#deconnexion">Déconnexion</a>
+    <li class="toctree-l4"><a class="reference internal" href="#logout">Logout</a>
     </li>
         </ul>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#2-user-api">2. User API</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#get-user">Get User</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#3-products-api">3. Products API</a>
         <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#recuperer-tous-les-produits">Récupérer tous les produits</a>
+    <li class="toctree-l4"><a class="reference internal" href="#get-all-products">Get All Products</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#recuperer-un-produit-par-slug">Récupérer un produit par slug</a>
+    <li class="toctree-l4"><a class="reference internal" href="#get-product-by-slug">Get Product by Slug</a>
     </li>
         </ul>
     </li>
@@ -115,9 +111,9 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#8-social-media-apis">8. Social Media APIs</a>
         <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#facebook-publier-un-post">Facebook - Publier un post</a>
+    <li class="toctree-l4"><a class="reference internal" href="#facebook-publish-a-post">Facebook - Publish a Post</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#instagram-publier-un-post">Instagram - Publier un post</a>
+    <li class="toctree-l4"><a class="reference internal" href="#instagram-publish-a-post">Instagram - Publish a Post</a>
     </li>
         </ul>
     </li>
@@ -125,9 +121,9 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#10-gallery-media-api">10. Gallery &amp; Media API</a>
         <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#upload-une-image">Upload une image</a>
+    <li class="toctree-l4"><a class="reference internal" href="#upload-an-image">Upload an Image</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#lister-la-galerie-dimages">Lister la galerie d’images</a>
+    <li class="toctree-l4"><a class="reference internal" href="#list-image-gallery">List Image Gallery</a>
     </li>
         </ul>
     </li>
@@ -137,13 +133,11 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#bonnes-pratiques">Bonnes Pratiques</a>
+    <li class="toctree-l2"><a class="reference internal" href="#best-practices">Best Practices</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#debogage">Débogage</a>
+    <li class="toctree-l2"><a class="reference internal" href="#debugging">Debugging</a>
     </li>
     </ul>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../keys/">API Keys & Permissions</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Code Upload & Management</span></p>
@@ -206,59 +200,97 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="comment-connecterutiliser-les-apis-devaito">Comment Connecter/Utiliser les APIs Devaito</h1>
+                <h1 id="how-to-connectuse-devaito-apis">How to Connect/Use Devaito APIs</h1>
 <h2 id="introduction">Introduction</h2>
-<p>Ce guide vous explique étape par étape comment intégrer et utiliser les APIs Devaito (version SaaS multi-tenant). Vous trouverez des exemples de code, les bonnes pratiques et les étapes essentielles pour chaque API.</p>
-<p><strong>URL de base</strong> : <code>https://admin.devaito.com/api</code></p>
+<p>This guide explains step by step how to integrate and use Devaito APIs (SaaS multi-tenant version).<br />
+You will find code examples, best practices, and essential steps for each API.</p>
+<p><strong>Base URL</strong>: <code>https://admin.devaito.com/api</code></p>
 <hr />
-<h2 id="configuration-initiale">Configuration Initiale</h2>
-<h3 id="1-prerequis">1. <strong>Prérequis</strong></h3>
+<h2 id="initial-setup">Initial Setup</h2>
+<h3 id="1-prerequisites">1. <strong>Prerequisites</strong></h3>
 <ul>
-<li>Accès au serveur Devaito</li>
-<li>Environnement de développement configuré</li>
-<li>Bibliothèque HTTP (ex: fetch, axios, curl)</li>
-<li>Gestion des tokens pour l'authentification</li>
+<li>You need access to the Devaito server (API URL and a user account).</li>
+<li>Your development environment should be ready (for example, VS Code for React, or Flutter SDK for Flutter).</li>
+<li>You need an HTTP library to make requests (like <code>fetch</code> or <code>axios</code> for React, or the <code>http</code> package for Flutter).</li>
+<li>You must handle authentication tokens: after login, the API returns a token that you must store and use for all protected requests.</li>
 </ul>
-<h3 id="2-headers-standards">2. <strong>Headers Standards</strong></h3>
-<pre><code class="language-javascript">// Pour les requêtes authentifiées
+<h3 id="2-how-to-use-the-token">2. <strong>How to Use the Token</strong></h3>
+<p>After a successful login (<code>/login</code>), the API returns a token (usually called <code>token</code> or <code>access_token</code>).<br />
+Store this token securely (for example, in <code>localStorage</code> for React or in secure storage for Flutter).<br />
+For every request to a protected endpoint, add this token in the <code>Authorization</code> header:</p>
+<pre><code class="language-javascript">// React example
+const token = localStorage.getItem('authToken');
 const headers = {
-  'Authorization': 'Bearer YOUR_TOKEN_HERE',
+  'Authorization': `Bearer ${token}`,
   'Content-Type': 'application/json'
-}
+};
+</code></pre>
+<pre><code class="language-dart">// Flutter example
+final headers = {
+  'Authorization': 'Bearer $token',
+  'Content-Type': 'application/json'
+};
 </code></pre>
 <hr />
-<h2 id="guide-par-api">Guide par API</h2>
-<h3 id="1-authentication-api-premiere-etape">1. <strong>Authentication API - Première Étape</strong></h3>
-<h4 id="connexion-dun-utilisateur"><strong>Connexion d'un Utilisateur</strong></h4>
-<pre><code class="language-javascript">// POST /login
+<h2 id="api-guide">API Guide</h2>
+<h3 id="1-authentication-api">1. <strong>Authentication API</strong></h3>
+<h4 id="user-login"><strong>User Login</strong></h4>
+<pre><code class="language-javascript">// React example
 const login = async (email, password) =&gt; {
   const response = await fetch('https://admin.devaito.com/api/login', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ email, password })
   });
-
   const result = await response.json();
-  if (response.ok) {
+  if (response.ok &amp;&amp; result.token) {
     localStorage.setItem('authToken', result.token);
   }
   return result;
 }
 </code></pre>
-<h4 id="deconnexion"><strong>Déconnexion</strong></h4>
-<pre><code class="language-javascript">// POST /logout
+<pre><code class="language-dart">// Flutter example
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
+Future&lt;String?&gt; login(String email, String password) async {
+  final response = await http.post(
+    Uri.parse('https://admin.devaito.com/api/login'),
+    headers: { 'Content-Type': 'application/json' },
+    body: jsonEncode({ 'email': email, 'password': password }),
+  );
+  final result = jsonDecode(response.body);
+  if (response.statusCode == 200 &amp;&amp; result['token'] != null) {
+    return result['token'];
+  }
+  return null;
+}
+</code></pre>
+<h4 id="logout"><strong>Logout</strong></h4>
+<pre><code class="language-javascript">// React example
 const logout = async () =&gt; {
   const token = localStorage.getItem('authToken');
   const response = await fetch('https://admin.devaito.com/api/logout', {
     method: 'POST',
     headers: { 'Authorization': `Bearer ${token}` }
   });
+  if (response.ok) localStorage.removeItem('authToken');
   return await response.json();
+}
+</code></pre>
+<pre><code class="language-dart">// Flutter example
+Future&lt;Map&lt;String, dynamic&gt;&gt; logout(String token) async {
+  final response = await http.post(
+    Uri.parse('https://admin.devaito.com/api/logout'),
+    headers: { 'Authorization': 'Bearer $token' },
+  );
+  return jsonDecode(response.body);
 }
 </code></pre>
 <hr />
 <h3 id="2-user-api">2. <strong>User API</strong></h3>
-<pre><code class="language-javascript">// GET /user
+<h4 id="get-user"><strong>Get User</strong></h4>
+<pre><code class="language-javascript">// React example
 const getUser = async () =&gt; {
   const token = localStorage.getItem('authToken');
   const response = await fetch('https://admin.devaito.com/api/user', {
@@ -267,10 +299,19 @@ const getUser = async () =&gt; {
   return await response.json();
 }
 </code></pre>
+<pre><code class="language-dart">// Flutter example
+Future&lt;Map&lt;String, dynamic&gt;&gt; getUser(String token) async {
+  final response = await http.get(
+    Uri.parse('https://admin.devaito.com/api/user'),
+    headers: { 'Authorization': 'Bearer $token' },
+  );
+  return jsonDecode(response.body);
+}
+</code></pre>
 <hr />
 <h3 id="3-products-api">3. <strong>Products API</strong></h3>
-<h4 id="recuperer-tous-les-produits"><strong>Récupérer tous les produits</strong></h4>
-<pre><code class="language-javascript">// GET /fetch-all-products
+<h4 id="get-all-products"><strong>Get All Products</strong></h4>
+<pre><code class="language-javascript">// React example
 const getProducts = async () =&gt; {
   const token = localStorage.getItem('authToken');
   const response = await fetch('https://admin.devaito.com/api/fetch-all-products', {
@@ -279,120 +320,286 @@ const getProducts = async () =&gt; {
   return await response.json();
 }
 </code></pre>
-<h4 id="recuperer-un-produit-par-slug"><strong>Récupérer un produit par slug</strong></h4>
-<pre><code class="language-javascript">// GET /get-product/{slug}
+<pre><code class="language-dart">// Flutter example
+Future&lt;Map&lt;String, dynamic&gt;&gt; getProducts(String token) async {
+  final response = await http.get(
+    Uri.parse('https://admin.devaito.com/api/fetch-all-products'),
+    headers: { 'Authorization': 'Bearer $token' },
+  );
+  return jsonDecode(response.body);
+}
+</code></pre>
+<h4 id="get-product-by-slug"><strong>Get Product by Slug</strong></h4>
+<pre><code class="language-javascript">// React example
 const getProduct = async (slug) =&gt; {
-  const response = await fetch(`https://admin.devaito.com/api/get-product/${slug}`);
+  const token = localStorage.getItem('authToken');
+  const response = await fetch(`https://admin.devaito.com/api/get-product/${slug}`, {
+    headers: { 'Authorization': `Bearer ${token}` }
+  });
   if (response.status === 404) {
-    throw new Error('Produit non trouvé');
+    throw new Error('Product not found');
   }
   return await response.json();
 }
 </code></pre>
+<pre><code class="language-dart">// Flutter example
+Future&lt;Map&lt;String, dynamic&gt;&gt; getProduct(String token, String slug) async {
+  final response = await http.get(
+    Uri.parse('https://admin.devaito.com/api/get-product/$slug'),
+    headers: { 'Authorization': 'Bearer $token' },
+  );
+  if (response.statusCode == 404) {
+    throw Exception('Product not found');
+  }
+  return jsonDecode(response.body);
+}
+</code></pre>
 <hr />
 <h3 id="4-orders-api">4. <strong>Orders API</strong></h3>
-<pre><code class="language-javascript">// GET /get-all-orders
+<pre><code class="language-javascript">// React example
 const getOrders = async () =&gt; {
-  const response = await fetch('https://admin.devaito.com/api/get-all-orders');
+  const token = localStorage.getItem('authToken');
+  const response = await fetch('https://admin.devaito.com/api/get-all-orders', {
+    headers: { 'Authorization': `Bearer ${token}` }
+  });
   return await response.json();
+}
+</code></pre>
+<pre><code class="language-dart">// Flutter example
+Future&lt;Map&lt;String, dynamic&gt;&gt; getOrders(String token) async {
+  final response = await http.get(
+    Uri.parse('https://admin.devaito.com/api/get-all-orders'),
+    headers: { 'Authorization': 'Bearer $token' },
+  );
+  return jsonDecode(response.body);
 }
 </code></pre>
 <hr />
 <h3 id="5-categories-api">5. <strong>Categories API</strong></h3>
-<pre><code class="language-javascript">// GET /fetch-categories
+<pre><code class="language-javascript">// React example
 const getCategories = async () =&gt; {
-  const response = await fetch('https://admin.devaito.com/api/fetch-categories');
+  const token = localStorage.getItem('authToken');
+  const response = await fetch('https://admin.devaito.com/api/fetch-categories', {
+    headers: { 'Authorization': `Bearer ${token}` }
+  });
   return await response.json();
 }
 
-// GET /fetch-categories-product/{permalink}
 const getProductsByCategory = async (permalink) =&gt; {
-  const response = await fetch(`https://admin.devaito.com/api/fetch-categories-product/${permalink}`);
+  const token = localStorage.getItem('authToken');
+  const response = await fetch(`https://admin.devaito.com/api/fetch-categories-product/${permalink}`, {
+    headers: { 'Authorization': `Bearer ${token}` }
+  });
   return await response.json();
+}
+</code></pre>
+<pre><code class="language-dart">// Flutter example
+Future&lt;Map&lt;String, dynamic&gt;&gt; getCategories(String token) async {
+  final response = await http.get(
+    Uri.parse('https://admin.devaito.com/api/fetch-categories'),
+    headers: { 'Authorization': 'Bearer $token' },
+  );
+  return jsonDecode(response.body);
+}
+
+Future&lt;Map&lt;String, dynamic&gt;&gt; getProductsByCategory(String token, String permalink) async {
+  final response = await http.get(
+    Uri.parse('https://admin.devaito.com/api/fetch-categories-product/$permalink'),
+    headers: { 'Authorization': 'Bearer $token' },
+  );
+  return jsonDecode(response.body);
 }
 </code></pre>
 <hr />
 <h3 id="6-campaigns-api">6. <strong>Campaigns API</strong></h3>
-<pre><code class="language-javascript">// POST /campaigns
+<pre><code class="language-javascript">// React example
 const createCampaign = async (data) =&gt; {
+  const token = localStorage.getItem('authToken');
   const response = await fetch('https://admin.devaito.com/api/campaigns', {
     method: 'POST',
-    headers,
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    },
     body: JSON.stringify(data)
   });
   return await response.json();
+}
+</code></pre>
+<pre><code class="language-dart">// Flutter example
+Future&lt;Map&lt;String, dynamic&gt;&gt; createCampaign(String token, Map&lt;String, dynamic&gt; data) async {
+  final response = await http.post(
+    Uri.parse('https://admin.devaito.com/api/campaigns'),
+    headers: {
+      'Authorization': 'Bearer $token',
+      'Content-Type': 'application/json'
+    },
+    body: jsonEncode(data),
+  );
+  return jsonDecode(response.body);
 }
 </code></pre>
 <hr />
 <h3 id="7-posts-api">7. <strong>Posts API</strong></h3>
-<pre><code class="language-javascript">// POST /posts
+<pre><code class="language-javascript">// React example
 const createPost = async (data) =&gt; {
+  const token = localStorage.getItem('authToken');
   const response = await fetch('https://admin.devaito.com/api/posts', {
     method: 'POST',
-    headers,
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    },
     body: JSON.stringify(data)
   });
   return await response.json();
 }
 </code></pre>
+<pre><code class="language-dart">// Flutter example
+Future&lt;Map&lt;String, dynamic&gt;&gt; createPost(String token, Map&lt;String, dynamic&gt; data) async {
+  final response = await http.post(
+    Uri.parse('https://admin.devaito.com/api/posts'),
+    headers: {
+      'Authorization': 'Bearer $token',
+      'Content-Type': 'application/json'
+    },
+    body: jsonEncode(data),
+  );
+  return jsonDecode(response.body);
+}
+</code></pre>
 <hr />
 <h3 id="8-social-media-apis">8. <strong>Social Media APIs</strong></h3>
-<h4 id="facebook-publier-un-post"><strong>Facebook - Publier un post</strong></h4>
-<pre><code class="language-javascript">// POST /facebook/publish-post
+<h4 id="facebook-publish-a-post"><strong>Facebook - Publish a Post</strong></h4>
+<pre><code class="language-javascript">// React example
 const publishFacebookPost = async (pageIds, caption, imageUrl) =&gt; {
+  const token = localStorage.getItem('authToken');
   const response = await fetch('https://admin.devaito.com/api/facebook/publish-post', {
     method: 'POST',
-    headers,
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    },
     body: JSON.stringify({ page_id: pageIds, caption, imageUrl })
   });
   return await response.json();
 }
 </code></pre>
-<h4 id="instagram-publier-un-post"><strong>Instagram - Publier un post</strong></h4>
-<pre><code class="language-javascript">// POST /instagram/publish-post
+<pre><code class="language-dart">// Flutter example
+Future&lt;Map&lt;String, dynamic&gt;&gt; publishFacebookPost(String token, List&lt;String&gt; pageIds, String caption, String imageUrl) async {
+  final response = await http.post(
+    Uri.parse('https://admin.devaito.com/api/facebook/publish-post'),
+    headers: {
+      'Authorization': 'Bearer $token',
+      'Content-Type': 'application/json'
+    },
+    body: jsonEncode({ 'page_id': pageIds, 'caption': caption, 'imageUrl': imageUrl }),
+  );
+  return jsonDecode(response.body);
+}
+</code></pre>
+<h4 id="instagram-publish-a-post"><strong>Instagram - Publish a Post</strong></h4>
+<pre><code class="language-javascript">// React example
 const publishInstagramPost = async (caption, imageUrl) =&gt; {
+  const token = localStorage.getItem('authToken');
   const response = await fetch('https://admin.devaito.com/api/instagram/publish-post', {
     method: 'POST',
-    headers,
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    },
     body: JSON.stringify({ caption, imageUrl })
   });
   return await response.json();
 }
 </code></pre>
+<pre><code class="language-dart">// Flutter example
+Future&lt;Map&lt;String, dynamic&gt;&gt; publishInstagramPost(String token, String caption, String imageUrl) async {
+  final response = await http.post(
+    Uri.parse('https://admin.devaito.com/api/instagram/publish-post'),
+    headers: {
+      'Authorization': 'Bearer $token',
+      'Content-Type': 'application/json'
+    },
+    body: jsonEncode({ 'caption': caption, 'imageUrl': imageUrl }),
+  );
+  return jsonDecode(response.body);
+}
+</code></pre>
 <hr />
 <h3 id="9-templates-api">9. <strong>Templates API</strong></h3>
-<pre><code class="language-javascript">// GET /templates
+<pre><code class="language-javascript">// React example
 const getTemplates = async () =&gt; {
-  const response = await fetch('https://admin.devaito.com/api/templates');
+  const token = localStorage.getItem('authToken');
+  const response = await fetch('https://admin.devaito.com/api/templates', {
+    headers: { 'Authorization': `Bearer ${token}` }
+  });
   return await response.json();
+}
+</code></pre>
+<pre><code class="language-dart">// Flutter example
+Future&lt;Map&lt;String, dynamic&gt;&gt; getTemplates(String token) async {
+  final response = await http.get(
+    Uri.parse('https://admin.devaito.com/api/templates'),
+    headers: { 'Authorization': 'Bearer $token' },
+  );
+  return jsonDecode(response.body);
 }
 </code></pre>
 <hr />
 <h3 id="10-gallery-media-api">10. <strong>Gallery &amp; Media API</strong></h3>
-<h4 id="upload-une-image"><strong>Upload une image</strong></h4>
-<pre><code class="language-javascript">// POST /save-image
+<h4 id="upload-an-image"><strong>Upload an Image</strong></h4>
+<pre><code class="language-javascript">// React example
 const uploadImage = async (file) =&gt; {
+  const token = localStorage.getItem('authToken');
   const formData = new FormData();
   formData.append(&quot;file&quot;, file);
 
   const response = await fetch('https://admin.devaito.com/api/save-image', {
     method: 'POST',
-    headers: { 'Authorization': `Bearer ${localStorage.getItem('authToken')}` },
+    headers: { 'Authorization': `Bearer ${token}` },
     body: formData
   });
   return await response.json();
 }
 </code></pre>
-<h4 id="lister-la-galerie-dimages"><strong>Lister la galerie d’images</strong></h4>
-<pre><code class="language-javascript">// GET /image-gallery
+<pre><code class="language-dart">// Flutter example
+import 'package:http/http.dart' as http;
+
+Future&lt;Map&lt;String, dynamic&gt;&gt; uploadImage(String token, String filePath) async {
+  var request = http.MultipartRequest(
+    'POST',
+    Uri.parse('https://admin.devaito.com/api/save-image'),
+  );
+  request.headers['Authorization'] = 'Bearer $token';
+  request.files.add(await http.MultipartFile.fromPath('file', filePath));
+  final response = await request.send();
+  final respStr = await response.stream.bytesToString();
+  return jsonDecode(respStr);
+}
+</code></pre>
+<h4 id="list-image-gallery"><strong>List Image Gallery</strong></h4>
+<pre><code class="language-javascript">// React example
 const getImageGallery = async (page = 1) =&gt; {
-  const response = await fetch(`https://admin.devaito.com/api/image-gallery?page=${page}`);
+  const token = localStorage.getItem('authToken');
+  const response = await fetch(`https://admin.devaito.com/api/image-gallery?page=${page}`, {
+    headers: { 'Authorization': `Bearer ${token}` }
+  });
   return await response.json();
+}
+</code></pre>
+<pre><code class="language-dart">// Flutter example
+Future&lt;Map&lt;String, dynamic&gt;&gt; getImageGallery(String token, int page) async {
+  final response = await http.get(
+    Uri.parse('https://admin.devaito.com/api/image-gallery?page=$page'),
+    headers: { 'Authorization': 'Bearer $token' },
+  );
+  return jsonDecode(response.body);
 }
 </code></pre>
 <hr />
 <h3 id="11-store-settings-api">11. <strong>Store Settings API</strong></h3>
-<pre><code class="language-javascript">// GET /fonts-and-colors
+<pre><code class="language-javascript">// React example
 const getFontsAndColors = async () =&gt; {
   const token = localStorage.getItem('authToken');
   const response = await fetch('https://admin.devaito.com/api/fonts-and-colors', {
@@ -401,9 +608,18 @@ const getFontsAndColors = async () =&gt; {
   return await response.json();
 }
 </code></pre>
+<pre><code class="language-dart">// Flutter example
+Future&lt;Map&lt;String, dynamic&gt;&gt; getFontsAndColors(String token) async {
+  final response = await http.get(
+    Uri.parse('https://admin.devaito.com/api/fonts-and-colors'),
+    headers: { 'Authorization': 'Bearer $token' },
+  );
+  return jsonDecode(response.body);
+}
+</code></pre>
 <hr />
 <h3 id="12-content-generator-api">12. <strong>Content Generator API</strong></h3>
-<pre><code class="language-javascript">// POST /content-generator
+<pre><code class="language-javascript">// React example
 const generateContent = async (message) =&gt; {
   const token = localStorage.getItem('authToken');
   const response = await fetch('https://admin.devaito.com/api/content-generator', {
@@ -417,21 +633,34 @@ const generateContent = async (message) =&gt; {
   return await response.json();
 }
 </code></pre>
+<pre><code class="language-dart">// Flutter example
+Future&lt;Map&lt;String, dynamic&gt;&gt; generateContent(String token, String message) async {
+  final response = await http.post(
+    Uri.parse('https://admin.devaito.com/api/content-generator'),
+    headers: {
+      'Authorization': 'Bearer $token',
+      'Content-Type': 'application/json'
+    },
+    body: jsonEncode({ 'message': message }),
+  );
+  return jsonDecode(response.body);
+}
+</code></pre>
 <hr />
-<h2 id="bonnes-pratiques">Bonnes Pratiques</h2>
+<h2 id="best-practices">Best Practices</h2>
 <ul>
-<li>Toujours utiliser HTTPS en production</li>
-<li>Stocker les tokens de manière sécurisée</li>
-<li>Implémenter un refresh automatique des tokens</li>
-<li>Mettre en cache les données statiques (catégories, templates…)</li>
-<li>Gérer les erreurs (401 → reconnecter l’utilisateur, 404 → message clair)</li>
+<li>Always use HTTPS in production</li>
+<li>Store tokens securely</li>
+<li>Implement automatic token refresh</li>
+<li>Cache static data (categories, templates, etc.)</li>
+<li>Handle errors (401 → reconnect user, 404 → clear message)</li>
 </ul>
 <hr />
-<h2 id="debogage">Débogage</h2>
+<h2 id="debugging">Debugging</h2>
 <ul>
-<li>Utilisez Postman/Insomnia pour tester les endpoints</li>
-<li>Activez les DevTools réseau du navigateur</li>
-<li>Logger toutes les requêtes/réponses côté client</li>
+<li>Use Postman/Insomnia to test endpoints</li>
+<li>Enable browser network DevTools</li>
+<li>Log all requests/responses on the client side</li>
 </ul>
 <pre><code class="language-javascript">const originalFetch = window.fetch;
 window.fetch = async (...args) =&gt; {
@@ -446,7 +675,7 @@ window.fetch = async (...args) =&gt; {
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
         <a href="../list/" class="btn btn-neutral float-left" title="API List & Descriptions"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../keys/" class="btn btn-neutral float-right" title="API Keys & Permissions">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../code-management/upload/" class="btn btn-neutral float-right" title="Upload Methods">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -472,7 +701,7 @@ window.fetch = async (...args) =&gt; {
       <span><a href="../list/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../keys/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../../code-management/upload/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
