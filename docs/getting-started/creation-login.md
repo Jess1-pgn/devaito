@@ -1,21 +1,20 @@
-# Création / Connexion
+# Account Creation / Login
 
 ## Introduction
-Bienvenue dans la section de création de compte et de connexion de Devaito. Cette partie vous guide à travers les étapes nécessaires pour accéder à la plateforme, que vous soyez un nouvel utilisateur ou un utilisateur existant.
+Welcome to the account creation and login section for Devaito. This part guides you through the steps needed to access the platform, whether you are a new or existing user.
 
-## Création d'un Compte
-1. **Accéder à la page d'inscription** : Rendez-vous sur la page d'accueil de Devaito et cliquez sur le bouton "Créer un compte".
-2. **Remplir le formulaire** :
-   - Entrez votre adresse e-mail.
-   - Choisissez un mot de passe sécurisé.
-   - Fournissez votre nom complet ou un pseudonyme.
-3. **Vérification** : Un e-mail de vérification vous sera envoyé. Cliquez sur le lien fourni pour activer votre compte.
-4. **Compléter le profil** : Après activation, complétez votre profil avec des informations supplémentaires (optionnel) pour personnaliser votre expérience.
+## Creating an Account
+1. **Go to the registration page**: Visit the Devaito homepage and click the "Create Account" button.
+2. **Fill out the form**:
+   - Enter your email address.
+   - Choose a secure password.
+   - Provide your full name or a username.
+3. **Verification**: A verification email will be sent to you. Click the link provided to activate your account.
+4. **Complete your profile**: After activation, you can complete your profile with additional information (optional) to personalize your experience.
 
+## Tips
+- Make sure to use a valid email address for verification.
+- Keep your login credentials in a secure place.
+- If you encounter any issues, check the FAQ section or contact support.
 
-## Conseils
-- Assurez-vous d'utiliser une adresse e-mail valide pour la vérification.
-- Conservez vos identifiants dans un endroit sécurisé.
-- En cas de problème, consultez la section FAQ ou contactez le support.
-
-Pour plus d'informations, explorez les autres sections de ce guide.
+For more information, explore the other sections of this guide.

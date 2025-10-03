@@ -1,28 +1,28 @@
-# Suppression / Archivage d'une Application
+# Deleting / Archiving an Application
 
 ## Introduction
-Cette section vous guide sur la manière de supprimer ou d’archiver une application sur Devaito, en veillant à ce que ces actions soient effectuées de façon sécurisée et réversible lorsque possible.
+This section guides you on how to delete or archive an application on Devaito, ensuring these actions are performed securely and, when possible, reversibly.
 
-## Étapes pour Archiver
-1. **Accéder aux Paramètres** : Ouvrez la carte de l’application et cliquez sur les options de gestion (ex. menu déroulant "...").
-2. **Sélectionner Archivage** : Choisissez "Archiver" pour mettre l’application en pause sans perte de données.
-3. **Confirmation** : Confirmez l’action ; l’application passera au statut "Archivée".
-4. **Restauration** : Pour restaurer, recherchez l’application archivée et sélectionnez "Restaurer".
+## Steps to Archive
+1. **Access Settings**: Open the application card and click on the management options (e.g., dropdown menu "...").
+2. **Select Archive**: Choose "Archive" to pause the application without losing any data.
+3. **Confirmation**: Confirm the action; the application will change to "Archived" status.
+4. **Restoration**: To restore, find the archived application and select "Restore".
 
-## Étapes pour Supprimer
-1. **Accéder aux Paramètres** : Même procédure que pour l’archivage.
-2. **Sélectionner Suppression** : Choisissez "Supprimer" pour une suppression définitive.
-3. **Confirmation** : Entrez une confirmation (ex. nom de l’application) pour éviter les erreurs.
-4. **Effet Immédiat** : L’application sera retirée de votre tableau de bord et les données associées seront effacées.
+## Steps to Delete
+1. **Access Settings**: Same procedure as for archiving.
+2. **Select Delete**: Choose "Delete" for permanent removal.
+3. **Confirmation**: Enter a confirmation (e.g., the application name) to prevent mistakes.
+4. **Immediate Effect**: The application will be removed from your dashboard and all associated data will be erased.
 
-## Points Importants
-- **Archivage vs Suppression** : L’archivage est réversible, idéal pour des projets temporaires ; la suppression est permanente.
-- **Impact sur les Collaborateurs** : Les collaborateurs perdront l’accès lors d’une suppression ou archivage.
-- **Données** : Assurez-vous de sauvegarder les données critiques avant toute action.
+## Important Points
+- **Archiving vs Deletion**: Archiving is reversible and ideal for temporary projects; deletion is permanent.
+- **Impact on Collaborators**: Collaborators will lose access when an application is deleted or archived.
+- **Data**: Make sure to back up critical data before taking any action.
 
-## Conseils
-- Utilisez l’archivage pour conserver des projets inactifs sans encombrer votre tableau de bord.
-- Vérifiez deux fois avant de supprimer pour éviter les pertes accidentelles.
-- Consultez la section "Gestion des Versions et Historique" pour des options de backup.
+## Tips
+- Use archiving to keep inactive projects without cluttering your dashboard.
+- Double-check before deleting to avoid accidental data loss.
+- See the "Version Management and History" section for backup options.
 
-Pour plus d’informations, explorez les autres sections de ce guide.
+For more information, explore the other sections of this guide.

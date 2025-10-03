@@ -103,8 +103,6 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#14-content-generator-api">14. Content Generator API</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#formats-de-reponse">Formats de Réponse</a>
-    </li>
     </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../usage/">API Usage</a>
@@ -170,157 +168,149 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="liste-des-apis-accessibles-et-leur-description">Liste des APIs Accessibles et leur Description</h1>
+                <h1 id="list-of-available-apis-and-their-description">List of Available APIs and Their Description</h1>
 <h2 id="introduction">Introduction</h2>
-<p>Cette section fournit une liste détaillée des APIs disponibles sur Devaito (version SaaS multi-tenant). Chaque API couvre des fonctionnalités de gestion de contenus, e-commerce, social media et personnalisation.  </p>
-<p><strong>Serveur principal</strong> : <code>https://admin.devaito.com/api</code>  </p>
+<p>This section provides a detailed list of the APIs available on Devaito (SaaS multi-tenant version). Each API covers features for content management, e-commerce, social media, and customization.</p>
+<p><strong>Main server</strong>: <code>https://admin.devaito.com/api</code></p>
 <hr />
 <h2 id="1-authentication-api">1. <strong>Authentication API</strong></h2>
 <ul>
-<li><strong>Description</strong> : Gère l’authentification et la gestion de session des utilisateurs.  </li>
-<li><strong>Endpoints</strong> :  </li>
-<li><code>/login</code> → Connexion utilisateur  </li>
-<li><code>/logout</code> → Déconnexion  </li>
-<li><strong>Utilisation</strong> : Sécurise l’accès et génère un token Bearer pour toutes les opérations authentifiées.  </li>
+<li><strong>Description</strong>: Manages user authentication and session handling.</li>
+<li><strong>Endpoints</strong>:</li>
+<li><code>/login</code> → User login</li>
+<li><code>/logout</code> → User logout</li>
+<li><strong>Usage</strong>: Secures access and generates a Bearer token for all authenticated operations.</li>
 </ul>
 <hr />
 <h2 id="2-user-api">2. <strong>User API</strong></h2>
 <ul>
-<li><strong>Description</strong> : Récupère les informations de l’utilisateur et de son store.  </li>
-<li><strong>Endpoint</strong> : <code>/user</code>  </li>
-<li><strong>Utilisation</strong> : Obtenir le profil, avatar, type de site (ecommerce, vitrine, etc.).  </li>
+<li><strong>Description</strong>: Retrieves user and store information.</li>
+<li><strong>Endpoint</strong>: <code>/user</code></li>
+<li><strong>Usage</strong> : Obtenir le profil, avatar, type de site (ecommerce, vitrine, etc.).</li>
 </ul>
 <hr />
 <h2 id="3-products-api">3. <strong>Products API</strong></h2>
 <ul>
-<li><strong>Description</strong> : Gestion et récupération du catalogue produits.  </li>
-<li><strong>Endpoints</strong> :  </li>
-<li><code>/fetch-all-products</code> → Liste paginée des produits  </li>
-<li><code>/get-product/{slug}</code> → Détails d’un produit via slug  </li>
-<li><code>/popular-products</code> → Produits les plus commandés  </li>
-<li><strong>Utilisation</strong> : Afficher produits, images, prix, promotions.  </li>
+<li><strong>Description</strong>: Manages products and product details.</li>
+<li><strong>Endpoints</strong>:</li>
+<li><code>/fetch-all-products</code> → Get all products</li>
+<li><code>/get-product/{slug}</code> → Get product details by slug</li>
+<li><code>/popular-products</code> → Get popular products</li>
+<li><strong>Utilisation</strong> : Afficher produits, images, prix, promotions.</li>
 </ul>
 <hr />
 <h2 id="4-orders-api">4. <strong>Orders API</strong></h2>
 <ul>
-<li><strong>Description</strong> : Récupération des commandes.  </li>
-<li><strong>Endpoint</strong> : <code>/get-all-orders</code>  </li>
-<li><strong>Utilisation</strong> : Suivi des commandes en livraison.  </li>
+<li><strong>Description</strong>: Handles order management.</li>
+<li><strong>Endpoint</strong>: <code>/get-all-orders</code></li>
+<li><strong>Utilisation</strong> : Suivi des commandes en livraison.</li>
 </ul>
 <hr />
 <h2 id="5-categories-api">5. <strong>Categories API</strong></h2>
 <ul>
-<li><strong>Description</strong> : Organisation et gestion des catégories de produits.  </li>
-<li><strong>Endpoints</strong> :  </li>
-<li><code>/categories</code> (CRUD : GET, POST, PUT, DELETE)  </li>
-<li><code>/categories/{id}</code> → Détails, mise à jour, suppression  </li>
-<li><code>/fetch-categories</code> → Liste des catégories avec images &amp; slug  </li>
-<li><code>/fetch-categories-product/{permalink}</code> → Produits par catégorie  </li>
-<li><strong>Utilisation</strong> : Filtrage et navigation produit.  </li>
+<li><strong>Description</strong>: Manages product categories.</li>
+<li><strong>Endpoints</strong>:</li>
+<li><code>/categories</code> (GET, POST, PUT, DELETE)</li>
+<li><code>/categories/{id}</code></li>
+<li><code>/fetch-categories</code></li>
+<li><code>/fetch-categories-product/{permalink}</code></li>
+<li><strong>Utilisation</strong> : Filtrage et navigation produit.</li>
 </ul>
 <hr />
 <h2 id="6-campaigns-api">6. <strong>Campaigns API</strong></h2>
 <ul>
-<li><strong>Description</strong> : Gestion des campagnes marketing.  </li>
-<li><strong>Endpoints</strong> :  </li>
-<li><code>/campaigns</code> (GET, POST)  </li>
-<li><code>/campaigns/{id}</code> (GET, PUT, DELETE)  </li>
-<li><strong>Utilisation</strong> : Créer, planifier et gérer des campagnes.  </li>
+<li><strong>Description</strong>: Manages marketing campaigns.</li>
+<li><strong>Endpoints</strong>:</li>
+<li><code>/campaigns</code> (GET, POST)</li>
+<li><code>/campaigns/{id}</code> (GET, PUT, DELETE)</li>
+<li><strong>Utilisation</strong> : Créer, planifier et gérer des campagnes.</li>
 </ul>
 <hr />
 <h2 id="7-posts-api">7. <strong>Posts API</strong></h2>
 <ul>
-<li><strong>Description</strong> : Gestion des posts internes.  </li>
-<li><strong>Endpoints</strong> :  </li>
-<li><code>/posts</code> (GET, POST) → Liste ou création de posts  </li>
-<li><code>/posts/{id}</code> (GET, PUT, DELETE) → Détails ou modification  </li>
-<li><code>/posts/{id}/{job_id}</code> → Mise à jour du job lié à un post  </li>
-<li><strong>Utilisation</strong> : Publier et gérer du contenu lié au store.  </li>
+<li><strong>Description</strong>: Handles posts and job-related actions.</li>
+<li><strong>Endpoints</strong>:</li>
+<li><code>/posts</code> (GET, POST)</li>
+<li><code>/posts/{id}</code> (GET, PUT, DELETE)</li>
+<li><code>/posts/{id}/{job_id}</code></li>
+<li><strong>Utilisation</strong> : Publier et gérer du contenu lié au store.</li>
 </ul>
 <hr />
 <h2 id="8-social-media-apis">8. <strong>Social Media APIs</strong></h2>
-<h3 id="a-facebook-api">a. <strong>Facebook API</strong></h3>
+<h3 id="a-facebook-api">a. Facebook API</h3>
 <ul>
-<li><strong>Endpoints</strong> :  </li>
-<li><code>/facebook/pages</code> → Récupérer pages connectées  </li>
-<li><code>/facebook/publish-post</code> → Publier immédiatement un post  </li>
-<li><code>/facebook/publish-post-job</code> → Planifier un post (job)  </li>
-<li><strong>Utilisation</strong> : Intégration avec les pages Facebook de l’utilisateur.  </li>
+<li><strong>Endpoints</strong>:</li>
+<li><code>/facebook/pages</code></li>
+<li><code>/facebook/publish-post</code></li>
+<li><code>/facebook/publish-post-job</code></li>
+<li><strong>Utilisation</strong> : Intégration avec les pages Facebook de l’utilisateur.</li>
 </ul>
-<h3 id="b-instagram-api">b. <strong>Instagram API</strong></h3>
+<h3 id="b-instagram-api">b. Instagram API</h3>
 <ul>
-<li><strong>Endpoints</strong> :  </li>
-<li><code>/instagram/publish-post</code> → Publier immédiatement un post  </li>
-<li><code>/instagram/publish-post-job</code> → Planifier un post (job)  </li>
-<li><strong>Utilisation</strong> : Poster du contenu sur Instagram via pages liées à Facebook.  </li>
+<li><strong>Endpoints</strong>:</li>
+<li><code>/instagram/publish-post</code></li>
+<li><code>/instagram/publish-post-job</code></li>
+<li><strong>Utilisation</strong> : Poster du contenu sur Instagram via pages liées à Facebook.</li>
 </ul>
-<h3 id="c-platform-connections-api">c. <strong>Platform Connections API</strong></h3>
+<h3 id="c-platform-connections-api">c. Platform Connections API</h3>
 <ul>
-<li><strong>Endpoint</strong> : <code>/platform-connections</code>  </li>
-<li><strong>Utilisation</strong> : Voir les comptes sociaux connectés.  </li>
+<li><strong>Endpoint</strong>: <code>/platform-connections</code></li>
+<li><strong>Utilisation</strong> : Voir les comptes sociaux connectés.</li>
 </ul>
 <hr />
 <h2 id="9-templates-api">9. <strong>Templates API</strong></h2>
 <ul>
-<li><strong>Description</strong> : CRUD des templates de design.  </li>
-<li><strong>Endpoints</strong> :  </li>
-<li><code>/templates</code> (GET, POST)  </li>
-<li><code>/templates/{id}</code> (GET, PUT, DELETE)  </li>
-<li><strong>Utilisation</strong> : Créer et réutiliser des modèles pour publications.  </li>
+<li><strong>Description</strong>: Manages templates for apps and sites.</li>
+<li><strong>Endpoints</strong>:</li>
+<li><code>/templates</code> (GET, POST)</li>
+<li><code>/templates/{id}</code> (GET, PUT, DELETE)</li>
+<li><strong>Utilisation</strong> : Créer et réutiliser des modèles pour publications.</li>
 </ul>
 <hr />
 <h2 id="10-platforms-api">10. <strong>Platforms API</strong></h2>
 <ul>
-<li><strong>Description</strong> : Gestion des plateformes disponibles.  </li>
-<li><strong>Endpoints</strong> :  </li>
-<li><code>/platforms</code> (GET, POST)  </li>
-<li><code>/platforms/{id}</code> (GET, PUT, DELETE)  </li>
-<li><strong>Utilisation</strong> : Définir les plateformes sociales ou de publication.  </li>
+<li><strong>Description</strong>: Manages platforms and integrations.</li>
+<li><strong>Endpoints</strong>:</li>
+<li><code>/platforms</code> (GET, POST)</li>
+<li><code>/platforms/{id}</code> (GET, PUT, DELETE)</li>
+<li><strong>Utilisation</strong> : Définir les plateformes sociales ou de publication.</li>
 </ul>
 <hr />
 <h2 id="11-resolutions-api">11. <strong>Resolutions API</strong></h2>
 <ul>
-<li><strong>Description</strong> : Gestion des tailles &amp; résolutions liées aux plateformes.  </li>
-<li><strong>Endpoints</strong> :  </li>
-<li><code>/resolutions</code> (GET, POST)  </li>
-<li><code>/resolutions/{id}</code> (GET, PUT, DELETE)  </li>
-<li><strong>Utilisation</strong> : Définir formats d’images/vidéos adaptés aux plateformes.  </li>
+<li><strong>Description</strong>: Handles image/video resolutions.</li>
+<li><strong>Endpoints</strong>:</li>
+<li><code>/resolutions</code> (GET, POST)</li>
+<li><code>/resolutions/{id}</code> (GET, PUT, DELETE)</li>
+<li><strong>Utilisation</strong> : Définir formats d’images/vidéos adaptés aux plateformes.</li>
 </ul>
 <hr />
 <h2 id="12-gallery-media-apis">12. <strong>Gallery &amp; Media APIs</strong></h2>
 <ul>
-<li><strong>Description</strong> : Gestion des images et vidéos du store.  </li>
-<li><strong>Endpoints</strong> :  </li>
-<li><code>/gallery-store</code> → Tous les médias liés au store  </li>
-<li><code>/image-gallery</code> → Galerie d’images (paginée)  </li>
-<li><code>/video-gallery</code> → Galerie vidéos (paginée)  </li>
-<li><code>/save-image</code> → Upload image  </li>
-<li><code>/save-video</code> → Upload vidéo  </li>
-<li><strong>Utilisation</strong> : Centraliser les médias du store.  </li>
+<li><strong>Description</strong>: Manages media files and galleries.</li>
+<li><strong>Endpoints</strong>:</li>
+<li><code>/gallery-store</code></li>
+<li><code>/image-gallery</code></li>
+<li><code>/video-gallery</code></li>
+<li><code>/save-image</code></li>
+<li><code>/save-video</code></li>
+<li><strong>Utilisation</strong> : Centraliser les médias du store.</li>
 </ul>
 <hr />
 <h2 id="13-store-settings-apis">13. <strong>Store Settings APIs</strong></h2>
 <ul>
-<li><strong>Description</strong> : Personnalisation du store.  </li>
-<li><strong>Endpoints</strong> :  </li>
-<li><code>/get-store-prompt</code> → Récupérer le prompt (description du store)  </li>
-<li><code>/get-store-language</code> → Langue du store  </li>
-<li><code>/fonts-and-colors</code> → Polices &amp; couleurs configurées  </li>
-<li><strong>Utilisation</strong> : Branding et customisation du site.  </li>
+<li><strong>Description</strong>: Manages store configuration and appearance.</li>
+<li><strong>Endpoints</strong>:</li>
+<li><code>/get-store-prompt</code></li>
+<li><code>/get-store-language</code></li>
+<li><code>/fonts-and-colors</code></li>
+<li><strong>Utilisation</strong> : Branding et customisation du site.</li>
 </ul>
 <hr />
 <h2 id="14-content-generator-api">14. <strong>Content Generator API</strong></h2>
 <ul>
-<li><strong>Description</strong> : Génération de contenu via IA (ChatGPT).  </li>
-<li><strong>Endpoint</strong> : <code>/content-generator</code>  </li>
-<li><strong>Utilisation</strong> : Générer titres, descriptions, textes marketing.  </li>
-</ul>
-<hr />
-<h2 id="formats-de-reponse">Formats de Réponse</h2>
-<ul>
-<li><strong>Format</strong> : JSON  </li>
-<li><strong>Codes statut</strong> : <code>200</code>, <code>201</code>, <code>400</code>, <code>401</code>, <code>404</code>, <code>500</code>  </li>
-<li><strong>Auth requise</strong> : Bearer Token (<code>Authorization: Bearer xxx</code>) pour la majorité des endpoints.  </li>
+<li><strong>Description</strong>: Generates content using AI.</li>
+<li><strong>Endpoint</strong>: <code>/content-generator</code></li>
 </ul>
               
             </div>
