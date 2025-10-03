@@ -2,8 +2,9 @@ site_name: Devaito v2.0 Developer Guide
 theme:
   name: material
   palette:
-    primary: blue
-    accent: blue
+    scheme: default
+    primary: '#472af2'
+    accent: '#472af2'
 nav:
   - Home / Introduction: index.md
   - Getting Started: 

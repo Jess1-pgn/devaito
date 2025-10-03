@@ -105,11 +105,118 @@ This guide is made for **complete beginners**. Even if you **have never coded be
 
 ---
 
-## 🆘 FAQ & Tips
+## 🌐 4. Create a **Vue.js** Web App (with Vite)
 
-- **Can’t find the terminal?** On Windows, search for “Command Prompt” or “Terminal” in the Start menu.
-- **A command doesn’t work?** Check that the tools are installed, restart the terminal, or reboot your computer.
-- **Need help?** Search on Google or ask on [Stack Overflow](https://stackoverflow.com/).
+> **Vue.js** is a progressive JavaScript framework for building user interfaces.
+
+1. Open your terminal  
+2. Run:
+   ```
+   npm create vite@latest my-vue-app -- --template vue
+   cd my-vue-app
+   npm install
+   npm run dev
+   ```
+3. Open the link shown in the terminal (e.g., http://localhost:5173) in your browser
+
+---
+
+## 🌐 5. Create an **Angular** Web App
+
+> **Angular** is a popular framework for building web applications.
+
+1. Open your terminal  
+2. Run:
+   ```
+   npm install -g @angular/cli
+   ng new my-angular-app
+   cd my-angular-app
+   ng serve
+   ```
+3. Open the link shown in the terminal (e.g., http://localhost:4200) in your browser
+
+---
+
+## 🧩 6. Create a Devaito Plugin Project
+
+A plugin is a small app or module that adds new features to Devaito (for example: analytics, chat, payment, or custom integrations).  
+To start building a plugin, you usually create a project in your favorite framework (React, Vue, Angular, etc.) and use the Devaito APIs.
+
+**General steps:**
+
+1. Choose your framework (React, Vue, Angular, etc.)
+2. Follow the quick start instructions above to create your project
+3. Use the [Devaito API documentation](../api-management/usage.md) to connect your plugin to Devaito
+4. Add your custom logic and UI
+5. Test your plugin locally
+6. Prepare for publishing on the Devaito App Store
+
+> For a full example, see the [API usage guide](../api-management/usage.md) for code samples in each framework.
+
+---
+
+## 💎 7. Create a Ruby Application
+
+> **Ruby** is a dynamic programming language often used for web development (for example, with Ruby on Rails).
+
+1. Open your terminal  
+2. Run:
+   ```
+   gem install rails
+   rails new my-ruby-app
+   cd my-ruby-app
+   rails server
+   ```
+3. Open the link shown in the terminal (e.g., http://localhost:3000) in your browser
+
+> **Tip:** If you get an error, make sure Ruby and Rails are installed.  
+> You can download Ruby from [ruby-lang.org](https://www.ruby-lang.org/en/downloads/) and follow the official installation guide.
+
+---
+
+## ⚡ 8. Create a Next.js Web App
+
+> **Next.js** is a powerful React framework for building fast, modern web applications.
+
+1. Open your terminal  
+2. Run:
+   ```
+   npx create-next-app@latest my-next-app
+   cd my-next-app
+   npm run dev
+   ```
+3. Open the link shown in the terminal (e.g., http://localhost:3000) in your browser
+
+---
+
+## 🐘 9. Create a PHP Application
+
+> **PHP** is a widely-used scripting language for web development.  
+> You can use frameworks like Laravel or start with plain PHP.
+
+**Laravel example:**
+
+1. Open your terminal  
+2. Run:
+   ```
+   composer create-project laravel/laravel my-php-app
+   cd my-php-app
+   php artisan serve
+   ```
+3. Open the link shown in the terminal (e.g., http://localhost:8000) in your browser
+
+**Plain PHP example:**
+
+1. Create a folder (e.g., `my-php-app`)
+2. Add a file named `index.php` with:
+   ```php
+   <?php echo "Hello, Devaito!"; ?>
+   ```
+3. Start a local server (if you have PHP installed):
+   ```
+   php -S localhost:8000
+   ```
+4. Open [http://localhost:8000](http://localhost:8000) in your browser
 
 ---
 
@@ -120,6 +227,11 @@ This guide is made for **complete beginners**. Even if you **have never coded be
 | Flutter               | `flutter create my_flutter_app`                         |
 | React Web (Vite)      | `npm create vite@latest my-react-app -- --template react`|
 | React Native (Expo)   | `expo init my-expo-app`                                 |
+| Vue.js Web (Vite)     | `npm create vite@latest my-vue-app -- --template vue`   |
+| Angular Web           | `ng new my-angular-app`                                 |
+| Ruby on Rails         | `rails new my-ruby-app`                                 |
+| Next.js Web           | `npx create-next-app@latest my-next-app`                |
+| Laravel (PHP)         | `composer create-project laravel/laravel my-php-app`    |
 
 ---
 
