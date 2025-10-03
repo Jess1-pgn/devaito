@@ -57,13 +57,18 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#472af2" data-md-color-accent="#472af2">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#uiux-integration-best-practices-for-devaito-plugins-apps" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -1001,6 +1006,110 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#uiux-integration-best-practices-for-devaito-plugins-apps" class="md-nav__link">
+    <span class="md-ellipsis">
+      UI/UX Integration Best Practices for Devaito Plugins &amp; Apps
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="UI/UX Integration Best Practices for Devaito Plugins &amp; Apps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-consistent-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Consistent Design
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-navigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Navigation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-responsive-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Responsive Layout
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-clear-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Clear Actions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-feedback-loading-states" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Feedback &amp; Loading States
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-accessibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Accessibility
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-minimal-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Minimal Permissions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-integration-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Integration Points
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Testing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1017,7 +1126,57 @@
 
   <h1>Best practices</h1>
 
-
+<h2 id="uiux-integration-best-practices-for-devaito-plugins-apps">UI/UX Integration Best Practices for Devaito Plugins &amp; Apps</h2>
+<p>When building a plugin or app for Devaito, it's important to ensure a seamless and intuitive user experience within the Devaito interface (admin panel, widgets, etc.). Here are some best practices:</p>
+<h3 id="1-consistent-design">1. <strong>Consistent Design</strong></h3>
+<ul>
+<li>Match the look and feel of Devaito’s admin panel (colors, fonts, spacing).</li>
+<li>Use Devaito’s design tokens or style guide if available.</li>
+</ul>
+<h3 id="2-navigation">2. <strong>Navigation</strong></h3>
+<ul>
+<li>Integrate your plugin into the existing navigation (sidebar, top bar, or widget area).</li>
+<li>Avoid creating confusing or duplicate navigation elements.</li>
+</ul>
+<h3 id="3-responsive-layout">3. <strong>Responsive Layout</strong></h3>
+<ul>
+<li>Make sure your plugin works well on all screen sizes (desktop, tablet, mobile).</li>
+<li>Use flexible grids and avoid fixed widths.</li>
+</ul>
+<h3 id="4-clear-actions">4. <strong>Clear Actions</strong></h3>
+<ul>
+<li>Use clear, descriptive labels for buttons and actions.</li>
+<li>Group related actions together and avoid clutter.</li>
+</ul>
+<h3 id="5-feedback-loading-states">5. <strong>Feedback &amp; Loading States</strong></h3>
+<ul>
+<li>Show loading indicators when fetching data.</li>
+<li>Display success and error messages for user actions.</li>
+</ul>
+<h3 id="6-accessibility">6. <strong>Accessibility</strong></h3>
+<ul>
+<li>Use semantic HTML and ARIA attributes.</li>
+<li>Ensure keyboard navigation and screen reader compatibility.</li>
+</ul>
+<h3 id="7-minimal-permissions">7. <strong>Minimal Permissions</strong></h3>
+<ul>
+<li>Request only the permissions your plugin needs.</li>
+<li>Clearly explain to users why each permission is required.</li>
+</ul>
+<h3 id="8-integration-points">8. <strong>Integration Points</strong></h3>
+<ul>
+<li>If Devaito provides extension points (widgets, modals, notifications), use them to embed your plugin natively.</li>
+<li>Avoid opening external windows unless necessary.</li>
+</ul>
+<h3 id="9-testing">9. <strong>Testing</strong></h3>
+<ul>
+<li>Test your plugin in the Devaito admin panel before publishing.</li>
+<li>Get feedback from real users and iterate on the design.</li>
+</ul>
+<hr />
+<p><strong>Tip:</strong><br />
+A well-integrated plugin feels like a natural part of Devaito, not a separate tool.<br />
+Follow these best practices to maximize adoption and user satisfaction.</p>
 
 
 
