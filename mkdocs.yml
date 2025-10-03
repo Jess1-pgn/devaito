@@ -1,8 +1,9 @@
 site_name: Devaito v2.0 Developer Guide
 theme:
-  name: readthedocs
+  name: material
   palette:
-    primary: indigo
+    primary: blue
+    accent: blue
 nav:
   - Home / Introduction: index.md
   - Getting Started: 
