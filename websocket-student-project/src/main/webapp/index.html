@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student WebSocket Client</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        .status {
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .status.connected {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        
+        .status.disconnected {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        
+        input[type="text"],
+        input[type="number"],
+        input[type="date"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        button {
+            background-color: #472af2;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        
+        button:hover {
+            background-color: #3a22c2;
+        }
+        
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        
+        #students-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        #students-table th,
+        #students-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        #students-table th {
+            background-color: #472af2;
+            color: white;
+        }
+        
+        #students-table tr:hover {
+            background-color: #f5f5f5;
+        }
+        
+        #messages {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 4px;
+            max-height: 200px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        
+        .message {
+            padding: 5px;
+            margin-bottom: 5px;
+            border-left: 3px solid #472af2;
+            padding-left: 10px;
+        }
+        
+        .action-buttons button {
+            padding: 5px 10px;
+            font-size: 12px;
+        }
+        
+        .delete-btn {
+            background-color: #dc3545;
+        }
+        
+        .delete-btn:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎓 Student Management - WebSocket Client</h1>
+    
+    <div class="container">
+        <div id="status" class="status disconnected">Déconnecté</div>
+        <button id="connectBtn" onclick="connect()">Se connecter</button>
+        <button id="disconnectBtn" onclick="disconnect()" disabled>Se déconnecter</button>
+    </div>
+    
+    <div class="container">
+        <h2>Ajouter un étudiant</h2>
+        <div class="form-group">
+            <label for="firstName">Prénom:</label>
+            <input type="text" id="firstName" placeholder="Entrez le prénom">
+        </div>
+        <div class="form-group">
+            <label for="lastName">Nom:</label>
+            <input type="text" id="lastName" placeholder="Entrez le nom">
+        </div>
+        <div class="form-group">
+            <label for="birthDate">Date de naissance:</label>
+            <input type="date" id="birthDate">
+        </div>
+        <button onclick="addStudent()" id="addBtn" disabled>Ajouter l'étudiant</button>
+    </div>
+    
+    <div class="container">
+        <h2>Liste des étudiants</h2>
+        <button onclick="getAllStudents()" id="refreshBtn" disabled>Actualiser la liste</button>
+        <table id="students-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Prénom</th>
+                    <th>Nom</th>
+                    <th>Date de naissance</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="students-body">
+                <tr>
+                    <td colspan="5" style="text-align: center;">Aucun étudiant chargé</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="container">
+        <h2>Messages WebSocket</h2>
+        <div id="messages"></div>
+    </div>
+
+    <script>
+        let websocket = null;
+        
+        function connect() {
+            // Adapter l'URL selon votre configuration
+            // Pour un serveur local sur Tomcat: ws://localhost:8080/websocket-student-project/studentWebSocket
+            const wsUrl = "ws://localhost:8080/websocket-student-project/studentWebSocket";
+            
+            websocket = new WebSocket(wsUrl);
+            
+            websocket.onopen = function(event) {
+                updateStatus(true);
+                addMessage("✅ Connexion établie avec le serveur WebSocket");
+                document.getElementById("connectBtn").disabled = true;
+                document.getElementById("disconnectBtn").disabled = false;
+                document.getElementById("addBtn").disabled = false;
+                document.getElementById("refreshBtn").disabled = false;
+            };
+            
+            websocket.onmessage = function(event) {
+                addMessage("📨 Message reçu: " + event.data);
+                handleMessage(event.data);
+            };
+            
+            websocket.onerror = function(event) {
+                addMessage("❌ Erreur WebSocket");
+                console.error("WebSocket error:", event);
+            };
+            
+            websocket.onclose = function(event) {
+                updateStatus(false);
+                addMessage("🔌 Connexion fermée");
+                document.getElementById("connectBtn").disabled = false;
+                document.getElementById("disconnectBtn").disabled = true;
+                document.getElementById("addBtn").disabled = true;
+                document.getElementById("refreshBtn").disabled = true;
+            };
+        }
+        
+        function disconnect() {
+            if (websocket) {
+                websocket.close();
+                websocket = null;
+            }
+        }
+        
+        function updateStatus(connected) {
+            const statusDiv = document.getElementById("status");
+            if (connected) {
+                statusDiv.className = "status connected";
+                statusDiv.textContent = "Connecté";
+            } else {
+                statusDiv.className = "status disconnected";
+                statusDiv.textContent = "Déconnecté";
+            }
+        }
+        
+        function addMessage(message) {
+            const messagesDiv = document.getElementById("messages");
+            const messageDiv = document.createElement("div");
+            messageDiv.className = "message";
+            messageDiv.textContent = new Date().toLocaleTimeString() + " - " + message;
+            messagesDiv.appendChild(messageDiv);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+        
+        function sendMessage(message) {
+            if (websocket && websocket.readyState === WebSocket.OPEN) {
+                websocket.send(JSON.stringify(message));
+                addMessage("📤 Message envoyé: " + JSON.stringify(message));
+            } else {
+                addMessage("❌ WebSocket non connecté");
+            }
+        }
+        
+        function handleMessage(data) {
+            try {
+                const response = JSON.parse(data);
+                
+                if (response.type === "students") {
+                    const students = JSON.parse(response.data);
+                    displayStudents(students);
+                } else if (response.type === "success") {
+                    alert(response.message);
+                    getAllStudents(); // Actualiser la liste
+                } else if (response.type === "error") {
+                    alert("Erreur: " + response.message);
+                }
+            } catch (e) {
+                console.error("Error parsing message:", e);
+            }
+        }
+        
+        function getAllStudents() {
+            sendMessage({
+                action: "getAllStudents"
+            });
+        }
+        
+        function addStudent() {
+            const firstName = document.getElementById("firstName").value;
+            const lastName = document.getElementById("lastName").value;
+            const birthDate = document.getElementById("birthDate").value;
+            
+            if (!firstName || !lastName || !birthDate) {
+                alert("Veuillez remplir tous les champs");
+                return;
+            }
+            
+            sendMessage({
+                action: "addStudent",
+                student: {
+                    firstNameStudent: firstName,
+                    lastNameStudent: lastName,
+                    dateBirthStudent: birthDate
+                }
+            });
+            
+            // Réinitialiser le formulaire
+            document.getElementById("firstName").value = "";
+            document.getElementById("lastName").value = "";
+            document.getElementById("birthDate").value = "";
+        }
+        
+        function deleteStudent(id) {
+            if (confirm("Êtes-vous sûr de vouloir supprimer cet étudiant ?")) {
+                sendMessage({
+                    action: "deleteStudent",
+                    id: id
+                });
+            }
+        }
+        
+        function displayStudents(students) {
+            const tbody = document.getElementById("students-body");
+            tbody.innerHTML = "";
+            
+            if (students.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="5" style="text-align: center;">Aucun étudiant trouvé</td></tr>';
+                return;
+            }
+            
+            students.forEach(student => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${student.idStudent}</td>
+                    <td>${student.firstNameStudent}</td>
+                    <td>${student.lastNameStudent}</td>
+                    <td>${student.dateBirthStudent}</td>
+                    <td class="action-buttons">
+                        <button class="delete-btn" onclick="deleteStudent(${student.idStudent})">Supprimer</button>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+    </script>
+</body>
+</html>
