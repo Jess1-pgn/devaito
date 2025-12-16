@@ -2,10 +2,9 @@ package websocket;
 
 import java.io.IOException;
 import java.sql.Date;
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 
 import javax.websocket.OnClose;
 import javax.websocket.OnError;
@@ -23,7 +22,7 @@ import dao.Student;
 @ServerEndpoint("/studentWebSocket")
 public class StudentWebSocketServer {
 
-	private static Set<Session> clients = Collections.synchronizedSet(new HashSet<Session>());
+	private static Set<Session> clients = ConcurrentHashMap.newKeySet();
 	private DaoImpl dao = new DaoImpl();
 	private Gson gson = new Gson();
 
@@ -141,13 +140,11 @@ public class StudentWebSocketServer {
 	}
 
 	private void broadcastToAll(String message) {
-		synchronized (clients) {
-			for (Session client : clients) {
-				try {
-					client.getBasicRemote().sendText(message);
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
+		for (Session client : clients) {
+			try {
+				client.getBasicRemote().sendText(message);
+			} catch (IOException e) {
+				e.printStackTrace();
 			}
 		}
 	}
