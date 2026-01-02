@@ -26,17 +26,26 @@ npm install --production
 
 ⚠️ **Note de Sécurité**: Pour une production critique, envisagez de figer les versions exactes des dépendances:
 ```bash
-# Générer package-lock.json si absent
+# Option 1: Générer package-lock.json et l'utiliser
 npm install
+npm ci --production  # Installation reproductible basée sur package-lock.json
 
-# Ou utiliser npm ci pour une installation reproductible
-npm ci --production
+# Option 2: Figer complètement les versions (production haute sécurité)
+# Retirer les préfixes ^ et ~ dans package.json
+# Exemple: "express": "4.18.2" au lieu de "express": "^4.18.2"
+npm install
 ```
 
-Pour figer complètement les versions (optionnel):
+**Avantages du figeage des versions:**
+- Protection contre les attaques de la chaîne d'approvisionnement
+- Builds reproductibles
+- Prévention des changements cassants lors de mises à jour mineures
+
+**Important:** Même avec versions figées, mettez à jour régulièrement:
 ```bash
-# Retirer les préfixes ^ et ~ dans package.json et exécuter
-npm install
+npm audit        # Vérifier les vulnérabilités
+npm outdated     # Voir les mises à jour disponibles
+npm update       # Mettre à jour si nécessaire
 ```
 
 #### Configurer l'environnement
@@ -404,6 +413,24 @@ docker-compose logs -f api
 - [ ] Monitoring en place
 - [ ] Tests de l'API effectués
 - [ ] Documentation à jour
+
+## Checklist de Sécurité Production
+
+- [ ] **JWT_SECRET** défini avec une clé forte et unique (min 32 caractères aléatoires)
+- [ ] **CORS_ORIGIN** configuré avec le domaine frontend exact (pas de wildcard)
+- [ ] **Mot de passe admin** par défaut changé immédiatement
+- [ ] **Utilisateur MySQL** dédié créé (pas root)
+- [ ] **Firewall** activé avec seulement ports nécessaires ouverts (80, 443, SSH)
+- [ ] **SSL/TLS** configuré avec certificat valide
+- [ ] **Versions des dépendances** figées ou package-lock.json utilisé
+- [ ] **NODE_ENV=production** défini
+- [ ] **Logs sensibles** vérifiés (pas de mots de passe, tokens, etc.)
+- [ ] **Rate limiting** considéré pour les endpoints publics
+- [ ] **Backups automatiques** testés et vérifiés
+- [ ] **Audit de sécurité** npm audit exécuté et vulnérabilités corrigées
+- [ ] **Headers de sécurité** HTTP configurés (via helmet.js optionnel)
+- [ ] **Monitoring d'erreurs** en place
+- [ ] **Plan de récupération** en cas d'incident documenté
 
 ## Support
 

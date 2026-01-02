@@ -35,7 +35,7 @@ const registerParticipant = async (req, res) => {
 
     res.status(201).json({
       message: 'Inscription réussie. Vous serez contacté prochainement.',
-      participantId: participantId
+      participantId
     });
   } catch (error) {
     console.error('Register participant error:', error);
