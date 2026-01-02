@@ -24,6 +24,21 @@ cd backend
 npm install --production
 ```
 
+⚠️ **Note de Sécurité**: Pour une production critique, envisagez de figer les versions exactes des dépendances:
+```bash
+# Générer package-lock.json si absent
+npm install
+
+# Ou utiliser npm ci pour une installation reproductible
+npm ci --production
+```
+
+Pour figer complètement les versions (optionnel):
+```bash
+# Retirer les préfixes ^ et ~ dans package.json et exécuter
+npm install
+```
+
 #### Configurer l'environnement
 ```bash
 cp .env.example .env

@@ -53,9 +53,21 @@ app.use('/api/evaluations', evaluationRoutes);
 app.use((err, req, res, next) => {
   console.error('Error:', err);
   
-  const response = {
-    message: err.message || 'Erreur serveur'
-  };
+  const safeMessages = [
+    'Erreur de validation',
+    'Ressource non trouvée',
+    'Accès refusé',
+    'Authentification requise',
+    'Token invalide',
+    'Email ou mot de passe incorrect',
+    'Email déjà utilisé'
+  ];
+  
+  const message = safeMessages.includes(err.message) 
+    ? err.message 
+    : (process.env.NODE_ENV === 'development' ? err.message : 'Erreur serveur');
+  
+  const response = { message };
   
   if (process.env.NODE_ENV === 'development') {
     response.stack = err.stack;

@@ -1,4 +1,5 @@
 const db = require('../config/database');
+const { withTransaction } = require('../utils/transaction');
 
 const registerParticipant = async (req, res) => {
   try {
@@ -12,11 +13,7 @@ const registerParticipant = async (req, res) => {
       session_id 
     } = req.body;
 
-    const connection = await db.getConnection();
-
-    try {
-      await connection.beginTransaction();
-
+    const participantId = await withTransaction(async (connection) => {
       const [participantResult] = await connection.query(
         `INSERT INTO participants 
          (nom, prenom, date_naissance, ville, email, telephone) 
@@ -33,18 +30,13 @@ const registerParticipant = async (req, res) => {
         [participantId, session_id]
       );
 
-      await connection.commit();
+      return participantId;
+    });
 
-      res.status(201).json({
-        message: 'Inscription réussie. Vous serez contacté prochainement.',
-        participantId: participantId
-      });
-    } catch (error) {
-      await connection.rollback();
-      throw error;
-    } finally {
-      connection.release();
-    }
+    res.status(201).json({
+      message: 'Inscription réussie. Vous serez contacté prochainement.',
+      participantId: participantId
+    });
   } catch (error) {
     console.error('Register participant error:', error);
     if (error.code === 'ER_DUP_ENTRY') {

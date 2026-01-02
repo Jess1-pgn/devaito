@@ -139,6 +139,7 @@ CREATE TABLE IF NOT EXISTS evaluations (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Default admin user (password: admin123)
+-- Note: Change this password immediately after first login in production
 INSERT INTO users (email, password, role) 
-VALUES ('admin@devaito.com', '$2a$10$8K1p/a0dL3.1G8L8B7VYjOKhJW1Y0nZ7QvhDn0Q5HX7cXm0WZXhVC', 'admin')
+VALUES ('admin@devaito.com', '$2b$10$vbWBN3h7nmEYvq.NiIzYsOHl5FDdFcheODZAnZ367/SfyqCnCqO06', 'admin')
 ON DUPLICATE KEY UPDATE email=email;
