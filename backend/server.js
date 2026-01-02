@@ -2,6 +2,12 @@ const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
 
+if (!process.env.JWT_SECRET) {
+  console.error('❌ ERREUR FATALE: JWT_SECRET n\'est pas défini dans le fichier .env');
+  console.error('   Veuillez ajouter JWT_SECRET dans votre fichier .env');
+  process.exit(1);
+}
+
 const authRoutes = require('./routes/authRoutes');
 const formationRoutes = require('./routes/formationRoutes');
 const formateurRoutes = require('./routes/formateurRoutes');
@@ -46,10 +52,16 @@ app.use('/api/evaluations', evaluationRoutes);
 
 app.use((err, req, res, next) => {
   console.error('Error:', err);
-  res.status(err.status || 500).json({
-    message: err.message || 'Erreur serveur',
-    ...(process.env.NODE_ENV === 'development' && { stack: err.stack })
-  });
+  
+  const response = {
+    message: err.message || 'Erreur serveur'
+  };
+  
+  if (process.env.NODE_ENV === 'development') {
+    response.stack = err.stack;
+  }
+  
+  res.status(err.status || 500).json(response);
 });
 
 app.use((req, res) => {

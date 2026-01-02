@@ -6,6 +6,11 @@ const login = async (req, res) => {
   try {
     const { email, password } = req.body;
 
+    if (!process.env.JWT_SECRET) {
+      console.error('JWT_SECRET is not defined in environment variables');
+      return res.status(500).json({ message: 'Configuration serveur incorrecte' });
+    }
+
     const [users] = await db.query(
       'SELECT * FROM users WHERE email = ?',
       [email]
@@ -46,6 +51,11 @@ const login = async (req, res) => {
 const register = async (req, res) => {
   try {
     const { email, password, role } = req.body;
+
+    if (!process.env.JWT_SECRET) {
+      console.error('JWT_SECRET is not defined in environment variables');
+      return res.status(500).json({ message: 'Configuration serveur incorrecte' });
+    }
 
     const [existingUsers] = await db.query(
       'SELECT id FROM users WHERE email = ?',
